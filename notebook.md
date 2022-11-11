@@ -16,4 +16,10 @@ git branch -M main
 git remote add origin https://github.com/DDXY1230/study-react.git
 git push -u origin main
 
+git remote -v // 查看本地已经关联的远程仓库
+git remote rm name  // # 删除远程仓库
+git remote rename old_name new_name  // # 修改仓库名
+git remote add name 远程仓库地址 // name 为要取的仓库名字 远程仓库地址 为要关联的远程仓库地址
+
+
 
