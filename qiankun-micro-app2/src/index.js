@@ -31,7 +31,14 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
-  console.log('=================38', props)
+  console.log('=================34', props)
+  // 更新数据
+  props.onGlobalStateChange((state, prev) => {
+    console.log('============37',state, prev)
+    if(state.name2 !== 'app2传过来的'){
+      props.setGlobalState({...state,name2: 'app2传过来的'})
+    }
+  })
 
   console.log("[react16] props from main framework", props);
   render(props);
