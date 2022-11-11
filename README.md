@@ -7,4 +7,5 @@
 创建了三个应用  base作为主应用  其他两个子应用
 2.给每个字应用安装qiankun
 进入三个字应用,全部安装上qiankun `yarn add qiankun # 或者 npm i qiankun -S`
+3.更改启动方式`yarn add react-app-rewired -D`
    

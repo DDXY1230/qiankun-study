@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // );
 
 function render(props) {
+  console.log('15======', props)
   const { container } = props;
   root.render(
     <React.StrictMode>
@@ -30,6 +31,8 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
+  console.log('=================38', props)
+
   console.log("[react16] props from main framework", props);
   render(props);
 }
