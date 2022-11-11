@@ -4,8 +4,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App" id="root">
-      <header className="App-header">
+    <div className="App">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,7 +18,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
       <a href="/micro-app1">#micro-app1</a>
       <a href="/micro-app2">#micro-app2</a>
       <a href="/micro-app3">#micro-app3</a>

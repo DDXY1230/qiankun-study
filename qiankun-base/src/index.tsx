@@ -54,7 +54,7 @@ registerMicroApps([
   {
     name:'qiankun-vue3-1',
     entry: '//localhost:3014',
-    container: '#root',
+    container: '#bigBox',
     activeRule: 'micro-app4',
     props: {// props里面是不能写name上面出现过的关键字
       nickname: '最爱萝卜app4'

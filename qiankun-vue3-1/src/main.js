@@ -10,7 +10,7 @@ function render(props = {}) {
   console.log("🚀 ~ file: main.js ~ line 10 ~ render ~ props", props)
   const { container } = props
   instance = createApp(App)
-  instance.mount(container ? container.querySelector("#app") : "#micro-app4")
+  instance.mount(container ? container.querySelector("#app") : "#app")
 }
 //独立运行时 判断是否在qiankun中运行,不是的话也可以单独运行
 if(!window.__POWERED_BY_QIANKUN__) {
@@ -30,8 +30,6 @@ export async function unmount() {
   instance._container.innerHTML = ""
   instance = null
 }
-
-//----------------------------------------------
 
 
 createApp(App).use(store).use(router).mount('#app')
