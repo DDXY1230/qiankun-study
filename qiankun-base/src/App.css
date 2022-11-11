@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+.App1 {
+  border: 2px solid red;
+}
+.App2 {
+  border: 2px solid blue;
+}
+.App3 {
+  border: 2px solid yellowgreen;
+}
 
 .App-logo {
   height: 40vmin;

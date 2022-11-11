@@ -1,6 +1,4 @@
-const {
-  name
-} = require('./package')
+const {name} = require('./package')
 
 module.exports = {
   webpack: (config) => {
@@ -13,7 +11,7 @@ module.exports = {
   devServer: (_) => {
     const config = _;
     config.header = {
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*" //允许跨域
     };
     config.historyApiFallback = true;
     config.hot = false;

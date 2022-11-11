@@ -16,6 +16,12 @@ registerMicroApps([
     entry: '//localhost:3012',
     container: '#micro-app2',
     activeRule: 'micro-app2'
+  },
+  {
+    name:'qiankun-app3',
+    entry: '//localhost:3013',
+    container: '#micro-app3',
+    activeRule: 'micro-app3'
   }
 ])
 start()
