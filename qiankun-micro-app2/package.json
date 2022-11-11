@@ -1,5 +1,5 @@
 {
-  "name": "qiankun-micro-app3",
+  "name": "qiankun-micro-app2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "__webpack_public_path__": true
+    }
   },
   "browserslist": {
     "production": [
