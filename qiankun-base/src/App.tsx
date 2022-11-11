@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id="root">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,9 +19,11 @@ function App() {
           Learn React
         </a>
       </header>
-      <div id="micro-app1" className='app1'></div>
-      <div id="micro-app2" className='app3'></div>
-      <div id="micro-app3" className='app3'></div>
+      <a href="/micro-app1">#micro-app1</a>
+      <a href="/micro-app2">#micro-app2</a>
+      <a href="/micro-app3">#micro-app3</a>
+      <a href="/micro-app4">#micro-app4</a>
+     <div id="bigBox"></div>
     </div>
   );
 }

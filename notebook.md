@@ -8,6 +8,14 @@
 `npm get registry`
 
 
+
+搭建vue3子应用(如果尚未安装过vue cli)
+```npm install --global @vue/cli@next```
+创建一个新项目
+```vue create qiankun-vue3-1```
+
+
+
 echo "# study-react" >> README.md
 git init
 git add README.md
