@@ -19,7 +19,8 @@ function App() {
           Learn React
         </a>
       </header>
-      
+      <div id="micro-app1"></div>
+      <div id="micro-app2"></div>
     </div>
   );
 }
