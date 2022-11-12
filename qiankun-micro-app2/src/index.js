@@ -3,8 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from 'react-router-dom'
+
 // import "./public-path";
-const root = ReactDOM.createRoot(document.getElementById("bigBox"));
+const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getElementById("root")) : ReactDOM.createRoot(document.getElementById("bigBox"));
 // root.render(
 //   <React.StrictMode>
 //     <App />
@@ -16,7 +18,11 @@ function render(props) {
   const { container } = props;
   root.render(
     <React.StrictMode>
+      <BrowserRouter
+      basename={window.__POWERED_BY_QIANKUN__ ? "/micro-app2" : '/'}
+      >
       <App />
+      </BrowserRouter>
     </React.StrictMode>
   );
   // ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));

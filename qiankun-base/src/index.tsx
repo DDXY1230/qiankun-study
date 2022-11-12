@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { registerMicroApps, start } from 'qiankun'
+import { BrowserRouter } from 'react-router-dom'
 //
 import {initGlobalState,MicroAppStateActions} from 'qiankun'
 const state = {
@@ -68,7 +69,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

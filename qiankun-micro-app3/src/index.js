@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./public-path";
-const root = ReactDOM.createRoot(document.getElementById("bigBox"));
+const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getElementById("root")) : ReactDOM.createRoot(document.getElementById("bigBox"));
 // root.render(
 //   <React.StrictMode>
 //     <App />
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("bigBox"));
 // );
 
 function render(props) {
-  const { container } = props;
+  // const { container } = props;
   root.render(
     <React.StrictMode>
       <App />

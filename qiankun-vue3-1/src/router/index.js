@@ -1,6 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory,RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
 const routes = [
   {
     path: '/',
@@ -18,7 +17,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? "/micro-app4":process.env.BASE_URL),
   routes
 })
 

@@ -8,4 +8,7 @@
 2.给每个字应用安装qiankun
 进入三个字应用,全部安装上qiankun `yarn add qiankun # 或者 npm i qiankun -S`
 3.更改启动方式`yarn add react-app-rewired -D`
+
+给主应用qiankun-base安装路由
+``` npm i react-router-dom@6```
    
