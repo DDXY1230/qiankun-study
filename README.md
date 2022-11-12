@@ -10,5 +10,7 @@
 3.更改启动方式`yarn add react-app-rewired -D`
 
 给主应用qiankun-base安装路由
-``` npm i react-router-dom@6```
+``` cnpm i react-router-dom@6```
+dev分支时完整的模版
+
    
