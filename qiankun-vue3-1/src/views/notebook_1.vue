@@ -118,6 +118,29 @@
       some如果有一项匹配则返回true
       every必须所有都匹配返回true
     </p>
+    <p>
+      17.
+      vue源码中体现的优先级是:
+      props ==> methods ==> data ==> computed ==>watch
+    </p>
+    <p>
+      18.
+      vuex有哪些属性?
+      State,Getters,Mutations,Actions,Modules
+    </p>
+    <p>
+       19.
+       vue中的路由模式有两种:hash history
+       hash带有#
+       history颜值高,当找不到的时候会发送请求,hash不会
+       前端自测用hash,如果使用histiry会出现空白页
+    </p>
+    <p>
+      20.spa是什么
+      spa是单页面应用
+      缺点是:seo优化不好
+      性能不是很好
+    </p>
   </div>
 </template>
 <script>
