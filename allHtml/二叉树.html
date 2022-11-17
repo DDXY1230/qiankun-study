@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj = {
+      val: '1',
+      left: {
+        val: '2',
+        left: { val: '4', left: null, right: null },
+        right: { val: '5', left: null, right: null }
+      },
+      right: {
+        val: '3',
+        left: { val: '6', left: null, right: null },
+        right: { val: '7', left: null, right: null }
+      }
+    }
+    // (前序遍历) 方法1  递归
+    function preorderTraversal(root) {
+      let arr = []
+      let fun = function(node){
+        if(node){
+          arr.push(node.val)
+          fun(node.left)
+          fun(node.right)
+        }
+      }
+      fun(root)
+      return arr
+    }
+    console.log(preorderTraversal(obj))
+    // (前序遍历) 方法2  栈
+    function preorderTraversal2 (root) {
+      if(!root) return []
+      let arr = []
+      let stack = [root]
+      while(stack.length > 0) {
+        let o = stack.pop()
+        arr.push(o?.val)
+        stack.push(o.right)
+        stack.push(o.left)
+        stack = stack.filter(i=>i!=null)
+      }
+      return arr
+    }
+    console.log(preorderTraversal2(obj))
+    console.log('==============================')
+    // 中序遍历 方法1 递归
+    function inorderTraversal(root) {
+      const arr = []
+      const fun = (root) => {
+        if(!root) return;
+        fun(root.left)
+        arr.push(root.val)
+        fun(root.right)
+      }
+      fun(root)
+      return arr
+    }
+    console.log(inorderTraversal(obj))
+    // 中序遍历 方法2 非递归
+    function inorderTraversal2(root){
+      const arr = []
+      const stack = []
+      let o = root
+      while(stack.length || o) {
+        while (o) {
+          stack.push(o)
+          o=o.left
+        }
+        const n = stack.pop()
+        arr.push(n.val)
+        o=n.right
+      }
+      return arr
+    }
+    console.log(inorderTraversal2(obj))
+    console.log('===========================')
+    // 后序遍历 方法1
+    function postorderTraversal(root) {
+      const arr = []
+      const fun = (root) => {
+        if(!root) return;
+        fun(root.left)
+        fun(root.right)
+        arr.push(root.val)
+      }
+      fun(root)
+      return arr
+    }
+    console.log(postorderTraversal(obj))
+    // 后序遍历 方法2 非递归
+    function postorderTraversal2(root) {
+      if(!root) return []
+      let arr = []
+      let stack = [root]
+      while(stack.length) {
+        const o = stack.pop()
+        arr.unshift(o.val)
+        o.left && stack.push(o.left)
+        o.right && stack.push(o.right)
+      }
+      return arr
+    }
+    console.log(postorderTraversal2(obj))
+  </script>
+</body>
+
+</html>
