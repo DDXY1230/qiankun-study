@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let m = new Map()
+    m.set('1', '11111')
+    m.set(2, '22222')
+    m.set(function(){}, '22222')
+    console.log(m)
+    console.log(m.get(2))
+    console.log(m.has(2))
+    console.log(m.delete(2))
+    console.log(m.clear())
+    console.log(m)
+    // 在js中没有hash表,hash表室字典的一种表示,字典就是map
+    class HashTable {
+      constructor() {
+        this.table = []
+      }
+      hashCode(key) {
+        let hash = 0
+        for(let i = 0; i < key.length; i++) {
+          hash += key.charCodeAt(i)
+        }
+        return hash
+      }
+      put(key, val) {
+        let hashKey = this.hashCode(key)
+        this.table[hashKey] = val
+      }
+      set(key, val) {}
+      get(key) {
+        let hashKey = this.hashCode(key)
+        return this.table[hashKey]
+      }
+    }
+    let hashTable = new HashTable()
+    console.log(hashTable)
+    hashTable.put('person', '张三')
+    console.log(hashTable.get('person'))
+
+
+    function fun(s) {
+      let map = new Map()
+      for(let item of s) {
+        map.set(item, (map.get(item) || 0) + 1)
+      }
+      let val = Math.max(...map.values())
+      let k = ''
+      for(let [i,value] of map) {
+        if(map.get(i) == val) k = i
+      } 
+      return {[k]:val}
+    }
+    console.log(fun('sdjfidiiiiidjfjeooooooooooooojaa'))
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let root = {
+      val: 'a',
+      children: [
+        {
+          val: 'b',
+          children: [
+            {
+              val: 'd',
+              children: []
+            },
+            {
+              val: 'e',
+              children: []
+            }
+          ]
+        },
+        {
+          val: 'c',
+          children: [
+            {
+              val: 'f',
+              children: []
+            },
+            {
+              val: 'g',
+              children: []
+            }
+          ]
+        }
+      ]
+    }
+    // 深度优先遍历
+    function fun1(root) {
+      console.log(root.val)
+      root.children.forEach(e => {
+        fun1(e)
+      });
+    }
+    fun1(root)
+    console.log('======================')
+    // 广度优先遍历
+    function fun2(root) {
+      const arr = [root]
+      while(arr.length > 0) {
+        const o = arr.shift()
+        console.log(o.val)
+        o.children.forEach(i => {
+          arr.push(i)
+        })
+      }
+    }
+    fun2(root)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 原型链的查找
+    const instanceofs = (target,obj) => {
+      let p = target
+      while(p) {
+        if(p == obj.prototype){
+          return true
+        }
+        p = p.__proto__
+      }
+      return false
+    }
+    console.log(instanceofs([1,2,3], String))
+    console.log(instanceofs([1,2,3], Array))
+  </script>
+</body>
+</html>
