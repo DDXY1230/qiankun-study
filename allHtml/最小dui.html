@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class MinHeap {
+      constructor() {
+        this.heap = []
+      }
+      insert(value) {
+        this.heap.push(value)
+        this.up(this.heap.length - 1)
+      }
+      getParentIndex(index) {
+        return Math.floor((index - 1) / 2)
+      }
+      // 换位置
+      swap(i1,i2) {
+        const temp = this.heap[i1]
+        this.heap[i1] = this.heap[i2]
+        this.heap[i2] = temp
+      }
+      // 排序
+      up(index) {
+        if(index == 0) return
+        const parenIndex = this.getParentIndex(index)
+        if(this.heap[parenIndex] > this.heap[index]){
+          this.swap(parenIndex, index)
+          this.up(parenIndex)
+        }
+      }
+      getLeftIndex(index) {
+        return index * 2 + 1
+      }
+      getRightIndex(index) {
+        return index * 2 + 2
+      }
+      down(index) {
+        const leftIndex = this.getLeftIndex(index)
+        const rightIndex = this.getRightIndex(index)
+        if(this.heap[leftIndex] < this.heap[index]){
+          this.swap(leftIndex, index)
+          this.down(leftIndex)
+        }
+        if(this.heap[rightIndex] < this.heap[index]){
+          this.swap(rightIndex, index)
+          this.down(rightIndex)
+        }
+      }
+      pop(){
+        this.heap[0] = this.heap.pop()
+        this.down(0)
+      }
+      // 获取堆顶
+      peek() {
+        return this.heap(0)
+      }
+    }
+    let arr = new MinHeap()
+    arr.insert(5)
+    arr.insert(4)
+    arr.insert(1)
+    arr.insert(2)
+    console.log(arr)
+
+
+  </script>
+</body>
+</html>
