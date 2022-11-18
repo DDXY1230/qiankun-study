@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  let arr = [3,2,5,2,8,5,1,9]
+  function orderSort(arr) {
+      let indexMin = 0
+    for(let i = 0; i < arr.length - 1; i++) {
+      indexMin = i
+      for(let j = i+1;j<arr.length; j++) {
+        if(arr[j] < arr[indexMin]){
+          indexMin = j
+        }
+      }
+      let temp = arr[i]
+      arr[i] = arr[indexMin]
+      arr[indexMin] = temp
+    }
+    return arr
+  }
+  console.log(orderSort(arr))
+
+  </script>
+</body>
+</html>

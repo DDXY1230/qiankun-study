@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 有错误还没找出来
+    let arr = [5,3,6,7,2,9]
+    function sortgb(arr) {
+      if(arr.length < 2) return arr
+      let mid = Math.floor(arr.length / 2)
+      let merge = function(leftArr, rightArr) {
+        let resultArr = []
+        while(leftArr.length && rightArr.length) {
+          resultArr.push(leftArr[0] <= resultArr[0] ? leftArr.shift() : rightArr.shift())
+        }
+        return resultArr.concat(leftArr).concat(resultArr)
+      }
+      return merge(
+        sortgb(arr.slice(0,mid)),
+        sortgb(arr.slice(mid))
+        )
+    }
+    console.log(sortgb(arr))
+  </script>
+</body>
+</html>

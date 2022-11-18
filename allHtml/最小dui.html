@@ -58,7 +58,10 @@
       }
       // 获取堆顶
       peek() {
-        return this.heap(0)
+        return this.heap[0]
+      }
+      size() {
+        return this.heap.length
       }
     }
     let arr = new MinHeap()
