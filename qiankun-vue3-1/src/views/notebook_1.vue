@@ -141,8 +141,66 @@
       缺点是:seo优化不好
       性能不是很好
     </p>
+    <p>
+      {{name}}
+    </p>
+    <!-- 当name数据发生变化时,v-once的值不会更新 -->
+    <p v-once>{{name}}</p>
+    <!-- v-on: 的语法糖时@ -->
+    <button @click="changename()">改变名字</button>
+    <!-- v-html会解析字符串中的html -->
+    <p v-html="htmlstring"></p>
+    <p>{{htmlstring}}</p>
+    <!-- v-bind: 可以之间简写为: -->
+    <p v-bind:id="id" style="height:10px;background:red"></p>
+    <p>{{name.split('').reverse().join('=')}}</p>
+    <!-- 动态参数 -->
+    <p :[attr]="id">hhhhhhhhh哈哈哈哈哈哈</p>
+    <p v-bind:[name]="id">hhhhhhhhh哈哈哈哈哈哈</p>
+    <!-- 动态事件 -->
+    <button @[mouseEvent]="changename">动态事件</button>
+    <button v-on:[mouseEvent]="changename">动态事件</button>
+    <p>{{reverId}}</p>
+    <p>{{reverName}}</p>
+
   </div>
 </template>
 <script>
-
+export default {
+  data() {
+    return {
+      attr: 'bigId',
+      id: '001',
+      name: '张三',
+      htmlstring: '<span>nihao</span>',
+      mouseEvent: 'click'
+    }
+  },
+  computed: {
+    // 简写
+    reverId() {
+      return this.id.split('').reverse().join('')
+    },
+    // 完整的写法
+    reverName: {
+      get: function() {
+        return this.name.split('').reverse().join('======')
+      },
+      set:function(val) {
+        // 更改的时候调用, 一般么有set方法,
+        console.log(val)
+      }
+    }
+  },
+  watch: {
+    name(newv,oldv) {
+      console.log('197', newv,oldv)
+    }
+  },
+  methods:{
+    changename() {
+      this.name = '李四'
+    }
+  }
+}
 </script>
