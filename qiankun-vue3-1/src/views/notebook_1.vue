@@ -163,6 +163,14 @@
     <p>{{reverId}}</p>
     <p>{{reverName}}</p>
 
+    <p class="active">绑定类,多个方式只会合并,不会覆盖</p>
+    <p :class="{active: true}">绑定类名</p>
+    <p :class="['active']">数组绑定类名的方式</p>
+    <p :class="[{active: true}]">数组里对象绑定类名的方式</p>
+    <p :style="{color:'red',fontSize: '20px'}">绑定内联样式,需要驼峰命名法</p>
+    <p style="color:red;font-size: 20px;">绑定内联样式,需要驼峰命名法</p>
+
+
   </div>
 </template>
 <script>
@@ -171,7 +179,8 @@ export default {
     return {
       attr: 'bigId',
       id: '001',
-      name: '张三',
+      name:'zhangsan',
+      name2: {name: '张三'},
       htmlstring: '<span>nihao</span>',
       mouseEvent: 'click'
     }
@@ -193,9 +202,26 @@ export default {
     }
   },
   watch: {
+    // 简写
     name(newv,oldv) {
       console.log('197', newv,oldv)
+    },
+    // 完整的写法
+    // name2: {
+    //   immediate: true, // 初始化的时候就调用 一般只有newvalue的值,oldv为undefined
+    //   handler: function(newv,oldv) {
+    //     console.log('204', newv,oldv)
+    //   },
+    //   deep: true //对对象进行深度监听,监听器会一层一层的监听,
+    // },
+    "name2.name": { //为了减少对象一层一层的监听浪费性能,我们可以用引号的方式针对一个属性进行监听
+      immediate: true, // 初始化的时候就调用 一般只有newvalue的值,oldv为undefined
+      handler: function(newv,oldv) {
+        console.log('212', newv,oldv)
+      },
+      deep: true //对对象进行深度监听,监听器会一层一层的监听,
     }
+
   },
   methods:{
     changename() {
@@ -204,3 +230,9 @@ export default {
   }
 }
 </script>
+<style>
+.active {
+  height: 150px;
+  background: pink;
+}
+</style>
