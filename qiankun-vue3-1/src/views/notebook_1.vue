@@ -169,6 +169,12 @@
     <p :class="[{active: true}]">数组里对象绑定类名的方式</p>
     <p :style="{color:'red',fontSize: '20px'}">绑定内联样式,需要驼峰命名法</p>
     <p style="color:red;font-size: 20px;">绑定内联样式,需要驼峰命名法</p>
+    <template v-if="true">
+<p>nihao</p>
+<p>nihao</p>
+<p>nihao</p>
+<p>被template包裹的元素,template不会被渲染出来, 但是v-show不支持template</p>
+    </template>
 
 
   </div>
