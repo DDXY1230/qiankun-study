@@ -169,14 +169,44 @@
     <p :class="[{active: true}]">数组里对象绑定类名的方式</p>
     <p :style="{color:'red',fontSize: '20px'}">绑定内联样式,需要驼峰命名法</p>
     <p style="color:red;font-size: 20px;">绑定内联样式,需要驼峰命名法</p>
-    <template v-if="true">
+    <template v-if="showText">
 <p>nihao</p>
 <p>nihao</p>
 <p>nihao</p>
 <p>被template包裹的元素,template不会被渲染出来, 但是v-show不支持template</p>
     </template>
 
+    <button @click="hide(),outputSome()">一个事件也可以绑定多个处理函数</button>
 
+    <!-- 
+      事件修饰符
+      @click.stop=‘’ 阻止事件冒泡
+      @submit.prevent=''提交事件,阻止默认行为
+      @click.stop.prevent= ''修饰符可以串联
+      @click.once=''只执行一次
+      @click.capture = '' 添加监听器时,使用事件捕捉模式,即内部元素触发的事件先在此处处理,然后
+      再交由内部元素进行处理
+
+      @click.self= ‘’只当在event.target是当前元素自身时触发处理函数
+      即事件不是从内部元素触发的
+
+
+      键盘事件
+      @keyup.enter=''
+
+
+
+      v-model的原理
+      1.v-bind绑定一个value属性
+      2.v-on给当前元素添加一个input事件
+     -->
+     <input type="checkbox" v-model="fruits" value="苹果">苹果
+     <input type="checkbox" v-model="fruits" value="芒果">芒果
+     <input type="checkbox" v-model="fruits" value="柑橘">柑橘
+     <input type="checkbox" v-model="fruits" value="水蜜桃">水蜜桃
+     <input type="checkbox" v-model="fruits" value="火龙果">火龙果
+     <input type="checkbox" v-model="fruits" value="香蕉">香蕉
+     <p>所选的水果: {{fruits}}</p>
   </div>
 </template>
 <script>
@@ -188,7 +218,9 @@ export default {
       name:'zhangsan',
       name2: {name: '张三'},
       htmlstring: '<span>nihao</span>',
-      mouseEvent: 'click'
+      mouseEvent: 'click',
+      showText: true,
+      fruits:[]
     }
   },
   computed: {
@@ -230,6 +262,12 @@ export default {
 
   },
   methods:{
+    hide() {
+      this.showText = !this.showText
+    },
+    outputSome() {
+      console.log('该按钮绑定了两个事件')
+    },
     changename() {
       this.name = '李四'
     }
