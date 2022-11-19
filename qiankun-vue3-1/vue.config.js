@@ -6,9 +6,9 @@ module.exports = defineConfig({
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
-    devServer: {
-      proxy: ''// 后端代理地址
-    }
+    // devServer: {
+    //   proxy: ''// 后端代理地址
+    // }
   },
   // configureWebpack: {
   //   output: {

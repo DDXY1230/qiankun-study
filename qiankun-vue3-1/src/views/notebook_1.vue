@@ -85,7 +85,7 @@
       12.响应式布局
       一个url可以响应多端
       语法结构:@media only screen and (max-width: 100px){
-        ul li {width: 200px}
+      ul li {width: 200px}
       }
       响应式图片如下代码,请在源代码看
       <picture>
@@ -105,8 +105,8 @@
       14.禁止ios长按时触发系统的菜单,禁止ios&android长按时下载图片
       1.长按ios触发系统菜单的处理方式
       html,body{
-        touch-callout: none;
-        -webkit-touch-callout: none
+      touch-callout: none;
+      -webkit-touch-callout: none
       }
       2.禁止用户选中文字,同时也会禁止下载
       user-select:none
@@ -129,11 +129,11 @@
       State,Getters,Mutations,Actions,Modules
     </p>
     <p>
-       19.
-       vue中的路由模式有两种:hash history
-       hash带有#
-       history颜值高,当找不到的时候会发送请求,hash不会
-       前端自测用hash,如果使用histiry会出现空白页
+      19.
+      vue中的路由模式有两种:hash history
+      hash带有#
+      history颜值高,当找不到的时候会发送请求,hash不会
+      前端自测用hash,如果使用histiry会出现空白页
     </p>
     <p>
       20.spa是什么
@@ -170,10 +170,10 @@
     <p :style="{color:'red',fontSize: '20px'}">绑定内联样式,需要驼峰命名法</p>
     <p style="color:red;font-size: 20px;">绑定内联样式,需要驼峰命名法</p>
     <template v-if="showText">
-<p>nihao</p>
-<p>nihao</p>
-<p>nihao</p>
-<p>被template包裹的元素,template不会被渲染出来, 但是v-show不支持template</p>
+      <p>nihao</p>
+      <p>nihao</p>
+      <p>nihao</p>
+      <p>被template包裹的元素,template不会被渲染出来, 但是v-show不支持template</p>
     </template>
 
     <button @click="hide(),outputSome()">一个事件也可以绑定多个处理函数</button>
@@ -200,49 +200,86 @@
       1.v-bind绑定一个value属性
       2.v-on给当前元素添加一个input事件
      -->
-     <input type="checkbox" v-model="fruits" value="苹果">苹果
-     <input type="checkbox" v-model="fruits" value="芒果">芒果
-     <input type="checkbox" v-model="fruits" value="柑橘">柑橘
-     <input type="checkbox" v-model="fruits" value="水蜜桃">水蜜桃
-     <input type="checkbox" v-model="fruits" value="火龙果">火龙果
-     <input type="checkbox" v-model="fruits" value="香蕉">香蕉
-     <p>所选的水果: {{fruits}}</p>
+    <hr />
+    <input type="checkbox" v-model="fruits" value="苹果">苹果
+    <input type="checkbox" v-model="fruits" value="芒果">芒果
+    <input type="checkbox" v-model="fruits" value="柑橘">柑橘
+    <input type="checkbox" v-model="fruits" value="水蜜桃">水蜜桃
+    <input type="checkbox" v-model="fruits" value="火龙果">火龙果
+    <input type="checkbox" v-model="fruits" value="香蕉">香蕉
+    <p>所选的水果: {{fruits}}</p>
+    <hr>
+    <!-- 单选 -->
+    <input type="radio" v-model="gender" value="男">男
+    <input type="radio" v-model="gender" value="女">女
+    <p>所选性别: {{gender}}</p>
+    <hr>
+    <select name="" id="" v-model="city">
+      <option value="张家界">张家界</option>
+      <option value="长沙">长沙</option>
+      <option value="永州">永州</option>
+    </select>
+    <p>
+      所选城市{{city}}
+    </p>
+    <hr>
+    <select name="" id="" v-model="citys" multiple>
+      <option value="张家界">张家界</option>
+      <option value="长沙">长沙</option>
+      <option value="永州">永州</option>
+    </select>
+    所多选城市{{citys}}
+    <hr>
+<p>
+  自组建可以通过$refs 访问组件    
+ $parent拿父组件的值,但是少用,因为有很多父组件使用了该自组建
+   $root  访问上级元素
+</p>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      attr: 'bigId',
-      id: '001',
-      name:'zhangsan',
-      name2: {name: '张三'},
-      htmlstring: '<span>nihao</span>',
-      mouseEvent: 'click',
+      attr: "bigId",
+      id: "001",
+      name: "zhangsan",
+      name2: { name: "张三" },
+      htmlstring: "<span>nihao</span>",
+      mouseEvent: "click",
       showText: true,
-      fruits:[]
-    }
+      fruits: [],
+      gender: "男",
+      city: "",
+      citys: ""
+    };
   },
   computed: {
     // 简写
     reverId() {
-      return this.id.split('').reverse().join('')
+      return this.id
+        .split("")
+        .reverse()
+        .join("");
     },
     // 完整的写法
     reverName: {
       get: function() {
-        return this.name.split('').reverse().join('======')
+        return this.name
+          .split("")
+          .reverse()
+          .join("======");
       },
-      set:function(val) {
+      set: function(val) {
         // 更改的时候调用, 一般么有set方法,
-        console.log(val)
+        console.log(val);
       }
     }
   },
   watch: {
     // 简写
-    name(newv,oldv) {
-      console.log('197', newv,oldv)
+    name(newv, oldv) {
+      console.log("197", newv, oldv);
     },
     // 完整的写法
     // name2: {
@@ -252,27 +289,27 @@ export default {
     //   },
     //   deep: true //对对象进行深度监听,监听器会一层一层的监听,
     // },
-    "name2.name": { //为了减少对象一层一层的监听浪费性能,我们可以用引号的方式针对一个属性进行监听
+    "name2.name": {
+      //为了减少对象一层一层的监听浪费性能,我们可以用引号的方式针对一个属性进行监听
       immediate: true, // 初始化的时候就调用 一般只有newvalue的值,oldv为undefined
-      handler: function(newv,oldv) {
-        console.log('212', newv,oldv)
+      handler: function(newv, oldv) {
+        console.log("212", newv, oldv);
       },
       deep: true //对对象进行深度监听,监听器会一层一层的监听,
     }
-
   },
-  methods:{
+  methods: {
     hide() {
-      this.showText = !this.showText
+      this.showText = !this.showText;
     },
     outputSome() {
-      console.log('该按钮绑定了两个事件')
+      console.log("该按钮绑定了两个事件");
     },
     changename() {
-      this.name = '李四'
+      this.name = "李四";
     }
   }
-}
+};
 </script>
 <style>
 .active {

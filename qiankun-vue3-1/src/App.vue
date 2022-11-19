@@ -4,6 +4,7 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/notebook_1">面试题汇总笔记-1</router-link>
+      <router-link to="/notebook_2">面试题汇总笔记-2</router-link>
     </nav>
     <router-view />
   </div>
