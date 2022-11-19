@@ -235,6 +235,10 @@
  $parent拿父组件的值,但是少用,因为有很多父组件使用了该自组建
    $root  访问上级元素
 </p>
+<p>
+  vue2的生命周期是用beforDestory,destoryed
+  vue3的生命周期是用beforeUnmount unmounted
+</p>
   </div>
 </template>
 <script>
