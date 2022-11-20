@@ -7,7 +7,10 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-
+const props = defineProps({
+  id: String
+})
+console.log('13', props)
 </script>
 <style lang='scss' scoped>
 

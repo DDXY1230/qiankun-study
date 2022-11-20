@@ -4,11 +4,22 @@
   这里是style22222的内容
 </div>
 </template>
-
-<script>
+<script setup>
+const props = defineProps({
+  id: String
+})
+console.log('11', props)
+</script>
+<!-- 以下是选项式方式获取路由参数 -->
+<!-- <script>
 
 export default {
 components: {},
+props: {
+  id: {
+    type: String
+  }
+},
 data() {
 return {
 
@@ -20,13 +31,15 @@ created() {
 
 },
 mounted() {
-
+  console.log('28', this.id)
 },
 methods: {
 
 },
 }
-</script>
+</script> -->
+
+
 <style lang='scss' scoped>
 
 </style>

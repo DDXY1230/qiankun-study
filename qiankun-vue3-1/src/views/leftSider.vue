@@ -5,27 +5,13 @@
 </div>
 </template>
 
-<script>
 
-export default {
-components: {},
-data() {
-return {
-
-};
-},
-computed: {},
-watch: {},
-created() {
-
-},
-mounted() {
-
-},
-methods: {
-
-},
-}
+<script setup>
+import { useRoute } from 'vue-router'
+const props = defineProps({
+  id: String
+})
+console.log('14', props)
 </script>
 <style lang='scss' scoped>
 

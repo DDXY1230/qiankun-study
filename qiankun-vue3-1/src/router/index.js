@@ -12,6 +12,8 @@ const routes = [
   },
   {
     path: '/notebook_1',
+    // alias: '/mynote',//起别名,多个名字用数组的形式
+    alias: ['/mynote', '/note'],
     name: 'notebook_1',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -43,14 +45,25 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/notebook_4.vue'),
     children: [
       {
-        path: 'style1',
+        path: 'style1/:id',
+        props: {default:true, leftSider: true,rightSider: false},// 控制一下路由是否可以获取到参数
         components: {default:style1, leftSider:leftSider, rightSider: rightSider }
       },
       {
-        path: 'style2',
+        path: 'style2/:id',
+        props: true,  // 开启路由传参
         component: style2
       }
     ]
+  },
+  {
+    path: '/home',
+    // redirect: '/' // 重定向
+    // redirect: {name: 'home'} // 也可以用路由名字
+    redirect: (to) => {
+      console.log(to)// 这个地方主要是做一些路由截拦等,验证是否有权限等等功能
+      return {path: '/'}
+    }
   },
 
   // 用正则限制动态路由的方式

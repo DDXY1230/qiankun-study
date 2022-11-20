@@ -7,8 +7,8 @@
   {{b}}
   <button @click="changeB">改变b的值</button>
   <hr>
-  <router-link to="/notebook_4/style1">样式一</router-link> |
-  <router-link to="/notebook_4/style2">样式二</router-link>
+  <router-link to="/notebook_4/style1/456">样式一</router-link> |
+  <router-link to="/notebook_4/style2/123">样式二</router-link>
   <button @click="goNotebook1">去notebook_1</button>
   <router-view></router-view>
   <router-view name="leftSider"></router-view>
