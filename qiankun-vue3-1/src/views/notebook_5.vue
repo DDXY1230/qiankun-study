@@ -101,12 +101,15 @@ console.log(Object.prototype.toString.call(111n)) //[object BigInt]
 let class2type = {}
 let toString = class2type.toString // Object.prototype.toString
 let typeArr = ['Boolean', 'Number','String', 'Function', 'Array', 'Date', 'RegExp', 'Object', 'Error', 'Symbol']
-typeArr.forEach(name => {
+typeArr.forEach(function(name){
   class2type[`object ${name}`] = name.toLowerCase()
-})
+  // console.log(this)
+}, {a: '111', b:'222'})
+// 插播:forEach这里的第一个参数是functon函数的时候,第二个参数就是function函数的this,如果是尖头函数,第二个参数无效
 console.log(class2type)
 function toType(obj) {
-  if(obj === null) {
+  // undefined == null => true ,如果传来undefined或者null,直接原样返回
+  if(obj == null) {
     return obj + ''
   }
   return typeof obj === 'object' || typeof obj == 'function' ?
