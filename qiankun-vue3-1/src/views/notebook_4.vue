@@ -9,7 +9,10 @@
   <hr>
   <router-link to="/notebook_4/style1">样式一</router-link> |
   <router-link to="/notebook_4/style2">样式二</router-link>
+  <button @click="goNotebook1">去notebook_1</button>
   <router-view></router-view>
+  <router-view name="leftSider"></router-view>
+  <router-view name="rightSider"></router-view>
 </template>
 <!-- 在setup中写代码,引入组件不需要注册,也不需要暴露出去
 定义响应式的变量需要引入ref
@@ -28,6 +31,18 @@ const a = '这是一个常量'
 let b = ref('这是一个响应式的数据')
 function changeB () {
   b.value = b.value + '更新'
+}
+
+</script>
+<script>
+export default {
+  methods: {
+ goNotebook1() {
+  this.$router.push({path: '/notebook_1',replace: true})
+  // replace: true表示不记录历史记录 替换了上个链接
+  // this.$router.go(-1)  .back() 后退一步   .forword()前进一步
+}
+  }
 }
 </script>
 <style lang='scss' scoped>

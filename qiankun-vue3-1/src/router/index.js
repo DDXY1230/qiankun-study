@@ -2,6 +2,8 @@ import { createRouter, createWebHistory,RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import style1 from '../views/style1'
 import style2 from '../views/style2'
+import leftSider from '../views/leftSider'
+import rightSider from '../views/rightSider'
 const routes = [
   {
     path: '/',
@@ -42,7 +44,7 @@ const routes = [
     children: [
       {
         path: 'style1',
-        component: style1
+        components: {default:style1, leftSider:leftSider, rightSider: rightSider }
       },
       {
         path: 'style2',
