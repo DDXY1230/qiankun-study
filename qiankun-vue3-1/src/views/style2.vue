@@ -9,6 +9,7 @@ const props = defineProps({
   id: String
 })
 console.log('11', props)
+ 
 </script>
 <!-- 以下是选项式方式获取路由参数 -->
 <!-- <script>

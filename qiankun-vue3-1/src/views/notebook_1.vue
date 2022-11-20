@@ -242,7 +242,24 @@
   </div>
 </template>
 <script>
+
 export default {
+   beforeRouteEnter(to,from,next) {
+    console.log('路由进入')
+    // console.log(this) 在路由守卫里面式拿不到this的
+    next((vm)=>{ // 只能通过这里拿到vm实例
+      console.log(vm)
+      console.log(vm.name)
+    })
+  },
+  beforeRouteUpdate(){
+    console.log('路由更新')
+
+  },
+  beforeRouteLeave(){
+    console.log('路由离开')
+
+  },
   data() {
     return {
       attr: "bigId",
@@ -313,6 +330,8 @@ export default {
       this.name = "李四";
     }
   }
+ 
+
 };
 </script>
 <style>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory,RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory,createWebHashHistory,RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import style1 from '../views/style1'
 import style2 from '../views/style2'
@@ -23,6 +23,14 @@ const routes = [
   {
     path: '/notebook_2',
     name: 'notebook_2',
+    beforeEnter:(to, from,next) => {
+      // 只有进入notebook_2的时候触发,专门的路由守卫
+      console.log('noteboo2=>to',to)
+      console.log('noteboo2=>from',from)
+      // alert('该路由暂时未开放')
+      // next(false)
+      next()
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -87,7 +95,16 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? "/micro-app4":process.env.BASE_URL),
+  // history: createWebHashHistory(window.__POWERED_BY_QIANKUN__ ? "/micro-app4":process.env.BASE_URL),
   routes
 })
 
+//路由守卫
+router.beforeEach((to, from,next) => {
+  // 这里处理一些权限逻辑
+  console.log("🚀 ~ file: index.js ~ line 96 ~ router.beforeEach ~ to", to)
+  console.log("🚀 ~ file: index.js ~ line 97 ~ router.beforeEach ~ from", from)
+  next(true)// 通行证 不传或者传true都是通行,传false表示禁止通行
+})
+// 第三个参数一旦写了就要调用,否则不会跳转页面
 export default router
