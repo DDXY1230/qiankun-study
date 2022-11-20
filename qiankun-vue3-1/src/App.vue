@@ -7,6 +7,7 @@
       <router-link to="/notebook_2">面试题汇总笔记-2</router-link> |
       <router-link to="/notebook_3">面试题汇总笔记-3</router-link> |
       <router-link to="/notebook_4">面试题汇总笔记-4</router-link> |
+      <router-link to="/notebook_5">面试题汇总笔记-5</router-link> |
     </nav>
     <router-view />
   </div>
