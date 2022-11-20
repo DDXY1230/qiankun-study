@@ -21,6 +21,7 @@
       </template>
     </child>
     <child1></child1>
+    输入框:<input type="text" v-focus>
   </div>
 </template>
 
@@ -52,7 +53,18 @@ export default {
   watch: {},
   created() {},
   mounted() {},
-  methods: {}
+  methods: {},
+  directives: {
+    focus: {
+      inserted: function(el,binding) {
+        // 表示被绑定的元素插入父节点的时候调用
+        // el表示指令所绑定的元素
+        // binding 对象,属性name  value
+        console.log('局部指令')
+        el.focus()
+      }
+    }
+  }
 };
 </script>
 <style lang='scss' scoped>

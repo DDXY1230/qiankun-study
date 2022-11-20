@@ -239,6 +239,13 @@
   vue2的生命周期是用beforDestory,destoryed
   vue3的生命周期是用beforeUnmount unmounted
 </p>
+<p>
+  v-for和v-if不建议同时使用式因为v-for的优先级大于v-if如果,同时使用先渲染出v-for然后用
+  v-if去判断去除,会导致很大的性能浪费
+</p>
+<p>
+  $nextick 是将回调函数延迟在下一次dom更新数据之后调用
+</p>
   </div>
 </template>
 <script>

@@ -8,6 +8,10 @@ module.exports = defineConfig({
     },
     // devServer: {
     //   proxy: ''// 后端代理地址
+    //   changeOrigin: true,
+    //   pathRewrite: {
+    //    '^/path': ''
+    // }
     // }
   },
   // configureWebpack: {
