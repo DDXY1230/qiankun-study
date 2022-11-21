@@ -85,7 +85,11 @@ const routes = [{
     path: '/notebook_6',
     name: 'notebook_6',
     component: () => import( /* webpackChunkName: "about" */ '../views/notebook_6.vue'),
-
+  },
+  {
+    path: '/notebook_7',
+    name: 'notebook_7',
+    component: () => import( /* webpackChunkName: "about" */ '../views/notebook_7.vue'),
   },
   {
     path: '/home',
