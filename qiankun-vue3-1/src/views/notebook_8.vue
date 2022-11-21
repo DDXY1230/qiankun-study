@@ -88,14 +88,18 @@ function shallClone(obj) {
 // console.log(shallClone(Symbol("AAbbcc")))
 
 // 深克隆
-function deepClone(obj) {
+function deepClone(obj, cache = new Set()) {
   let type = _.toType(obj);
   let Ctor = obj.constructor;
   if (!/^(object|array)$/i.test(type)) return shallClone(obj);
+  // 避免无限套娃
+  if(cache.has(obj)) return obj
+  cache.add(obj)
+
   let keys = [...Object.keys(obj), ...Object.getOwnPropertySymbols(obj)];
   let result = new Ctor();
   for (let index of keys) {
-    result[index] = deepClone(obj[index]);
+    result[index] = deepClone(obj[index],cache);
   }
   return result;
 }
