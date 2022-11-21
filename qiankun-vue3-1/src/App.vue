@@ -7,9 +7,10 @@
       <router-link to="/notebook_2">面试题汇总笔记-2</router-link> |
       <router-link to="/notebook_3">面试题汇总笔记-3</router-link> |
       <router-link to="/notebook_4">面试题汇总笔记-4</router-link> |
-      <router-link to="/notebook_5">面试题汇总笔记-5</router-link> |
+      <router-link to="/notebook_5">5.检测数据类型的方式以及函数封装-5</router-link> |
       <router-link to="/notebook_6">6.检测数据类型的方式以及函数封装</router-link> |
       <router-link to="/notebook_7">7.this的了解以及应用场景</router-link> |
+      <router-link to="/notebook_8">8.this的了解以及应用场景</router-link> |
     </nav>
     <hr>
     <router-view />

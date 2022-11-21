@@ -102,7 +102,7 @@ let class2type = {}
 let toString = class2type.toString // Object.prototype.toString
 let typeArr = ['Boolean', 'Number','String', 'Function', 'Array', 'Date', 'RegExp', 'Object', 'Error', 'Symbol']
 typeArr.forEach(function(name){
-  class2type[`object ${name}`] = name.toLowerCase()
+  class2type[`[object ${name}]`] = name.toLowerCase()
   // console.log(this)
 }, {a: '111', b:'222'})
 // 插播:forEach这里的第一个参数是functon函数的时候,第二个参数就是function函数的this,如果是尖头函数,第二个参数无效
