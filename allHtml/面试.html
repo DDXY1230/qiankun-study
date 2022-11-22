@@ -75,6 +75,61 @@
       关闭的时候是四次挥手
 
   </p>
+
+  <p>
+     单例模式: 相互的独立模块,互相不影响, 但是也可以事项模块和模块之间的方法调用
+     工厂模式: 工厂可以帮助我们实现调用的切换,或者实现一些中转的处理
+
+  </p>
 </body>
+<script>
+  // 单例模式 模块之间相互独立,同时也可以相互调用彼此的方法
+  let moduleA = (function() {
+    function bindHtml() {
+
+    }
+    return {
+      bindHtml
+    }
+  })()
+  let moduleB = (function(){
+    function change() {
+
+    }
+    moduleA.bindHtml()
+    return {
+      change
+    }
+  })()
+  // 单例模式 优化代码按顺序执行
+  let SearchModule = (function() {
+    let body = document.body
+    function queryData() {
+    }
+    function getHtml() {}
+    function handle() {}
+    return {
+      // init 相当于大脑,可以控制谁先执行,谁后执行;
+      init: function() {
+        queryData()
+        handle()
+        getHtml()
+      }
+    }
+  })()
+
+
+  // 工厂模式 输入原材料,得出不同的产品
+  function factory (options) {
+    options = options || {}
+    let {type,payload} = options
+    if(type === 'array') {
+      return [1,2]
+    }
+  }
+factory({type: 'array', payload: 100})
+factory({type: 'object', payload: 200})
+
+</script>
 
 </html>
