@@ -97,6 +97,11 @@ const routes = [{
     component: () => import( /* webpackChunkName: "about" */ '../views/notebook_8.vue'),
   },
   {
+    path: '/notebook_9',
+    name: 'notebook_9',
+    component: () => import( /* webpackChunkName: "about" */ '../views/notebook_9.vue'),
+  },
+  {
     path: '/home',
     // redirect: '/' // 重定向
     // redirect: {name: 'home'} // 也可以用路由名字

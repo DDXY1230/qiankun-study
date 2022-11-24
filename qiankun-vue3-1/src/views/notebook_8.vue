@@ -1,6 +1,10 @@
 <!--  -->
 <template>
   <div class=''>
+    <p>
+      1.面试必问: Ajax、axios、Fetch的核心区别?
+
+    </p>
 
   </div>
 </template>
@@ -110,6 +114,9 @@ let da2 = deepClone(da1)
 console.log("🚀 ~ file: notebook_8.vue ~ line 106 ~ da2", da2)
 console.log(da1.a == sa1.a) // true
 console.log(da1.a == da2.a) // false
+
+//------------------------------------
+
 </script>
 <style lang='scss' scoped>
 </style>

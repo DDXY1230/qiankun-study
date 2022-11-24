@@ -11,6 +11,7 @@
       <router-link to="/notebook_6">6.检测数据类型的方式以及函数封装</router-link> |
       <router-link to="/notebook_7">7.this的了解以及应用场景</router-link> |
       <router-link to="/notebook_8">8.this的了解以及应用场景</router-link> |
+      <router-link to="/notebook_9">9.</router-link> |
     </nav>
     <hr>
     <router-view />

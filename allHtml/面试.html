@@ -58,33 +58,36 @@
     还有escape / unescape 这个用的少,因为后端没有,交互的时候后段有时候无法解码
 
     还有一个问题自己搜一搜: URI/URL/URN的区别?
-     性能优化有一条: DNS请求,一个页面中尽可能少的域名,,
-     但是实际项目不会这么做,实际项目会从很多服务器拿资源,多服务器集群共享,因为服务器的抗压能力不一样
-     为了资源的合理利用、服务器的抗压能力、提高http并发....
+    性能优化有一条: DNS请求,一个页面中尽可能少的域名,,
+    但是实际项目不会这么做,实际项目会从很多服务器拿资源,多服务器集群共享,因为服务器的抗压能力不一样
+    为了资源的合理利用、服务器的抗压能力、提高http并发....
 
-     DNS预获取
+    DNS预获取
 
-     最后TCP三次握手
-     在客户端与服务器端建立连接,建立稳定的传输通道
-     为什么是三次不是两次?
-     tcp作为一种可靠的传输控制协议,其核心思想:既要保证数据可靠传输,又要提高传输的效率,三次刚刚好
-      
+    最后TCP三次握手
+    在客户端与服务器端建立连接,建立稳定的传输通道
+    为什么是三次不是两次?
+    tcp作为一种可靠的传输控制协议,其核心思想:既要保证数据可靠传输,又要提高传输的效率,三次刚刚好
 
-      UDP 传输快但是可能会数据丢失
- 
-      关闭的时候是四次挥手
+
+    UDP 传输快但是可能会数据丢失
+
+    关闭的时候是四次挥手
 
   </p>
 
   <p>
-     单例模式: 相互的独立模块,互相不影响, 但是也可以事项模块和模块之间的方法调用
-     工厂模式: 工厂可以帮助我们实现调用的切换,或者实现一些中转的处理
+    单例模式: 相互的独立模块,互相不影响, 但是也可以事项模块和模块之间的方法调用
+    工厂模式: 工厂可以帮助我们实现调用的切换,或者实现一些中转的处理
+    Observer: 观察者模式
+    Mediator: 中介者模式
+    Publish: 发布/订阅模式
 
   </p>
 </body>
 <script>
   // 单例模式 模块之间相互独立,同时也可以相互调用彼此的方法
-  let moduleA = (function() {
+  let moduleA = (function () {
     function bindHtml() {
 
     }
@@ -92,7 +95,7 @@
       bindHtml
     }
   })()
-  let moduleB = (function(){
+  let moduleB = (function () {
     function change() {
 
     }
@@ -102,15 +105,15 @@
     }
   })()
   // 单例模式 优化代码按顺序执行
-  let SearchModule = (function() {
+  let SearchModule = (function () {
     let body = document.body
     function queryData() {
     }
-    function getHtml() {}
-    function handle() {}
+    function getHtml() { }
+    function handle() { }
     return {
       // init 相当于大脑,可以控制谁先执行,谁后执行;
-      init: function() {
+      init: function () {
         queryData()
         handle()
         getHtml()
@@ -120,15 +123,119 @@
 
 
   // 工厂模式 输入原材料,得出不同的产品
-  function factory (options) {
+  function factory(options) {
     options = options || {}
-    let {type,payload} = options
-    if(type === 'array') {
-      return [1,2]
+    let { type, payload } = options
+    if (type === 'array') {
+      return [1, 2]
     }
   }
-factory({type: 'array', payload: 100})
-factory({type: 'object', payload: 200})
+  factory({ type: 'array', payload: 100 })
+  factory({ type: 'object', payload: 200 })
+
+
+  // 观察者模式
+  class Observer {
+    update() {
+      // 消息触发到达,通知update执行
+      console.log('消息到达11')
+    }
+  }
+  class Demo {
+    update(message) {
+      console.log('消息到达22')
+
+    }
+  }
+  // 专业管理目标
+  class ObserverList {
+    constructor() {
+      this.observerList = []
+    }
+    add(observer) {
+      this.observerList.push(observer)
+      return this
+    }
+    remove(observer) {
+      this.observerList = this.observerList.filter(ob => ob !== observer)
+      return this
+    }
+    get(index) {
+      return this.observerList[index]
+    }
+    count() {
+      return this.observerList.length
+    }
+  }
+  class Subject {
+    observers = new ObserverList()
+    add(observer) {
+      this.observers.add(observer)
+    }
+    remove(observer) {
+      this.observers.remove(observer)
+    }
+    notify() {
+      for (let i = 0; i < this.observers.count(); i++) {
+        let item = this.observers.get(i)
+        item.update()
+      }
+    }
+  }
+  let o1 = new Observer()
+  let d1 = new Demo()
+  let sub = new Subject()
+  sub.add(o1)
+  sub.add(d1)
+  setTimeout(() => {
+    sub.notify('nnn你好~~欢迎大家')
+  }, 2000)
+
+  // 中介者模式
+  let mediator = (function () {
+
+    let topics = {}
+    // 订阅: 订阅A组件中的某个方法
+    let subsribe = function subsribe(topic, callback) {
+      !topics[topic] ? topics[topic] = [] : null
+      topics[topic].push({ context: this, callback })
+    }
+    // 发布: B组件中到某个阶段,可以通知之前订阅的方法执行
+    let publish = function publish(topic, ...params) {
+      if (!topics[topic]) return
+      topics[topic].forEach(item => {
+        let { callback, context } = item
+        callback.call(context, ...params)
+      })
+    }
+    return {
+      subsribe,
+      publish
+    }
+  })()
+
+    // publish&subscribe Observer Mediator 这三个模式很像
+    (function () {
+      //自己创造的事件池
+      let pond = []
+      function subscribe(func) {
+        if (!pond.includes(func)) {
+          pond.push(func)
+        }
+        // 执行完移除
+        return function unsubscribe() {
+          pond = pond.filter(item => item !== func)
+        }
+      }
+      subscribe.fire = function fire() {
+        pond.forEach(item => {
+          if(typeof item === 'function') {
+            item(...arguments)
+          }
+        })
+      }
+      window.subscribe = subscribe
+    })()
 
 </script>
 
