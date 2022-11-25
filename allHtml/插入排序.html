@@ -21,7 +21,20 @@
       }
       return arr
     }
-    console.log(sortcharu(arr))
+    
+
+    // 下面这种方法比较好理解,就记住这种就行了
+    function sortcha(arr) {
+      for(let i = 1; i < arr.length; i++) {
+        for(let j = i - 1; j >= 0 && arr[j] > arr[j+1];j--){
+          let temp = arr[j]
+          arr[j] = arr[j+1]
+          arr[j+1] = temp
+        }
+      }
+      return arr
+    }
+    console.log(sortcha(arr))
   </script>
 </body>
 </html>
