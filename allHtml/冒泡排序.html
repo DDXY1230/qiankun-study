@@ -21,7 +21,22 @@
       }
       return arr
     }
+    function maopao(arr) {
+      for (let e = arr.length - 1; e > 0; e--) { 
+        // 第一层循环表示循环论数
+        for(let i = 0;i< e;i++){
+          if(arr[i] > arr[i + 1]){
+            let temp = arr[i]
+            arr[i] = arr[i+1]
+            arr[i+1] = temp
+          }
+        }
+
+      }
+      return arr
+    }
     console.log(maopaoSort(arr))
+    console.log(maopao(arr))
   </script>
 </body>
 </html>

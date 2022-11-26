@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 总结: ts的文件中如果直接书写js语法的代码,那么在html文件中直接引入ts文件,在
+  谷歌浏览器可以直接使用
+  如果ts文件中有了ts的语法代码,那么就需要把这个ts文件编译成js文件,在html文件中引入
+  编译好的js文件来使用才行
+  ts文件中的函数中的形参, 如果使用了某个类型进行修饰,最终在编译的js文件中是没有这个修饰类型的
+  ts文件中的变量使用的是let进行修饰,编译后的js文件中的修饰符变成了var了
+   -->
+  <script src="./js/ts01.js"></script>
+  
+</body>
+</html>

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <p>1.
     一个浏览器包含：
-      一个主进程，
-      一个网络进程，
-      一个GPU进程，
-      多个渲染进程，
-      多个插件进程
+    一个主进程，
+    一个网络进程，
+    一个GPU进程，
+    多个渲染进程，
+    多个插件进程
   </p>
   <p>2.
     mouseEnter mouseOver 有什么区别?
-    
+
     mouseenter和mouseleave不存在事件冒泡，
     但是mouseout和mouseover存在事件冒泡。
 
@@ -35,7 +37,7 @@
     5.怎么做弹幕?弹幕出现有算法处理吗?
   </p>
   <p>
-    6.实时通信怎么做? 
+    6.实时通信怎么做?
     websockt socket.io
     轮询
   </p>
@@ -45,5 +47,106 @@
   <p>
     8.OOP的理解
   </p>
+  <p>
+    9.为什么会有promise?为了解决什么问题?
+    为了解决回调地狱问题
+    代码结构得到改善
+    可维护性大大提高
+
+    promise是什么?
+    promise是异步的,有等待,成功,失败的状态,状态是不可逆转的
+  </p>
 </body>
+<script>
+  // 构造函数立即执行
+  // const promise = new Promise((resolve, reject) => {
+  //   console.log(1)
+  //   resolve()
+  //   console.log(2)
+  // })
+  // // .then作为一个微任务,异步执行
+  // promise.then(() => {
+  //   console.log(3)
+  // })
+  // console.log(4)
+  // 1243
+
+
+
+  // const promise1 = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     console.log('1')
+  //     resolve('2')
+  //   }, 1000)
+  // })
+  // promise1.then(res => {
+  //   console.log(res)
+  // })
+  // promise1.then(res => {
+  //   console.log(res)
+  // })
+  // 122
+
+
+  // 美团经典面试题,手写promise
+  // 1.基础架构
+  function myPromise(excutor) {
+    let self = this
+    self.status = 'pending' // 状态
+    self.value = null // 成功的结果
+    self.reason = null // 失败的原因
+
+    self.onFulfilledCallbacks = []
+    self.onRejectedCallbacks = []
+
+    // 成功的回调
+    function resolve(value) {
+      // 4.状态处理 等待=》成功、失败
+      if (self.status === 'pending') {
+        self.value = value
+        self.status = 'fulfilled'
+        // 7.状态改变讲方法依次取出执行
+        self.onFulfilledCallbacks.forEach(item => item(value))
+      }
+    }
+    // 失败的回调
+    function reject(reason) {
+      if (self.status === 'pending') {
+        self.reason = reason
+        self.status = 'rejected'
+        self.onRejectedCallbacks.forEach(item => item(reason))
+      }
+    }
+    //3.执行器,并且捕获是否有错
+    try {
+      excutor(resolve, reject)
+    }
+    catch (err) {
+      reject(err)
+    }
+  }
+  // 2.then方法
+  myPromise.prototype.then = function (onFulfilled, onRejected) {
+    //5.状态改变走then里面的方法
+    onFulfilled = typeof onFulfilled === 'function' ?
+      onFulfilled : function (data) { resolve(data) }
+    onRejected = typeof onRejected === 'function' ?
+      onRejected : function (err) { throw err }
+      // 6.收集函数
+      if(this.status === 'pending') {
+        this.onFulfilledCallbacks.push(onFulfilled)
+        this.onRejectedCallbacks.push(onRejected)
+      }
+  }
+  let demo = new myPromise((resolve, reject) => {
+    console.log('这位同学真帅!!')
+    setTimeout(() => {
+     resolve('哈哈哈哈哈哈')
+    },2000)
+  })
+  demo.then(res => {
+    console.log(res)
+  })
+</script>
+
 </html>

@@ -1,0 +1,1 @@
+document.write('哈哈哈哈,我又变美了')
