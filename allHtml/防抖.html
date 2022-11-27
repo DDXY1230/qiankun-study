@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="请输入电话号码">
+  <div id="box" style="height: 100px;width:100px;border: red 1px solid;"></div>
+  <script>
+    // 防抖=》 将多次操作编程一次
+    // 又学到了一点知识:
+    // document.getElementsByTagName返回的是此类所以,是一个数组
+    // let a = document.getElementsByTagName('input')[0]
+    // console.log("🚀 ~ file: 防抖.html ~ line 14 ~ a", a)
+    let telInput = document.querySelector('input')
+    console.log("🚀 ~ file: 防抖.html ~ line 14 ~ telInput", telInput)
+    telInput.addEventListener('input', antiShake(demo,2000))
+    // 防抖封装
+    function antiShake(fn, wait){
+      let timeOut = null
+      return args => {
+        if(timeOut) clearInterval(timeOut)
+        timeOut = setTimeout(fn, wait)
+      }
+    }
+    function demo() {
+      console.log('发起请求')
+    }
+
+
+    // 节流 =》 一定时间内只执行一次
+    let box = document.getElementById('box')
+    box.addEventListener('mousemove', throttle(demo,2000))
+    function throttle(fn,wait) {
+      console.log(111)
+      let timer = null
+      return function() {
+        if(!timer) {
+          timer = setTimeout(() => {
+            fn()
+            timer = null
+          },wait)
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>

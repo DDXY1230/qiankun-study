@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script type="module"> -->
+  <!-- import { Observer } from './observer.js' -->
+  <script>
+    class Observer {
+      constructor(value) {
+        this.value = value
+        if (Array.isArray(value)) {
+          // 数组的逻辑
+        } else {
+          // 对象的方法
+          this.walk(value)
+        }
+      }
+      walk(obj) {
+        const keys = Object.keys(obj)
+        console.log(keys, keys.length)
+        for (let i = 0; i < keys.length; i++) {
+          console.log(i)
+          this.defineReactive(obj, keys[i])
+        }
+      }
+
+      // defineReactive 这个方法写在class里面或者外面function 都可以
+      defineReactive(obj, key, val) {
+        if (arguments.length === 2) {
+          val = obj[key] // 注意这里一定要提前取出来,在下面取会陷入死循环
+        }
+        if(typeof val === 'object') {
+          new Observer(val)
+        }
+        Object.defineProperty(obj, key, {
+          set(value) {
+            console.log(`${key}值被设置成` + value)
+            if (value === val) return
+            val = value
+          },
+          get() {
+            console.log('获取' + key)
+            return val
+          }
+        })
+      }
+    }
+
+    let obj1 = new Observer({
+      name: '小明',
+      age: 180,
+      demo: {
+        note: '数学',
+        capture: '第一章',
+        class: {classname: '一班'}
+      }
+    })
+    console.log(obj1)
+
+
+    let obj = {}
+    let val = 20
+    Object.defineProperty(obj, 'age', {
+      get() {
+        // console.log('age属性被读取了')
+        return val
+      },
+      set(newVal) {
+        val = newVal
+        // console.log(`age属性被修改了,值时${newVal}`)
+      }
+    })
+    // console.log(obj.age)
+    obj.age = 100
+
+  </script>
+</body>
+
+</html>

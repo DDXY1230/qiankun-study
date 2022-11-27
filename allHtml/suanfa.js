@@ -8,5 +8,15 @@ function jishu(arr) {
   }
   return r
 }
-console.log(jishu(arr1))
-console.log(jishu(arr2))
+// console.log(jishu(arr1))
+// console.log(jishu(arr2))
+// 1-n求和
+function count100(n1,n2,n) {
+  let num = n1 + n2
+  if(n2 + 1 > n) {
+    return num
+  }else {
+    return count100(num, n2 + 1,n)
+  }
+}
+console.log(count100(1,2,3))
