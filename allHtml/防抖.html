@@ -47,6 +47,55 @@
       }
     }
 
+
+    // 这种方式定义的对象和数组没有原型prototype, 所以下面输出是undefined
+    let obj2 = {}
+    let arr2 = []
+    console.log(obj2.prototype)// undefined
+    console.log(arr2.prototype)// undefined
+
+    // 原型prototype是函数特有
+
+    // 但是都有原型链
+
+    // 获取实例对象的是有属性方法是: obj.hasOwnProperty(key)
+    //for(let i in obj){ if(obj.hasOwnProperty(key) ){} }
+
+
+    console.log(typeof null) // object 表示‘无’对象 0
+    console.log(typeof undefined) // 表示‘无’的原始值 NaN
+
+
+    // 什么时候是undefined?
+    /* 1.已经声明,未赋值 */
+    /* 2.对象某个属性不存在 */
+    /* 3.函数调用,少了参数 */
+    /* 4.函数的默认返回值 */
+
+    //null 赋值为null,告诉垃圾回收机制,这个变量我已经用完了,可以回收回去了,相当于手动释放内存
+    let obj3 = {}
+    obj3 = null
+    // null可以作为函数的参数,表示此参数不是对象
+    // null是原型链的顶端
+
+
+    //======================================
+
+    // forEach和map的区别
+    /* forEach 没有返回值,不能用break打断,遍历的值是value */
+    /* map会返回一个数组, 不能用break打断 */
+    let arr3 = [1,2,3,4,5]
+    let b = arr3.forEach(i => {
+      console.log(i + 2)
+      return i + 2
+    })    
+    console.log(b) // undefined 因为forEach没有返回值
+    let c = arr3.map(i => i + 2)
+    console.log(c) // [3, 4, 5, 6, 7] map返回一个数组
+
+
+
+
   </script>
 </body>
 </html>
