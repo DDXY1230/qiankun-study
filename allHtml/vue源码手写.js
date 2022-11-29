@@ -836,6 +836,190 @@ var Vue = (function (exports) {
     return instrumentations
   }
   function createGetter(isReadonly = false, shallow = false) {
-    
+    return function get(target,key,receiver) {
+      if(key === "__v_isReactive" /* IS_REACTIVE */){
+        return !isReadonly;
+      }
+      else if(key === "__v_isReadonly" /* IS_SHALLOW */){
+        return isReadonly
+      }
+      else if(key === "__v_isShallow"/* IS_SHALLOW */){
+        return shallow
+      }
+      else if(key === "__v_raw"/* RAW */ && receiver ===(isReadonly
+      ? shallow
+        ? shallowReadonlyMap : readonlyMap
+      : shallow
+        ? shallowReactiveMap
+        :reactiveMap).get(target)){
+          return target
+      }
+      const targetIsArray = isArray(target)
+      if(!isReadonly && targetIsArray && hasOwn(arrayInstrumentations,key)){
+        return Reflect.get(arrayInstrumentations,key,receiver);
+      }
+      const res = Reflect.get(target,key,receiver)
+      if(isSymbol(key) ? builtInSymbols.has(key) : isNonTrackableKeys(key)) {
+        return res
+      }
+      if(!isReadonly) {
+        track(target,"get"/* GET */,key)
+      }
+      if(shallow) {
+        return res
+      }
+      if(isRef(res)){
+        // ref unwrapping - skip unwrap for Array + integer key
+        return targetIsArray  && isIntegerKey(key) ? res : res.value
+      }
+      if(isObject(res)) {
+        // Convert returned value into a proxy as well. we do the isObject check
+        // here to avoid invalid value warning.Also need to lazy access readonly
+        // and reactive here to avoid circular dependency
+        return isReadonly ? readonly(res) : reactive(res)
+      }
+      return res
+    }
+  }
+  const set = /* __PURE__ */ createSetter()
+  const shallowSet = /* #__PURE__ */ createSetter(true)
+  function createSetter(shallow = false) {
+    return function set(target,key,value,receiver) {
+      let oldValue = target[key]
+      if(isReadonly(oldValue) && isRef(oldValue) && !isRef(value)){
+        return false
+      }
+      if(!shallow && !isREadonly(value)){
+        if(!isShallow(value)){
+          value = toRaw(value)
+          oldValue = toRaw(oldValue)
+        }
+        if(!isArray(target) && isRef(oldValue) && !isRef(value)){
+          oldValue.value = value
+          return true
+        }
+      }
+      const hadKey = isArray(target) && isIntegerKey(key) ?
+      Number(key) < target.length
+      : hasOwn(target,key)
+      const result = Reflect.set(target,key,value,receiver)
+      if(target === toRaw(receiver)) {
+        if(!hadKey) {
+          trigger(target, 'add'/* ADD */,key,value);
+        }
+        else if(hasChanged(value,oldValue)) {
+          trigger(target,'set'/* SET */,key,value,oldValue)
+        }
+      }
+      return result
+    }
+  }
+  function deleteProperty(target,key) {
+    const hadKey = hadOwn(target,key)
+    const oldValue = target[key]
+    const result = Reflect.deleteProperty(target,key)
+    if(result && hadKey) {
+      trigger(target, "delete"/* DELETE */,key,undefined,oldValue);
+    }
+    return result
+  }
+  function has(target,key) {
+    const result = Reflect.has(target,key)
+    if(!isSymbol(key) || !builtInSymbols.has(key)) {
+      track(target,'has'/* HAS */,key)
+    }
+    return result
+  }
+  function ownKeys(target) {
+    track(target,"iterate"/* ITERATE */,isArray(target) ? 'length' : ITERATE_KEY)
+    return Reflect.ownKeys(target)
+  }
+  const mutableHandlers = {
+    get,
+    set,
+    deleteProperty,
+    has,
+    ownKeys
+  }
+  const readonlyHandlers = {
+    get: readonlyGet,
+    set(target,key) {
+      {
+        warn(`Set operation on key "${String(key)}" failed: target is readonly.`, target)
+      }
+      return true
+    },
+    deleteProperty(target,key) {
+      {
+        warn(`Delete operation on key "${String(key)}" faild: target is readonly.`,target)
+      }
+      return true
+    }
+  }
+  const shallowReactiveHandlers = /* #__PURE__ */ extend({}, mutableHandlers, {
+    get: shallowGet,
+    set: shallowSet
+  })
+  // Props handlers are special in the sense that it should not unwrap top-level
+  // refs (in order to allow refs to be explicitly passed down), but should
+  // retain the reactivity of the normal readonly object.
+  const shallowReadonlyHandlers = /* __OURE__ */ extend({}, readonlyHandlers,{
+    get:shallowReadonlyGet
+  })
+  const toShallow = (value) => value
+  const getProto = (v) => Reflect.getPrototypeOf(v)
+  function get$1(target,key,isReadonly=false,isShallow=false) {
+    //#1772:readonly(reactive(Map)) should return readonly + reactive version
+    // of the value
+    target = target["__v_raw"/* RAW */]
+    const rawTarget = toRaw(target)
+    const rawKey = toRaw(key)
+    if(!isReadonly) {
+      if(key !== rawKey) {
+        track(rawTarget,"get"/* GET */,key);
+      }
+      track(rawTarget,"get"/* GET */,rawKey)
+    }
+    const {has} = getProto(rawTarget)
+    const wrap = isShallow ? toShallow : isReadonly ? toReadonly : toReactive
+    if(has.call(rawTarget,key)) {
+      return wrap(target.get(key))
+    }
+    else if(has.call(rawTarget,rawKey)) {
+      return wrap(target.get(rawKey))
+    }
+    else if(target !== rawTarget) {
+      // #3602 readonly(reactive(Map))
+      // ensure that the nested reactove `Map` can do tracking for itself
+      target.get(key)
+    }
+  }
+  function had$1(key,isReadonly = false) {
+    const target = this["__v_raw"/* RAW */]
+    const rawTarget = toRaw(target)
+    const rawKey = toRaw(key)
+    if(!isReadonly) {
+      if(key !== rawKey) {
+        track(rawTarget, "has"/* HAS */,key)
+      }
+      track(rawTarget,'has'/* HAS */,rawKey)
+    }
+    return key === rawKey ? target.has(key) : target.has(key) || target.has(rawkey)
+  }
+  function size(target,isReadonly = false) {
+    target = target["__v_raw"/* RAW */]
+    !isReadonly && track(toRaw(target), "iterate"/* ITERATE */, ITERATE_KEY);
+    return Reflect.get(target, 'size',target)
+  }
+  function add(value) {
+    value = toRaw(value)
+    const target = toRaw(this)
+    const proto = getProto(target);
+    const hadKey = proto.has.call(target, value)
+    if(!hadKey) {
+      target.add(value)
+      trigger(target, 'add'/* ADD */,value,value)
+    }
+    return this
   }
 }({}))
