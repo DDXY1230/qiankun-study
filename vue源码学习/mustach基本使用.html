@@ -10,6 +10,31 @@
 
 <body>
   <div id="container"></div>
+  <script type="text/template" id="myTemplate">
+     <ul>
+    {{#arr}}
+      <li>
+        <div class="hd">{{name}}的基本信息</div>
+        <div class='bd'>
+          <p>
+          姓名: {{name}}
+          </p>
+          <p>
+          性别: {{sex}}
+          </p>
+          <p>
+          年龄: {{age}}
+          </p>
+        </div>
+      </li>
+    {{/arr}}
+    {{#arrList}}
+    <li>{{.}}</li>
+    {{/arrList}}
+    </ul>
+    {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
+    <h1>我今天很{{obj.mood}},今天天气{{obj.today}}</h1>
+  </script>
   <script type="module">
     import mustache from './utils/mustache.js'
     let arrData = {
@@ -19,7 +44,8 @@
         { name: 'Jerry', sex: 'girl', age: 17 },
       ],
       arrList: ['苹果', '香蕉','火龙果'],
-      obj: {today: 'sunday', mood: 'fine'}
+      obj: {today: 'sunday', mood: 'fine'},
+      hidden: false
     }
     let template = `
     <ul>
@@ -43,12 +69,17 @@
     <li>{{.}}</li>
     {{/arrList}}
     <h1>我今天很{{obj.mood}},今天天气{{obj.today}}</h1>
+    {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
     </ul>
     `
+    // 循环数组里面的对象#开头,循环简单数组#开头直接用点,展示对象直接写对象的属性
     let domStr = mustache.render(template, arrData)
-    console.log(domStr)
+
+    let myhtml = document.getElementById('myTemplate').innerHTML
+    let someHtml = mustache.render(myhtml, arrData)
+    
     let container = document.getElementById('container')
-    container.innerHTML = domStr
+    container.innerHTML = domStr + someHtml
   </script>
 </body>
 
