@@ -43,4 +43,7 @@ tsc --init
 然后启动监视任务: 终端-》运行任务=〉监视tsconfig.jsons
 
 
+## vscode一些好用的插件
+Live Server 小型服务器
+
 
