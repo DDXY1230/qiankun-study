@@ -33,7 +33,7 @@
     {{/arrList}}
     </ul>
     {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
-    <h1>我今天很{{obj.mood}},今天天气{{obj.today}}</h1>
+    <h1>我今天很{{obj.mood}},今天天气---{{obj.today}}</h1>
   </script>
   <script type="module">
     import mustache from './utils/mustache.js'
@@ -68,7 +68,7 @@
     {{#arrList}}
     <li>{{.}}</li>
     {{/arrList}}
-    <h1>我今天很{{obj.mood}},今天天气{{obj.today}}</h1>
+    <h1>我今天很{{obj.mood}},今天天气==={{obj.today}}</h1>
     {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
     </ul>
     `
@@ -77,7 +77,7 @@
 
     let myhtml = document.getElementById('myTemplate').innerHTML
     let someHtml = mustache.render(myhtml, arrData)
-    
+
     let container = document.getElementById('container')
     container.innerHTML = domStr + someHtml
   </script>

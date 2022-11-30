@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>我是www,我出来了</h1>
+  <script src="/xuni/bundle.js"></script>
+  <script>
+    // let template = '我买了一个{{thing}},好{{mood}}啊'
+    let template = `
+     <ul>
+    {{#arr}}
+      <li>
+        <div class="hd">{{name}}的基本信息</div>
+        <div class='bd'>
+          <p>
+          姓名: {{name}}
+          </p>
+          <p>
+          性别: {{sex}}
+          </p>
+          <p>
+          年龄: {{age}}
+          </p>
+          <ol>
+          {{#list}}
+          <li>
+            {{#habby}}
+            <span>{{name}}</span>
+            {{/habby}}
+            <p>{{class}}</p>
+          </li>
+          {{/list}}
+          </ol>
+        </div>
+      </li>
+    {{/arr}}
+    {{#arrList}}
+    <li>{{.}}</li>
+    {{/arrList}}
+    </ul>
+    <h1>我今天很{{obj.mood}},今天天气==={{obj.today}}</h1>
+    {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
+    `
+    let data = {
+      thing: '苹果手机',
+      mood: '开心'
+    }
+    let arrData = {
+      arr: [
+        { name: 'Alice', sex: 'girl', age: 18 ,list:[{habby: [{name:'音乐'},{name:'电影'}]},{class: '终极一班'}]},
+        { name: 'Tom', sex: 'box', age: 19,list:[{habby: [{name:'gita'},{name:'电影'}]},{class: '终极一班'}]},
+        { name: 'Jerry', sex: 'girl', age: 17,list:[{habby: [{name:'篮球'},{name:'游泳'}] },{class: '终极一班'}]},
+      ],
+      arrList: ['苹果', '香蕉','火龙果'],
+      obj: {today: 'sunday', mood: 'fine'},
+      hidden: false
+    }
+    Lxm_TemplateEngine.render(template, arrData)
+  </script>
+</body>
+</html>
