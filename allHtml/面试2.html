@@ -21,14 +21,24 @@
 
     let a = 1
     let b = 2
-    [b,a] = [a,b] // 利用结构快速将两个值互换
-
+    // [b,a] = [a,b] // 利用结构快速将两个值互换
+    // console.log(a,b)
 
     // 闭包会常驻内存   延长变量的生命周期
 
     // vue中data为什么时一个函数,有点闭包的设计,通过闭包给各个组件拥有私有的作用域
     
-
+    let obj1 = {
+      name: '张三',
+      fn: function() {
+        console.log('111')
+      },
+      test: undefined
+    }
+    let res1 = JSON.parse(JSON.stringify(obj1))
+    console.log(res1)//{name: '张三'}
+    // 所以JSON.parse(JSON.stringify(obj))不能拷贝方法和undefined
+    
   </script>
 </body>
 </html>
