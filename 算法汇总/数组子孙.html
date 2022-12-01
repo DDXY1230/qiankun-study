@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [1, 2, 3, [4, 5, 6, [7, 8, 9]]]
+    function transform(arr) {
+      let result = []
+      for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] == 'number') {
+          result.push({ value: arr[i] })
+        } else if (Array.isArray(arr[i])) {
+          result.push({ children: transform(arr[i]) })
+        }
+      }
+      return result
+    }
+    console.log(transform(arr))
+    function transform2(item) {
+      if(typeof item === 'number') {
+        return {value: item}
+      } else if(Array.isArray(item)){
+        return {
+          children: item.map(i => transform2(i))
+        }
+      }
+    }
+    console.log(transform2(arr))
+  </script>
+</body>
+
+</html>
