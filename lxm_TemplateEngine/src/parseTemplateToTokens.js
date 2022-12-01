@@ -9,9 +9,28 @@ export default function (templateStr) {
   while (!scanner.eos()) { // 指针没有到头就一直循环
     console.log('==============')
     let word_1 = scanner.scanUtil("{{")
-    console.log(word_1, scanner.pos)
     if (word_1 != '') {
-      tokens.push(['text', word_1.replace(/\s/g,'')])
+      console.log('====13>>>>', word_1)
+      // 只能判断去除空格,<div class='a'></div> class前面的空格不能去掉
+      let isInHtml = false
+      let _word = ''
+      for (let i = 0; i < word_1.length; i++) {
+        if (word_1[i] == "<") {
+          isInHtml = true
+        } else if (word_1[i] == ">") {
+          isInHtml = false
+        }
+        if (!/\s/.test(word_1[i])) {
+          _word += word_1[i]
+        } else {
+          if (isInHtml) {
+            _word += ' '
+          }
+        }
+      }
+      // tokens.push(['text', word_1.replace(/\s/g,'')]) // 直接去空格会把标签内的也去掉
+      console.log('---->>32', _word)
+      tokens.push(['text', _word])
     }
 
     scanner.scan('{{')
@@ -29,6 +48,6 @@ export default function (templateStr) {
     }
     scanner.scan('}}')
   }
-  console.log('3131----------',tokens)
+  console.log('3131----------', tokens)
   return nestTokens(tokens)
 }
