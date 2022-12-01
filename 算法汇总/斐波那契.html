@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1,1,2,3,5,8,13,21,,,   有cache的话会优化很多
+    function fib(n, cache = new Map()) {
+      console.log(cache)
+      if (cache.has(n)) {
+        console.log('===',n, cache.has(n),cache.get(n))
+        return cache.get(n)
+      }
+      console.log('这次要算', n)
+      if (n == 1 || n == 2) {
+        cache.set(n, 1)
+        return 1
+      }
+      let v = fib(n - 1, cache) + fib(n - 2, cache)
+      cache.set(n, v)
+      return v
+    }
+    console.log(fib(1))
+    console.log(fib(2))
+    console.log(fib(3))
+    console.log(fib(4))
+    console.log(fib(5))
+    console.log(fib(6))
+    console.log(fib(7))
+    console.log(fib(8))
+    console.log(fib(9))
+  </script>
+</body>
+
+</html>
