@@ -11,7 +11,7 @@ export default function (templateStr) {
     let word_1 = scanner.scanUtil("{{")
     console.log(word_1, scanner.pos)
     if (word_1 != '') {
-      tokens.push(['text', word_1])
+      tokens.push(['text', word_1.replace(/\s/g,'')])
     }
 
     scanner.scan('{{')
@@ -29,5 +29,6 @@ export default function (templateStr) {
     }
     scanner.scan('}}')
   }
+  console.log('3131----------',tokens)
   return nestTokens(tokens)
 }

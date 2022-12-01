@@ -7,7 +7,25 @@
   <title>Document</title>
 </head>
 <body>
+  <script text="some/templata">
+     /* <ol>
+          {{#list}}
+          <li>
+            {{#habby}}
+            <span>{{name}}</span>
+            {{/habby}}
+            <p>{{class}}</p>
+          </li>
+          {{/list}}
+          </ol> 
+          
+        
+          
+          
+          */
+  </script>
   <h1>我是www,我出来了</h1>
+  <div id="box"></div>
   <script src="/xuni/bundle.js"></script>
   <script>
     // let template = '我买了一个{{thing}},好{{mood}}啊'
@@ -26,7 +44,7 @@
           <p>
           年龄: {{age}}
           </p>
-          <ol>
+         <ol>
           {{#list}}
           <li>
             {{#habby}}
@@ -35,15 +53,15 @@
             <p>{{class}}</p>
           </li>
           {{/list}}
-          </ol>
+          </ol> 
         </div>
       </li>
     {{/arr}}
-    {{#arrList}}
+      {{#arrList}}
     <li>{{.}}</li>
     {{/arrList}}
     </ul>
-    <h1>我今天很{{obj.mood}},今天天气==={{obj.today}}</h1>
+    <h1>我今天很{{obj.mood}},今天天气{{obj.today}}</h1>
     {{#hidden}}<h2>我被隐藏了</h2>{{/hidden}}
     `
     let data = {
@@ -52,15 +70,17 @@
     }
     let arrData = {
       arr: [
-        { name: 'Alice', sex: 'girl', age: 18 ,list:[{habby: [{name:'音乐'},{name:'电影'}]},{class: '终极一班'}]},
-        { name: 'Tom', sex: 'box', age: 19,list:[{habby: [{name:'gita'},{name:'电影'}]},{class: '终极一班'}]},
-        { name: 'Jerry', sex: 'girl', age: 17,list:[{habby: [{name:'篮球'},{name:'游泳'}] },{class: '终极一班'}]},
+        { name: 'Alice', sex: 'girl', age: 18 ,list:[{habby: [{name:'音乐'},{name:'电影'}],class: '终极一班'}]},
+        { name: 'Tom', sex: 'box', age: 19,list:[{habby: [{name:'gita'},{name:'电影'}],class: '终极一班'}]},
+        { name: 'Jerry', sex: 'girl', age: 17,list:[{habby: [{name:'篮球'},{name:'游泳'}] ,class: '终极一班'}]},
       ],
       arrList: ['苹果', '香蕉','火龙果'],
       obj: {today: 'sunday', mood: 'fine'},
       hidden: false
     }
-    Lxm_TemplateEngine.render(template, arrData)
+    let domStr = Lxm_TemplateEngine.render(template, arrData)
+    let box = document.getElementById('box')
+    box.innerHTML = domStr
   </script>
 </body>
 </html>
