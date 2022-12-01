@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 连续出现最多的字母
+    let str = 'abbcccddddeeeeeffffff'
+    let i = 0
+    let j = 0
+    let maxCount = 0
+    let maxChar = ''
+    while (i < str.length) {
+      if (str[i] != str[j]) {
+        console.log(`${i}和${j}之间文字相同${str[i]}出现${j - i}次`)
+        if (j - i > maxCount) {
+          maxCount = j - i
+          maxChar = str[i]
+        }
+        i = j
+      }
+      j++
+    }
+    console.log(maxChar,maxCount)
+  </script>
+</body>
+
+</html>
