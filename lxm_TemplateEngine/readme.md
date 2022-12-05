@@ -1,4 +1,4 @@
-1. 手写一个模版引擎
+1. 手写一个模版引擎, 类似vue源码的模版引擎底层代码
 2. npm init
 3. npm i -D webpack@4 webpack-dev-server@3 webpack-cli@3
 
