@@ -1,8 +1,9 @@
 const _ = require('lodash')
-const log = v => {
+const log = (v) => {
   console.log(v)
   return v
 }
+// console.log(log.length) 函数的length值的是函数的实际参数个数
 const trace = _.curry((tag, v) => {
   console.log(tag, v)
   return v
