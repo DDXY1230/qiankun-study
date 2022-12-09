@@ -70,7 +70,7 @@ const routes = [{
       },
       {
         path: 'style2/:id',
-        props: true, // 开启路由传参
+        props: true, // 开启路由传参 开启了props,在组件中接收参数就跟父子组件传值都一样
         component: style2
       }
     ]
