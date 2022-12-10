@@ -1,0 +1,1 @@
+1. `npm i nodemon -D` 实时查看node文件运行

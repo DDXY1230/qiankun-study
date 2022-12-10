@@ -1,5 +1,5 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -7,13 +7,13 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.join(__dirname, "build"),
-    libraryTarget: "system"
+    libraryTarget: "system",
   },
   devtool: "source-map",
   devServer: {
     port: 9000,
     contentBase: path.join(__dirname, "build"),
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -23,17 +23,17 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
-      }
-    ]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      inject: false
-    })
+      inject: false, // 不希望把打包好的js文件注入到页面
+    }),
   ],
-  externals: ["react", "react-dom", "react-router-dom"]
-}
+  externals: ["react", "react-dom", "react-router-dom"],
+};
