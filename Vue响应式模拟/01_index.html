@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <span>{{count}}</span>
+    <p v-text="msg"></p>
+    <p>{{person.name}}</p>
+    <p>
+      这里有一段文本
+      <ul>
+        <li>第1段文本</li>
+        <li>第2段文本</li>
+        <li>第3段文本</li>
+        <li>第4段文本</li>
+      </ul>
+    </p>
+    <input type="text" v-model="msg">
+  </div>
+  <script src="./dep.js"></script>
+  <script src="./watcher.js"></script>
+  <script src="./observer.js"></script>
+  <script src="./compiler.js"></script>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        count: 100,
+        person: {
+          name: 'alice',
+          age: 18,
+          hobby: {music: 'classic', boll: 'pingpangboll'},
+          books: ['book1', 'book2']
+        }
+      }
+    })
+    console.log(vm.msg)
+    // vm.msg= {text:'today if monday'}
+  </script>
+</body>
+</html>

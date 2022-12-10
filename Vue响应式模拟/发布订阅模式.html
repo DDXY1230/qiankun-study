@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 发布订阅模式
+    // 事件触发器
+    class EventEmitter {
+      constructor() {
+        this.subs = Object.create(null)
+      }
+      // 注册事件
+      $on(eventType, handler) {
+        this.subs[eventType] ? this.subs[eventType].push(handler) : this.subs[eventType] = [handler]
+      }
+      // 触发事件
+      $emit(eventType) {
+        if (this.subs[eventType]) {
+          this.subs[eventType].forEach(handler => handler())
+        }
+      }
+    }
+    let em = new EventEmitter()
+    em.$on('aclick', () => {
+      console.log('alick---1')
+    })
+    em.$on('aclick', () => {
+      console.log('alick---2')
+    })
+    em.$on('bclick', () => {
+      console.log('blick')
+    })
+    em.$emit('aclick')
+    em.$emit('bclick')
+  </script>
+</body>
+
+</html>
