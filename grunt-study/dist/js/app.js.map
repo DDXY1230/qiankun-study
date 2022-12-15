@@ -1,0 +1,1 @@
+{"version":3,"file":"app.js","names":["console","log"],"sources":["../../src/js/app.js"],"sourcesContent":["console.log('睡觉吃饭打豆豆')\nconsole.log('我被监视了')"],"mappings":";;AAAAA,OAAO,CAACC,GAAG,CAAC,SAAS,CAAC;AACtBD,OAAO,CAACC,GAAG,CAAC,OAAO,CAAC"}

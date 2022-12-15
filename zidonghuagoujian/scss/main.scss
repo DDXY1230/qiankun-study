@@ -1,0 +1,12 @@
+$body-bg: blue;
+$body-color: yellow;
+
+body {
+  background: $body-bg;
+  color: $body-color;
+}
+.box {
+  height: 100px;
+  width: 100px;
+  background: gray;
+}

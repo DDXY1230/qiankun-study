@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 5000px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">点击</button>
+  <script>
+    /* 
+    在一些高频的事件触发的场景下我们不希望对应的事件处理函数多次执行,所以要采取措施
+    场景: 滚动事件,模糊匹配
+     */
+    const btn = document.getElementById('btn')
+
+
+    // 防抖  多次点击只执行一次 immdiate = false 执行最后一次
+    function myDebounce(handle, wait = 2000, immdiate = false) {
+      if (typeof handle !== 'function') throw new Error('handle must be an function')
+      let time = null
+      return function proxy(args) {
+        let self = this // 这个this是btn
+        let init = immdiate && !time
+        init ? handle.apply(self, args) : null
+        if (time) clearTimeout(time)
+        time = setTimeout(() => {
+          console.log(self)
+          !immdiate ? handle.apply(self, args) : null
+          time = null
+        }, wait)
+      }
+    }
+    function btnClick() {
+      console.log('被点击了')
+    }
+    btn.onclick = myDebounce(btnClick, 2000, true)
+
+
+    // 节流  在自定义的一段时间进行触发
+    function throttle(handle, wait) {
+      let timer = null
+      return function proxy (...args) {
+        let self = this
+        if(!timer) {
+          timer = setTimeout(() => {
+            handle.apply(self, ...args)
+            timer = null
+          },wait)
+        }        
+      }
+    }
+    function throttle2(handle, wait) {
+      let prev = 0
+      return function proxy(...args) {
+        let self = this
+        let now = new Date()
+        if(now - prev > wait) {
+          handle.apply(self, args)
+          prev = new Date()
+        }
+      }
+    }
+    function scrollFn() {
+      console.log('滚轮开始滚动了')
+    }
+    window.onscroll = throttle2(scrollFn, 2000)
+
+  </script>
+</body>
+
+</html>
