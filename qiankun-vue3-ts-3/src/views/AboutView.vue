@@ -9,7 +9,7 @@
     <button @click="actionAdd(50)">action加50</button>
     <button @click="$store.dispatch('addAsync', 20)">action加20</button>
     <h3>模块</h3>
-    <p>products: {{ products }}</p>
+    <p>products: {{ mypro }}</p>
     <button @click="setProducts">products/setProducts方法执行</button>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
       num: "count",
       message: "msg",
     }),
-    ...mapState("products", ["products"]),
+    ...mapState("products", {mypro: "products"}),
     ...mapGetters({
       rMsg: "reverseMsg",
     }),

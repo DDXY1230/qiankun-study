@@ -8,11 +8,6 @@
     "check-format": "prettier --check .",
     "build": "webpack --mode=production"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently npm:test npm:lint"
-    }
-  },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",

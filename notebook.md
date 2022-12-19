@@ -32,6 +32,15 @@ git remote add name 远程仓库地址 // name 为要取的仓库名字 远程�
 
 ## 安装 typescript
 
+
+
+## git提交代码的钩子函数
+"husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && concurrently npm:test npm:lint"
+    }
+  },
+
 `npm install -g typescript`
 
 `tsc -v`
