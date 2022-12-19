@@ -56,3 +56,8 @@ Live Server 小型服务器
 //npm i prettier -D
 // npx prettier style.css --write // 将格式化的文件输出到源文件
 // npx prettier . --write // 将所有代码格式化
+
+## 好用的 cdn 工具
+
+1. vscode 插件搜索 jsDelivr => 安装好之后, command + P 调出命令 输入:`>jsDelivr` 回车
+   选择 jsdelivr 选择需要的 cdn 即可

@@ -39,3 +39,26 @@ const listProxy = new Proxy(list, {
 listProxy.push(100)
 // console.log(list)
 // console.log(listProxy)
+
+const man = {
+  name: 'jack',
+  age : 18
+}
+const proxyMan = new Proxy(man, {
+  get(target, property) {
+    if(property in target) {
+      console.log(target[property])
+      return target[property]
+    }else {
+      throw new Error('don,t has this property')
+    }
+  },
+  set(target,property,value,recerver) {
+    console.log('====>',target,property,value,recerver)
+    target[property] = value
+  }
+})
+console.log('---',proxyMan.name)
+// console.log(proxyMan.aa)
+proxyMan.bbb = 'bbb'
+console.log(proxyMan, man)
