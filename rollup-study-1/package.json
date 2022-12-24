@@ -1,0 +1,17 @@
+{
+  "name": "rollup-study-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.0.0",
+    "rollup": "^3.7.5",
+    "rollup-plugin-json": "^4.0.0"
+  }
+}
