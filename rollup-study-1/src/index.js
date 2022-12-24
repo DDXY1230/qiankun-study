@@ -2,6 +2,11 @@ console.log('rollup study')
 import { readFileSync } from 'fs';
 
 
+// import cjs from './cjs-module'
+// const msg = cjs.name
+// console.log(msg)
+
+
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
 console.log(`running version ${pkg.version}`);
 
