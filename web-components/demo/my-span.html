@@ -1,0 +1,16 @@
+<!--  -->
+<template>
+<div class=''></div>
+</template>
+
+<script>
+const dom = document.currentScript.ownerDocument.querySelector('template')
+customElements.define('my-span', class extends HTMLElement {
+  constructor() {
+    this.appendChild(dom)
+  }
+})
+</script>
+<style lang='scss' scoped>
+
+</style>

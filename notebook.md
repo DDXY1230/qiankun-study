@@ -70,3 +70,8 @@ Live Server 小型服务器
 
 1. vscode 插件搜索 jsDelivr => 安装好之后, command + P 调出命令 输入:`>jsDelivr` 回车
    选择 jsdelivr 选择需要的 cdn 即可
+
+
+## 用vite创建vue项目
+1. `yarn create vite`  然后输入名字.....
+2. `yarn add @vitejs/plugin-vue-jsx -D   ` 如果要在vite项目中写jsx需要安装这个插件

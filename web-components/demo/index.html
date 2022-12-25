@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="my-span.html">
+</head>
+<body>
+  <my-span></my-span>
+  <lxm-123></lxm-123>
+  <script>
+    customElements.define('lxm-123', class extends HTMLElement{
+      constructor() {
+      super()
+      this.innerHTML = '好久不见,别来无恙'
+      this.onclick = () => alert('好的')
+      }
+    })
+  </script>
+  <script>
+    if((new Date().getMonth() + 1) % 2 == 0) {
+      customElements.define('even-month', class extends HTMLElement {})
+    }
+  </script>
+  <script>
+    const daDayUp = customElements.get('even-month')
+    daDayUp ? console.log('现在是偶数月') : customElements.define('odd-month', class extends HTMLElement{})
+  </script>
+</body>
+</html>
