@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      display: block;
+      margin: 10px auto;
+      border: 2px solid green;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- canvas绘制直角坐标系 -->
+  <canvas id="canvas" width="600" height="400">您的浏览器不支持canvas</canvas>
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    canvas.style.width = canvas.width + 'px'
+    canvas.style.height = canvas.height + 'px'
+    canvas.width = canvas.width * 2
+    canvas.height = canvas.height * 2
+
+    // 提前设置相关属性
+    const ht = canvas.clientHeight
+    const wd = canvas.clientWidth
+    const pad = 20
+    const bottomPad = 20
+    const step = 100
+    // 可以将一下代码封装成一个函数,传的参数就是上面的五个
+
+    // 绘制坐标轴
+    ctx.beginPath()
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'blue'
+    ctx.moveTo(pad, pad)
+    ctx.lineTo(pad, ht * 2 - bottomPad)
+    ctx.lineTo(wd * 2 - bottomPad, ht * 2 - bottomPad)
+    ctx.stroke()
+    ctx.closePath()
+
+    // 刻度
+    ctx.beginPath()
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'blue'
+    for (let i = 0; i < Math.floor(wd * 2 / step); i++) {
+      ctx.moveTo(pad + i * step, ht * 2 - bottomPad)
+      ctx.lineTo(pad + i * step, ht * 2 - bottomPad - 10)
+    }
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'blue'
+    for (let i = 0; i < Math.floor(ht * 2 / step); i++) {
+      ctx.moveTo(pad, (ht * 2 - bottomPad) - i * step)
+      ctx.lineTo(pad + 10, (ht * 2 - bottomPad) - i * step)
+    }
+    ctx.stroke()
+    ctx.closePath()
+
+    
+
+
+
+
+  </script>
+</body>
+
+</html>

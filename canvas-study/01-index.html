@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      display: block;
+      margin: 10px auto 0;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="500">你的浏览器当前不支持canvas</canvas>
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+
+    // 23-36行 这部分代码是用来听调整在高清屏幕下绘制的不清晰的问题  
+    // 因为canvas绘制的并非是矢量图 所以在高分辨率的情况下回出现不清晰的那现象
+    const getPixelRatio = (context) => {
+      return window.devicePixelRatio || 1
+
+    }
+    const ratio = getPixelRatio()
+    const oldWidth = canvas.width 
+    const oldHeight = canvas.height 
+    canvas.width = canvas.width * ratio
+    canvas.height = canvas.height * ratio
+    canvas.style.width = oldWidth + 'px'
+    canvas.style.height = oldHeight + 'px'
+    ctx.scale(ratio,ratio)
+
+
+    
+    ctx.beginPath()
+    ctx.lineWidth = 2
+    ctx.moveTo(100,200)
+    ctx.lineTo(300,300)
+    ctx.lineTo(500,100)
+    ctx.lineTo(100,100)
+    ctx.stroke()
+    ctx.closePath()
+
+
+  </script>
+</body>
+</html>

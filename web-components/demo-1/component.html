@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="./iframe.html" frameborder="0"></iframe>
+  <life-cycle color="purple">
+    
+  </life-cycle>
+  <script>
+    const iframe = document.querySelector('iframe')
+    // %O 大写的O,不是零
+    console.log("%O", iframe)
+    // iframe.onload = () => {
+    //   console.log(iframe.contentDocument)
+    //   const h1 = iframe.contentDocument.querySelector('h1')
+    //   document.adoptNode(h1) // 剪切了h1
+    //   document.body.append(document.adoptNode(h1))// 将iframe中的h1 剪切出来了
+    // }
+    iframe.onload = () => {
+      console.log(iframe.contentDocument)
+      const h1 = iframe.contentDocument.querySelector('life-cycle-child')
+      document.adoptNode(h1) // 剪切了h1
+      document.body.append(document.adoptNode(h1))// 将iframe中的h1 剪切出来了
+    }
+    customElements.define('life-cycle', class extends HTMLElement {
+      get color() {
+        // return this.style.color //这样写不同步
+        return this.getAttribute('color')
+      }
+      set color(value) {
+        // this.style.color = value //这样写不同步
+        this.setAttribute('color', value)
+      }      
+      static observedAttributes = [
+        'color'
+      ]
+      constructor() {
+        super()
+        this.innerHTML = '我是一个自定义组件'
+        // 相当于vue的setup生命周期
+      }
+      connectedCallback() {
+        // 相当于Vue的mounted
+      }
+      disconnectedCallback() {
+        // 相当于Vue的unmounted
+
+      }
+      adoptedCallback() { // 收养,剪切出来
+
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        if(newValue === oldValue) return
+        if(name == 'color') {
+          this.style.color = newValue
+        }
+      }
+
+    })
+    const dom = document.querySelector('life-cycle')
+  </script>
+</body>
+</html>

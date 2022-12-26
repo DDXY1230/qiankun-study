@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <life-cycle-child>
+    <h2>我是life-cycle-child</h2>
+  </life-cycle-child>
+  <h1>我是h1</h1>
+  <p>我是iframe html文件</p>
+ 
+  <script>
+    customElements.define('life-cycle-child', class extends HTMLElement {
+      constructor() {
+        super()
+        this.innerHTML = '我是life-cycle-child'
+        // 相当于vue的setup生命周期
+      }
+      connectedCallback() {
+        // 相当于Vue的mounted
+      }
+      disconnectedCallback() {
+        // 相当于Vue的unmounted
+
+      }
+      adoptedCallback() { // 收养,剪切出来,只能收养自己域名下的,有跨域限制
+        console.log('我被收养了')
+        // 这里请求数据改样式等
+      }
+    })
+  </script>
+</body>
+</html>
