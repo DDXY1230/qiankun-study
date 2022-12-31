@@ -18,8 +18,9 @@ const proxyPerson = new Proxy(person,{
 })
 console.log(proxyPerson.age)
 proxyPerson.habby = 'music'
-console.log(person)
-console.log(proxyPerson)
+console.log('person==>',person)
+person.aaa = 'aaa'
+console.log('proxyPerson==>',proxyPerson)
 proxyPerson.boy = 'tom'
 console.log(person)
 console.log(proxyPerson)

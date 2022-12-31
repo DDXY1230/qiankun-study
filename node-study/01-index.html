@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #result {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">点击发送请求</button>
+  <div id="result">
+
+  </div>
+  <script> 
+  const btn = document.getElementById('btn')
+  const result = document.getElementById('result')
+  btn.onclick = function() {
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'http://127.0.0.1:8000/server')
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+    // 后端配置好是可以传自定义的头部信息的
+    xhr.setRequestHeader('name', 'hhhhhh')
+    xhr.send({a: '123', b: '789'})
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState === 4) {
+        if(xhr.status >= 200 && xhr.status < 300)  {
+          console.log(xhr.status)
+          console.log(xhr.statusText)
+          console.log(xhr.getAllResponseHeaders())// 所有的响应体
+          console.log(xhr.response)
+          result.innerHTML = xhr.response
+        }else {
+
+        }
+      }
+    }
+  }
+  </script>
+</body>
+</html>
