@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+    // 方法一
+    // let result = []
+    // console.log(nums)
+    // if(nums.length > 1) {
+    //     for(let m = 0; m < nums.length; m++) {
+    //         let left = nums[m]
+    //         let rest = [].concat(nums.slice(0,m),nums.slice(m+1))
+    //         let preResult = permute(rest)
+    //         for(let i = 0; i < preResult.length; i++) {
+    //             preResult[i].unshift(left)
+    //             result.push(preResult[i])
+    //         }
+    //     }
+    // }else if(nums.length === 1) {
+    //     result.push(nums)
+    // }
+    // return result
+
+    // 方法二
+    const res = []
+    const backtrack = (path) => {
+        if(path.length === nums.length) {
+            res.push(path)
+            return
+        }
+        nums.forEach(n => {
+            if(path.includes(n)) return
+            backtrack(path.concat(n))
+        })
+    }
+    backtrack([])
+    return res
+};
+console.log(permute([1,2,3]));
+  </script>
+</body>
+</html>
