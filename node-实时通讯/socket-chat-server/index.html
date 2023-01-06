@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div>简易聊天区域</div>
+  <div class="box">
+    <ul id="ul">
+      <li>请聊天</li>
+    </ul>
+  </div>
+  <input type="text" id="input">
+  <button id="send">发送</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io('http://localhost:3000');
+    socket.on('connect', (socket) => {
+      console.log('连接成功!')
+    })
+    // 断开连接触发的事件
+    socket.on('disconnect', (reason) => {
+      if(reason === 'io server disconnect'){
+        socket.connect()
+      }
+    })
+    socket.on("connect_error", (error) => {
+      console.log('连接失败!')
+    })
+    // 发送消息  接收消息
+    /* 
+    socket.emit()
+
+     */
+    let sendBtn = document.getElementById('send')
+    let input = document.getElementById('input')
+    let ul = document.getElementById('ul')
+    sendBtn.onclick = function() {
+      console.log(00)
+      if(input.value) {
+        socket.emit('chat message', input.value) // 发送消息
+        const message = document.createElement('li')
+        message.innerHTML = input.value
+        ul.appendChild(message)
+        input.value = ''
+      }
+    }
+    socket.on('chat message', data => {
+      console.log(data)
+    })
+
+
+  </script>
+</body>
+</html>
