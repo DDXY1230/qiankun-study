@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 通过改变this的指向来达到继承的效果 -->
+  <script>
+    function Dad(name, age, height, money) {
+      this.name = name
+      this.age = age
+      this.height = height
+      this.money = money
+      this.habby = '电影、音乐'
+    }
+    Dad.prototype.getSkill = function () {
+      console.log('敲代码')
+    }
+    // Son.prototype = Dad.prototype // 很重要,这样就可以继承父类的方法了,但是与父类共用了,子类的方法改变,可能回改变父类的方法,所以不能这样单独写
+    // 需要切断引用
+    let Link = function () { }
+    Link.prototype = Dad.prototype
+    Son.prototype = new Link()
+    // Son.prototype 预定义属性constrctor要手动添加上去
+    Son.prototype.constructor = Son
+
+    function Son(name, age, height, money) {
+      // Dad.call(this, name, age, height, money)
+      // Dad.apply(this, [name, age, height, money])
+      Dad.bind(this)(name, age, height, money)
+    }
+    let newSon = new Son('张三', 18, 178, '100w')
+    console.log(newSon) // 继承自Dad '电影、音乐'
+    newSon.getSkill() // Son.prototype = Dad.prototype 写了这句,getSkill就可以使用了
+
+    /* 
+    JSON.parse(JSON.stringify(obj))这个拷贝会丢失undefined 和 function
+     */
+
+    function deepCopy(obj) {
+      let newObj = Array.isArray(obj) ? [] : {}
+      for (let i in obj) { // for...in...会把原型上的属性也遍历出来
+        if (obj.hasOwnProperty(i)) { // hasOwnProperty判断是否是自身的属性而不是原型上的属性,这里只拷贝自身属性,不拷贝原型上的属性
+          if (typeof obj[i] === 'object' && obj[i] !== null) {
+            newObj[i] = deepCopy(obj[i])
+          } else {
+            newObj[i] = obj[i]
+          }
+        }
+      }
+      return newObj
+    }
+    let obj1 = {name: 'Alice', age: 18}
+    let obj2 = deepCopy(obj1)
+    obj2.name = 'Tom'
+    console.log(obj1,obj2)
+
+  </script>
+</body>
+
+</html>

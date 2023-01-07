@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .mydiv1 {
+      background: red;
+    }
+
+    .mydiv2 {
+      background: green;
+    }
+
+    .mydiv3 {
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mydiv1 box">小方块</div>
+  <div class="mydiv2 box">小方块</div>
+  <div class="mydiv3 box">小方块</div>
+  <script>
+    let mydiv1 = document.querySelector('.mydiv1')
+    let mydiv2 = document.querySelector('.mydiv2')
+    let mydiv3 = document.querySelector('.mydiv3')
+    // 面向过程的写法
+    // mydiv1.onmousedown = e => {
+    //   let ev = e || window.event
+    //   let x = ev.clientX - mydiv1.offsetLeft
+    //   let y = ev.clientY - mydiv1.offsetTop
+    //   mydiv1.onmousemove = e => {
+    //     let ev = e || window.event
+    //     let xx = ev.clientX
+    //     let yy = ev.clientY
+    //     mydiv1.style.left = xx - x + 'px'
+    //     mydiv1.style.top = yy - y + 'px'
+    //   }
+    //   // 鼠标弹起不继续拖动
+    //   document.onmouseup = e => {
+    //     mydiv1.onmousemove = ""
+    //   }
+    // }
+
+    
+    // 面向对象的写法
+    function Drag(ele) {
+      this.ele = ele
+      this.downFn()
+    }
+    Drag.prototype.downFn = function () {
+      this.ele.onmousedown = e => {
+        let ev = e || window.event
+        let x = ev.clientX - this.ele.offsetLeft
+        let y = ev.clientY - this.ele.offsetTop
+        this.moveFn(x, y)
+        this.upFn()
+      }
+    }
+    Drag.prototype.moveFn = function (x, y) {
+      this.ele.onmousemove = e => {
+        let ev = e || window.event
+        let xx = ev.clientX
+        let yy = ev.clientY
+        this.ele.style.left = xx - x + 'px'
+        this.ele.style.top = yy - y + 'px'
+      }
+    }
+    Drag.prototype.upFn = function () {
+      document.onmouseup = e => {
+        this.ele.onmousemove = ""
+      }
+    }
+
+    let drag1 = new Drag(mydiv1)
+    let drag2 = new Drag(mydiv2)
+    let drag3 = new Drag(mydiv3)
+
+  </script>
+</body>
+
+</html>

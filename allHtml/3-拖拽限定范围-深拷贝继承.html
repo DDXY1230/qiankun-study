@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .mydiv1 {
+      background: red;
+    }
+
+    .mydiv2 {
+      background: green;
+    }
+
+    .mydiv3 {
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mydiv1 box">小方块11</div>
+  <div class="mydiv2 box">小方块22</div>
+  <div class="mydiv3 box">小方块33</div>
+  <script>
+    let mydiv1 = document.querySelector('.mydiv1')
+    let mydiv2 = document.querySelector('.mydiv2')
+    let mydiv3 = document.querySelector('.mydiv3')
+    // mydiv1.onmousedown = e => {
+    //   let ev = e || window.event
+    //   let x = ev.clientX - mydiv1.offsetLeft
+    //   let y = ev.clientY - mydiv1.offsetTop
+    //   mydiv1.onmousemove = e => {
+    //     let ev = e || window.event
+    //     let xx = ev.clientX
+    //     let yy = ev.clientY
+    //     mydiv1.style.left = xx - x + 'px'
+    //     mydiv1.style.top = yy - y + 'px'
+    //   }
+    //   // 鼠标弹起不继续拖动
+    //   document.onmouseup = e => {
+    //     mydiv1.onmousemove = ""
+    //   }
+    // }
+    function Drag(ele) {
+      this.ele = ele
+      this.downFn()
+    }
+    Drag.prototype.downFn = function () {
+      this.ele.onmousedown = e => {
+        let ev = e || window.event
+        let x = ev.clientX - this.ele.offsetLeft
+        let y = ev.clientY - this.ele.offsetTop
+        this.moveFn(x, y)
+        this.upFn()
+      }
+    }
+    Drag.prototype.moveFn = function (x, y) {
+      this.ele.onmousemove = e => {
+        let ev = e || window.event
+        let xx = ev.clientX
+        let yy = ev.clientY
+        this.styleFn(xx - x, yy - y)
+      }
+    }
+    Drag.prototype.styleFn = function(x,y) {
+      this.ele.style.left = x + 'px'
+      this.ele.style.top = y + 'px'
+    }
+    Drag.prototype.upFn = function () {
+      document.onmouseup = e => {
+        this.ele.onmousemove = ""
+      }
+    }
+
+
+
+    // 组合继承 Link是中介
+    // function LimitDrag(ele) {
+    //   Drag.call(this, ele) // 把Drag的属性继承下来
+    // }
+    // // 把Drag原型上的方法继承下来
+    // let Link = function(){}
+    // Link.prototype = Drag.prototype
+    // LimitDrag.prototype = new Link()
+    // LimitDrag.prototype.constructor = LimitDrag
+    // LimitDrag.prototype.styleFn = function(x,y) {
+    //   x = x < 0 ? 0: x
+    //   y = y < 0 ? 0: y
+    //   this.ele.style.left = x + 'px'
+    //   this.ele.style.top = y + 'px'
+    // }
+
+    function deepCopy(obj) {
+      let newObj = Array.isArray(obj) ? [] : {}
+      for (let i in obj) {
+        if (obj.hasOwnProperty(i)) { // hasOwnProperty判断是否是自身的属性而不是原型上的属性,这里只拷贝自身属性,不拷贝原型上的属性
+          if (typeof obj[i] === 'object' && obj[i] !== null) {
+            newObj[i] = deepCopy(obj[i])
+          } else {
+            newObj[i] = obj[i]
+          }
+        }
+      }
+      return newObj
+    }
+    // 深拷贝继承
+    function LimitDrag(ele) {
+      Drag.call(this,ele)
+    }
+    LimitDrag.prototype = deepCopy(Drag.prototype)
+    LimitDrag.prototype.constructor = LimitDrag
+    LimitDrag.prototype.styleFn = function(x,y) {
+      x = x < 0 ? 0: x
+      y = y < 0 ? 0: y
+      this.ele.style.left = x + 'px'
+      this.ele.style.top = y + 'px'
+    }
+
+
+
+
+
+
+    let drag1 = new Drag(mydiv1)
+    let drag2 = new Drag(mydiv2)
+    // let drag3 = new Drag(mydiv3)
+    let drag3 = new LimitDrag(mydiv3) // 限定不能拖出左边和上边
+
+  </script>
+</body>
+
+</html>
