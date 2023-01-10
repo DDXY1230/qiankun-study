@@ -57,6 +57,7 @@
       this.ele = ele
       this.downFn()
     }
+    Drag.number = 10 // es5静态属性的写法
     Drag.prototype.downFn = function () {
       this.ele.onmousedown = e => {
         let ev = e || window.event
