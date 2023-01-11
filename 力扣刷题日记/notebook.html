@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*   1. 任何数字左移一位就相当于乘以2  右边补零 */
+    /* 2. 任何数字.toString(2) 转化为二进制的字符串 */
+    /* 3.
+    >> 带符号右移动  左边可能是0 或者 1
+    >>> 不带符号右移 左边补充0
+    
+
+    3. 比较器 sort((a,b) => a -b)
+    如果返回负数, 认为第一个参数应该排在前面
+    如果返回正数, 认为第二个参数应该排在前面
+    如果返回0,原地不动
+    
+
+     */
+
+    let a = 5
+    console.log(a.toString(2))
+    console.log((~a).toString(2))
+    let b = ~a + 1
+    console.log(b) // a 的相反数是 b
+  </script>
+</body>
+</html>
