@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>这是一个大标题</h1>
+    <h2>这是一个小标题</h2>
+  </div>
+  <script>
+    // 检测一个网页中一共有多少个html标签
+    let tags = new Set([...document.getElementsByTagName('*')].map(v => v.tagName))
+    console.log(tags)
+  </script>
+  
+</body>
+</html>
