@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      /* height:  400px; */
+      background-color: pink;
+    }
+
+    .box::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .left {
+      float: left;
+      background: green;
+      margin-right: 20px;
+    }
+
+    .right {
+      background: blue;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  防止父元素坍塌:
+  1. 方案一: 为父元素设置 overflow:hidden 属性
+  原理: CSS中的overflow:hidden属性会强制要求父元素必须包裹住所有内部浮动的元素,以及所有元素的margin范围
+  2.方案二: 添加一个尾部元素 加一个类 clear:both
+  3.方案三: 设置父元素也浮动
+  原理:浮动属性也会强制父元素扩大到包含所有浮动的内部元素
+  4.方案四: 上面三种都不是最好的, 完美的解决方法是给父元素添加伪元素 设置clear:both
+  优点: 既不会影响显示隐藏,又不好影响查找元素,又不会产生新的浮动问题
+  ===================================================================================================
+  形成BFC区域的方式
+  1. float的值不是none
+  2. position的值不是static或者relative
+  3. display的值是inline-block/table/table-cell/flex/table-caption/inline-flex
+  4. overflow的值不是visible
+  ===================================================================================================
+  阻止上下margin塌陷的方式:
+  1. ::before{content:"", display:table} 原理:display: table会形成BFC不会受外部元素的影响
+  
+  ===================================================================================================
+  用浮动 overflow:hidden实现左边宽度固定,右边自适应
+  <div class="box">
+    <div class="left">左边</div>
+    <div class="right">右边</div>
+  </div>
+  ===================================================================================================
+   弹性布局:
+
+</body>
+
+</html>

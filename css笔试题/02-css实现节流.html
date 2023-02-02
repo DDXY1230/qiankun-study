@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .search-btn {
+      animation: throttle 2s step-end forwards;
+    }
+
+    .search-btn:active {
+      animation: none;
+    }
+
+    @keyframes throttle {
+      from {
+        color: blue; 
+        pointer-events: none;
+      }
+
+      to {
+        color: greenyellow;
+        pointer-events: all;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label for="input">
+      <input id="input" type="text">
+    </label>
+    <button class="search-btn">查询</button>
+  </div>
+</body>
+<script>
+  // css实现节流
+  let btn = document.getElementsByClassName('search-btn')[0]
+  console.log(btn)
+  btn.onclick = function(e) {
+    console.log('点击了,在执行呢')
+  }
+  // btn.addEventListener('click', function () {
+  // console.log('点击了,在执行呢')
+  // })
+</script>
+
+</html>

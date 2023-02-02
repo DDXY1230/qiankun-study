@@ -17,10 +17,13 @@ const proxyPerson = new Proxy(person,{
   }
 })
 console.log(proxyPerson.age)
+
 proxyPerson.habby = 'music'
 console.log('person==>',person)
+
 person.aaa = 'aaa'
 console.log('proxyPerson==>',proxyPerson)
+// 愿对象和代理对象发生改变,两个都会改变
 proxyPerson.boy = 'tom'
 console.log(person)
 console.log(proxyPerson)
@@ -63,3 +66,4 @@ console.log('---',proxyMan.name)
 // console.log(proxyMan.aa)
 proxyMan.bbb = 'bbb'
 console.log(proxyMan, man)
+ 
