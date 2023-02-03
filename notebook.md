@@ -12,7 +12,7 @@
 ## 搭建 vue3 子应用(如果尚未安装过 vue cli)
 
 `npm install --global @vue/cli@next`  // 全局安装vue-cli
-创建一个新项目
+创建一个新项目 创建vue3项目的方法
 `vue create qiankun-vue3-1`
 
 ## 代码提交

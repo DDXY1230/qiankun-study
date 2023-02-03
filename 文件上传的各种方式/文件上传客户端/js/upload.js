@@ -127,6 +127,8 @@ let delay = function delay(interval) {
       return;
     }
     upload_button_select.classList.add('loading');
+    console.log('===',Array.from(upload_button_select.classList).contains('select'))
+
     BASE64 = await changeBASE64(file)
     try {
       data = await instance.post('/upload_single_base64', {
