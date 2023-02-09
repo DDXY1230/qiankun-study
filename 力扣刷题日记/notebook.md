@@ -1,2 +1,13 @@
 常见的时间复杂度
 O(1) < O(logn) < O(n) < O(nlogn) < O(n**2) < O(n**3) < O(2**n) < O(n!) < O(n**n)
+
+
+位运算
+原码  反码  补码
+补码 = 反码 + 1
+
+>>>无论正负,无符号右移,高位均补0
+
+
+生成一个二维数组的方法
+     let dp = new Array(len).fill(0).map(() => new Array(2).fill(0))

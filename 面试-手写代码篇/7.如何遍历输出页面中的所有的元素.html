@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML | DOM createNodeIterator() Method
+  </title>
+</head>
+
+<body style="text-align:center;">
+  <h1 style="color:green;">
+    GeeksforGeeks
+  </h1>
+  <p>
+    HTML | DOM createNodeIterator() Method
+  </p>
+
+  <button onclick="Geeks()">
+    Click Here
+  </button>
+  <p id="a"></p>
+  <script>
+
+    const body = document.getElementsByTagName('body')[0]
+    const it = document.createNodeIterator(body)
+    let root = it.nextNode()
+    while(root) {
+      console.dir(root)
+      root = it.nextNode()
+    }
+
+
+
+    var a = document.getElementById("a");
+    function Geeks() {
+      const nodeIterator = document.createNodeIterator(
+        document.body,
+        NodeFilter.SHOW_ELEMENT
+      )
+      console.log(nodeIterator)
+
+      let nextNode = nodeIterator.nextNode();
+      nextNode = nodeIterator.nextNode();
+      a.innerHTML =
+        'Next Node content is:' + nextNode.textContent;
+      console.log(nextNode);
+    } 
+  </script>
+</body>
+
+</html>

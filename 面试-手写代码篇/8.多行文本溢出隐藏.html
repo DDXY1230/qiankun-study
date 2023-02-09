@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .content {
+      width: 100px;
+      height: 500px;
+      border: 1px solid red;
+    }
+
+    .box1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .box2 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <p class="box1"> 这是一行很长的文字,有可能会被隐藏</p>
+    <p class="box2">
+      我也看不清我也看不清自己了,不知道自己想要什么,
+      好像什么事都不能让自己开心起来.
+      而对方只会说你一点小事就要闹死闹活的.不是说好
+    </p>
+  </div>
+
+</body>
+
+</html>
