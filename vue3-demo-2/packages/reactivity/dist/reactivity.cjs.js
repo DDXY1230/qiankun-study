@@ -2,6 +2,101 @@
 
 const isObject = (value) => typeof value == 'object' && value !== null; // 判断是否是对象
 const extend = Object.assign;
+const isArray = Array.isArray;
+const isIntegerKey = key => parseInt(key) + '' === key;
+let hasOwnProperty = Object.prototype.hasOwnProperty;
+const hasOwn = (target, key) => hasOwnProperty.call(target, key);
+const hasChange = (oldValue, value) => oldValue !== value;
+
+function effect(fn, options = {}) {
+    // 目的是我需要让这个effect变成响应式的effects, 可以做到数据变化重新执行
+    const effect = createReactiveEffect(fn, options);
+    if (!options.lazy) {
+        effect(); // 响应式的effect默认会先执行一次
+    }
+    return effect;
+}
+let uid = 0;
+let activeEffect; // 存储当前的effect
+const effectStack = [];
+function createReactiveEffect(fn, options) {
+    const effect = function reactiveEffect() {
+        if (!effectStack.includes(effect)) { // 保证effect没有加入effectStack中 才能加
+            try {
+                // console.log('默认会先执行一次')
+                effectStack.push(effect);
+                activeEffect = effect;
+                return fn(); // 函数执行的时候,会走get方法
+            }
+            finally {
+                effectStack.pop();
+                activeEffect = effectStack[effectStack.length - 1];
+            }
+        }
+    };
+    effect.id = uid++; // 制作一个effect标识, 用于区分effect
+    effect._isEffect = true; // 用于标识这个是响应式effect
+    effect.raw = fn; // 保留effect对应的原函数
+    effect.options = options; // 在effect上面保存用户的属性
+    return effect;
+}
+const targetMap = new WeakMap();
+function track(target, type, key) {
+    // activeEffect // 当前的正在运行的effect
+    // console.log(target,key,activeEffect)
+    if (activeEffect === undefined) { //此属性不用收集, 因为没有在effect中使用
+        return;
+    }
+    let depsMap = targetMap.get(target);
+    if (!depsMap) {
+        targetMap.set(target, (depsMap = new Map()));
+    }
+    let dep = depsMap.get(key);
+    if (!dep) {
+        depsMap.set(key, (dep = new Set()));
+    }
+    if (!dep.has(activeEffect)) {
+        dep.add(activeEffect);
+    }
+    console.log('依赖', targetMap);
+}
+function trigger(target, type, key, newValue, oldValue) {
+    console.log('修改新增调用trigger', target, type, key, newValue, oldValue);
+    const depsMap = targetMap.get(target);
+    console.log('depsMap', depsMap);
+    if (!depsMap) {
+        return;
+    }
+    const effects = new Set();
+    const add = effectToAdd => {
+        console.log('effectToAdd', effectToAdd);
+        if (effectToAdd) {
+            effectToAdd.forEach(effect => effects.add(effect));
+        }
+    };
+    if (key == 'length' && isArray(target)) {
+        depsMap.forEach((dep, key) => {
+            console.log(depsMap, dep, key);
+            if (key === 'length' || key > newValue) {
+                add(dep);
+            }
+        });
+    }
+    else {
+        // 可能是对象
+        if (key !== undefined) { // 这里是修改,不能还是新增
+            add(depsMap.get(key)); // 
+        }
+        // 如果修改数组中的某一个索引
+        switch (type) {
+            case 0 /* TriggerOrTypes.ADD */:
+                if (isArray(target) && isIntegerKey(key)) {
+                    add(depsMap.get('length'));
+                }
+        }
+    }
+    effects.forEach((effect) => effect());
+}
 
 // 只读的属性set会被报异常
 // 是不是深度
@@ -14,6 +109,11 @@ const shallowSet = createSetter(true);
 function createGetter(isReadonly = false, shallow = false) {
     return function get(target, key, receiver) {
         const res = Reflect.get(target, key, receiver); // target[key]
+        if (!isReadonly) {
+            // 不是只读, 收集依赖,等会数据变化后更新对应的视图
+            console.log('取值, 收集依赖');
+            track(target, 0 /* TrackOpTypes.GET */, key);
+        }
         if (shallow) {
             return res;
         }
@@ -25,13 +125,29 @@ function createGetter(isReadonly = false, shallow = false) {
 }
 function createSetter(shallow = false) {
     return function set(target, key, value, receiver) {
+        console.log('设置', target, key, value, receiver);
+        const oldValue = target[key];
+        console.log('oldValue', oldValue);
+        let hasKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target, key);
+        if (!hasKey) {
+            // 新增
+            console.log('新增');
+            trigger(target, 0 /* TriggerOrTypes.ADD */, key, value);
+        }
+        else if (hasChange(oldValue, value)) {
+            // 修改
+            console.log('修改');
+            trigger(target, 1 /* TriggerOrTypes.SET */, key, value, oldValue);
+        }
         const result = Reflect.set(target, key, value, receiver); // target[key] = value
+        // 当数据更新 通知对应属性的effect重新执行
+        // 我们区分是新增的 还是修改的 vue2里面无法监控索引更改, 无法控制数组的长度
         return result;
     };
 }
 let readonlyObj = {
     set: (target, key) => {
-        console.log(`set on key ${key} falied, beacause key is readonly attr`);
+        console.error(`set on key ${key} falied, beacause key is readonly attr`);
     }
 };
 const mutableHandlers = {
@@ -81,6 +197,7 @@ function createReactiveObject(target, isReadonly, baseHandlers, isShallow) {
     return proxy;
 }
 
+exports.effect = effect;
 exports.reactive = reactive;
 exports.readonly = readonly;
 exports.shallowReactive = shallowReactive;
