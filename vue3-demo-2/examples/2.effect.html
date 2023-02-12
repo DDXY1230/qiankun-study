@@ -14,13 +14,20 @@
   <script>
     let { effect, reactive } = VueReactivity;
     let state = reactive({name: 'dogmini', age:12,other: 'xxxx', arr: [1,2]})
+    let n = 1
     effect(() => {
       app.innerHTML = 'this is a good bag' + state.name + '-' + state.arr.length;
+      console.log('========>',state)
+      console.log('执行effect',n)
     });
     
     setTimeout(() => {
-      state.arr[4] = 100
-    });
+      n++
+      state.name = '美丽新世界'
+    }, 2000);
+    setTimeout(() => {
+      console.log(state)
+    }, 4000)
 
   </script>
 </body>

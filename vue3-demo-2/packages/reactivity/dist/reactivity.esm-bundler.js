@@ -24,6 +24,7 @@ function createReactiveEffect(fn, options) {
                 // console.log('默认会先执行一次')
                 effectStack.push(effect);
                 activeEffect = effect;
+                console.log('================>', fn);
                 return fn(); // 函数执行的时候,会走get方法
             }
             finally {
@@ -83,6 +84,8 @@ function trigger(target, type, key, newValue, oldValue) {
     else {
         // 可能是对象
         if (key !== undefined) { // 这里是修改,不能还是新增
+            console.log('-------------key', key);
+            console.log('-------------key', depsMap.get(key));
             add(depsMap.get(key)); // 
         }
         // 如果修改数组中的某一个索引
@@ -93,6 +96,7 @@ function trigger(target, type, key, newValue, oldValue) {
                 }
         }
     }
+    console.log('====================>', effects);
     effects.forEach((effect) => effect());
 }
 
@@ -127,6 +131,7 @@ function createSetter(shallow = false) {
         const oldValue = target[key];
         console.log('oldValue', oldValue);
         let hasKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target, key);
+        const result = Reflect.set(target, key, value, receiver); // target[key] = value
         if (!hasKey) {
             // 新增
             console.log('新增');
@@ -137,7 +142,6 @@ function createSetter(shallow = false) {
             console.log('修改');
             trigger(target, 1 /* TriggerOrTypes.SET */, key, value, oldValue);
         }
-        const result = Reflect.set(target, key, value, receiver); // target[key] = value
         // 当数据更新 通知对应属性的effect重新执行
         // 我们区分是新增的 还是修改的 vue2里面无法监控索引更改, 无法控制数组的长度
         return result;

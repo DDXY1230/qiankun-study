@@ -38,6 +38,11 @@ function createSetter(shallow = false) { // 拦截设置功能
     const oldValue = target[key]
     console.log('oldValue', oldValue)
     let hasKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target,key)
+
+
+    
+    const result = Reflect.set(target, key, value, receiver) // target[key] = value
+
     if(!hasKey) {
       // 新增
       console.log('新增')
@@ -48,7 +53,6 @@ function createSetter(shallow = false) { // 拦截设置功能
       trigger(target, TriggerOrTypes.SET, key, value, oldValue)
     }
 
-    const result = Reflect.set(target, key, value, receiver) // target[key] = value
     // 当数据更新 通知对应属性的effect重新执行
     // 我们区分是新增的 还是修改的 vue2里面无法监控索引更改, 无法控制数组的长度
 
