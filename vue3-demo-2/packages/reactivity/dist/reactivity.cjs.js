@@ -201,9 +201,39 @@ function createReactiveObject(target, isReadonly, baseHandlers, isShallow) {
     return proxy;
 }
 
+function ref(value) {
+    // value是一个普通类型
+    return createRef(value);
+}
+function shallowRef(value) {
+    return createRef(value, true);
+}
+function createRef(rawValue, shallow = false) {
+    // rawValue也可以是对象,但是一般情况对象直接使用reactive更合理
+    return new RefImpl(rawValue, shallow);
+}
+class RefImpl {
+    rawValue;
+    shallow;
+    _value; // 表示声明了_value属性, 但是没有赋值
+    __v_isRef; // 表示是一个ref属性
+    constructor(rawValue, shallow) {
+        this.rawValue = rawValue;
+        this.shallow = shallow;
+        this._value;
+    }
+}
+/*
+ref 和 reactive 的区别:
+reactive内部采用的是proxy
+ref内部使用的是defineProperty
+ */
+
 exports.effect = effect;
 exports.reactive = reactive;
 exports.readonly = readonly;
+exports.ref = ref;
 exports.shallowReactive = shallowReactive;
 exports.shallowReadonly = shallowReadonly;
+exports.shallowRef = shallowRef;
 //# sourceMappingURL=reactivity.cjs.js.map
