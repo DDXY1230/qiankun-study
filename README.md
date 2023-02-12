@@ -1,4 +1,7 @@
 # qiankun-study 
+
+## 笔记全部在notebook分支
+
 2022年
 1. 安装n个字应用
 `yarn create react-app qiankun-base --template typescript`

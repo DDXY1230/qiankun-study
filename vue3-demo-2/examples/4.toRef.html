@@ -12,15 +12,17 @@
   <div id="app"></div>
   <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
   <script>
-    let { effect, reactive, ref, toRef } = VueReactivity;
-    let state = reactive({name: 'dogmini', age:12,other: 'xxxx', arr: [1,2]})
-    let n = 1
-    let name = ref('张三')
-    console.log(name)
-
-    let className =  {level: 'second'}
-    let classNameRef = toRef(className)
-
+    let { effect, reactive, ref, toRef,toRefs } = VueReactivity;
+    let proxy = reactive({name: 'zzzfh', color: 'red'})
+    // let r = toRef(proxy, 'name')
+    // console.log(r)
+    let newO = toRefs(proxy)
+    effect(() => {
+      app.innerHTML = newO.name.value + '========>' + newO.color.value
+    })
+    setTimeout(() => {
+      proxy.name = '奥利给'
+    }, 3000)
   </script>
 </body>
 
