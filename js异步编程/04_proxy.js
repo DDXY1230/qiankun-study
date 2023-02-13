@@ -20,8 +20,11 @@ console.log(proxyPerson.age)
 
 proxyPerson.habby = 'music'
 console.log('person==>',person)
+console.log('proxyPerson==>',proxyPerson)
+
 
 person.aaa = 'aaa'
+console.log('person==>',person)
 console.log('proxyPerson==>',proxyPerson)
 // 愿对象和代理对象发生改变,两个都会改变
 proxyPerson.boy = 'tom'
