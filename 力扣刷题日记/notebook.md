@@ -11,3 +11,5 @@ O(1) < O(logn) < O(n) < O(nlogn) < O(n**2) < O(n**3) < O(2**n) < O(n!) < O(n**n)
 
 生成一个二维数组的方法
      let dp = new Array(len).fill(0).map(() => new Array(2).fill(0))
+
+完全二叉树: 全部遍满或者最下面的一排从左往右遍历好就是完全二叉树

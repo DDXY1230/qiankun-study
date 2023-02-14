@@ -16,9 +16,10 @@ const proxyPerson = new Proxy(person,{
     target[property] = newValue
   }
 })
-console.log(proxyPerson.age)
+console.log(person.age) // 直接获取18
+console.log(proxyPerson.age) // 会走get函数
 
-proxyPerson.habby = 'music'
+person.habby = 'music222' // 给原对象和代理对象加属性,两个上面都会被添加
 console.log('person==>',person)
 console.log('proxyPerson==>',proxyPerson)
 
