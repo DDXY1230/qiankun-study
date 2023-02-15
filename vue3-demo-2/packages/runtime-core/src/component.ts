@@ -1,4 +1,5 @@
 import { ShapeFlags } from '@vue/shared';
+import { PublicInstanceProxyHandlers } from './componentPublicInstance'
 export const createComponentInstance = function (vnode) {
   const instance = {// 组件实例
     vnode,
@@ -21,7 +22,7 @@ export const setupComponent = function (instance) {
     instance.children = children // 插槽的解析
     // 需要先看一下,当前组件是不是有状态的组件
     console.log('instance',instance)
-    let isStateful = instance.vnode.ShapeFlag & ShapeFlags.STATEFUL_COMPONENT
+    let isStateful = instance.vnode.shapeFlag & ShapeFlags.STATEFUL_COMPONENT
     console.log('isStateful', isStateful)
     if(isStateful) {
       // 一个带状态的组件
@@ -31,12 +32,14 @@ export const setupComponent = function (instance) {
 }
 function setupStatefulComponent(instance) {
   // 1.代理 传递给render函数的参数
-
+  instance.proxy = new Proxy(instance.ctx,PublicInstanceProxyHandlers as any)
   // 2.获取组件的类型
   let Component = instance.type 
   let {setup} = Component 
   let setupContext = createContext(instance)
-  setup(instance.props,setupContext)
+  setup(instance.props,setupContext)// instance中props attrs slots emit
+  // expose会被提取出来 因为在开发中会使用
+  Component.render(instance.proxy)
 }
 function createContext(instance) {
   return {

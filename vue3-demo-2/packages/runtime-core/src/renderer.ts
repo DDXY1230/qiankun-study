@@ -27,10 +27,10 @@ export function createRenderer(rendererOption) {// 告诉core  怎么渲染
   }
   const patch = (n1, n2, container) => {
     // 针对不同类型做初始化操作
-    const { ShapeFlag } = n2;
-    if (ShapeFlag & ShapeFlags.ELEMENT) {
+    const { shapeFlag } = n2;
+    if (shapeFlag & ShapeFlags.ELEMENT) {
       console.log('n2是元素')
-    } else if (ShapeFlag & ShapeFlags.STATEFUL_COMPONENT) {
+    } else if (shapeFlag & ShapeFlags.STATEFUL_COMPONENT) {
       console.log('n2是一个组件')
       processComponent(n1, n2, container)
     }

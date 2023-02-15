@@ -4,7 +4,7 @@ export function createVNode(type, props,children = null) {
   // 可以根据type来区分组件还是普通元素
 
   // 根据type来区分 是元素还是组件
-  const ShapeFlag = isString(type) ? 
+  const shapeFlag = isString(type) ? 
   ShapeFlags.ELEMENT : isObject(type) ? 
   ShapeFlags.STATEFUL_COMPONENT : 0
   const vnode = {
@@ -15,7 +15,7 @@ export function createVNode(type, props,children = null) {
     component: null,
     el: null,
     key: props && props.key,
-    ShapeFlag
+    shapeFlag
   }
   normalizeChildren(vnode,children)
   return vnode
@@ -29,5 +29,5 @@ function normalizeChildren(vnode, children) {
   }else {
     type = ShapeFlags.TEXT_CHILDREN
   }
-  vnode.ShapeFlags |= type // 判断自己的类型和儿子的类型
+  vnode.shapeFlag |= type // 判断自己的类型和儿子的类型
 }

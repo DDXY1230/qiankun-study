@@ -1,11 +1,13 @@
 const isObject = (value) => typeof value == 'object' && value !== null; // 判断是否是对象
 const isArray = Array.isArray;
 const isString = value => typeof value == 'string';
+let hasOwnProperty = Object.prototype.hasOwnProperty;
+const hasOwn = (target, key) => hasOwnProperty.call(target, key);
 
 function createVNode(type, props, children = null) {
     // 可以根据type来区分组件还是普通元素
     // 根据type来区分 是元素还是组件
-    const ShapeFlag = isString(type) ?
+    const shapeFlag = isString(type) ?
         1 /* ShapeFlags.ELEMENT */ : isObject(type) ?
         4 /* ShapeFlags.STATEFUL_COMPONENT */ : 0;
     const vnode = {
@@ -16,7 +18,7 @@ function createVNode(type, props, children = null) {
         component: null,
         el: null,
         key: props && props.key,
-        ShapeFlag
+        shapeFlag
     };
     normalizeChildren(vnode, children);
     return vnode;
@@ -30,7 +32,7 @@ function normalizeChildren(vnode, children) {
     else {
         type = 8 /* ShapeFlags.TEXT_CHILDREN */;
     }
-    vnode.ShapeFlags |= type; // 判断自己的类型和儿子的类型
+    vnode.shapeFlag |= type; // 判断自己的类型和儿子的类型
 }
 
 function createAppAPI(render) {
@@ -56,6 +58,28 @@ function createAppAPI(render) {
     };
 }
 
+const PublicInstanceProxyHandlers = {
+    get({ _: instance }, key) {
+        console.log('render里面的proxy取值');
+        const { setupState, props, data } = instance;
+        if (hasOwn(setupState, key)) {
+            return setupState[key];
+        }
+        else if (hasOwn(props, key)) {
+            return props[key];
+        }
+        else if (hasOwn(data, key)) {
+            return data[key];
+        }
+        else {
+            return undefined;
+        }
+    },
+    set({ _: instance }, key, value) {
+        console.log('render里面的proxy设置值');
+    }
+};
+
 const createComponentInstance = function (vnode) {
     const instance = {
         vnode,
@@ -78,7 +102,7 @@ const setupComponent = function (instance) {
     instance.children = children; // 插槽的解析
     // 需要先看一下,当前组件是不是有状态的组件
     console.log('instance', instance);
-    let isStateful = instance.vnode.ShapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */;
+    let isStateful = instance.vnode.shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */;
     console.log('isStateful', isStateful);
     if (isStateful) {
         // 一个带状态的组件
@@ -88,10 +112,23 @@ const setupComponent = function (instance) {
 };
 function setupStatefulComponent(instance) {
     // 1.代理 传递给render函数的参数
+    instance.proxy = new Proxy(instance.ctx, PublicInstanceProxyHandlers);
     // 2.获取组件的类型
     let Component = instance.type;
     let { setup } = Component;
-    setup();
+    let setupContext = createContext(instance);
+    setup(instance.props, setupContext); // instance中props attrs slots emit
+    // expose会被提取出来 因为在开发中会使用
+    Component.render(instance.proxy);
+}
+function createContext(instance) {
+    return {
+        attrs: instance.attrs,
+        props: instance.props,
+        slots: instance.slots,
+        emit: () => { },
+        expose: () => { }
+    };
 }
 
 function createRenderer(rendererOption) {
@@ -110,11 +147,11 @@ function createRenderer(rendererOption) {
     };
     const patch = (n1, n2, container) => {
         // 针对不同类型做初始化操作
-        const { ShapeFlag } = n2;
-        if (ShapeFlag & 1 /* ShapeFlags.ELEMENT */) {
+        const { shapeFlag } = n2;
+        if (shapeFlag & 1 /* ShapeFlags.ELEMENT */) {
             console.log('n2是元素');
         }
-        else if (ShapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */) {
+        else if (shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */) {
             console.log('n2是一个组件');
             processComponent(n1, n2, container);
         }

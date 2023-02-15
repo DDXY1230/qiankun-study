@@ -15,7 +15,8 @@
       setup() {
         console.log('setup跑通了')
       },
-      render() {
+      render(proxy) {
+        console.log('render函数里面的proxy',proxy.name,proxy.age)
         console.log('render')
       }
     }
