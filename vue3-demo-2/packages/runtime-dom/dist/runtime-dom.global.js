@@ -111,9 +111,37 @@ var VueRuntimeDom = (function (exports) {
       }
   };
 
-  const renderOption = extend({ patchProp }, nodeOps);
+  function createRenderer(rendererOption) {
+      return {
+          createApp(rootComponent, rootProps) {
+              const app = {
+                  mount(container) {
+                      console.log('渲染的参数', container, rootComponent, rootProps, rendererOption);
+                  }
+              };
+              return app;
+          }
+      };
+  }
 
-  exports.renderOption = renderOption;
+  const rendererOption = extend({ patchProp }, nodeOps);
+  function createApp(rootComponent, rootProps = null) {
+      const app = createRenderer(rendererOption).createApp(rootComponent, rootProps);
+      let { mount } = app;
+      app.mount = function (container) {
+          // 清空容器的操作
+          container = nodeOps.querySelector(container);
+          container.innerHTML = '';
+          // 将组建渲染成dom元素 进行挂载
+          mount(container);
+      };
+      return app;
+  }
+  // export {
+  //   rendererOption
+  // }
+
+  exports.createApp = createApp;
 
   return exports;
 

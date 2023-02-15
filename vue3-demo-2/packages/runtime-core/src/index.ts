@@ -1,1 +1,1 @@
-console.log(111)
+export { createRenderer } from './renderer'
