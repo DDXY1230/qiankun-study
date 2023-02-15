@@ -12,6 +12,9 @@
   <script>
     let { createApp } = VueRuntimeDom
     let App = {
+      setup() {
+        console.log('setup跑通了')
+      },
       render() {
         console.log('render')
       }
