@@ -9,3 +9,7 @@
 
 
 rm -rf node_modules 删除当前目录下的node_modules
+
+
+## 看vue3源码
+vue3源码尽量用yarn安装依赖,不然可能会有一些怪异的错误

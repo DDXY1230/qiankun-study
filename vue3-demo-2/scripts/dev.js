@@ -8,7 +8,7 @@ const execa = require('execa') // 开启子进程 进行打包  最终使用roll
 //   }
 //   return false // 忽略文件
 // })
-const target = ['reactivity'] // 开发环境手动置需要打包的文件
+const targets = ['runtime-dom', 'runtime-core'] // 开发环境手动置需要打包的文件
 // 对我们目标进行依次打包,并行打包
 async function build(target) {
   console.log('当前打包的文件是==>',target)

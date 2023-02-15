@@ -12,17 +12,16 @@
   <div id="app"></div>
   <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
   <script>
-    let { effect, reactive, ref, toRef,toRefs } = VueReactivity;
-    let proxy = reactive({name: 'zzzfh', color: 'red'})
-    // let r = toRef(proxy, 'name')
-    // console.log(r)
-    let newO = toRefs(proxy)
-    effect(() => {
-      app.innerHTML = newO.name.value + '========>' + newO.color.value
+    let { effect, reactive, ref, toRef,toRefs,computed } = VueReactivity;
+    const age = ref(18)
+    const myAge = computed(() => {
+      console.log(111)
+      return age.value + 10
     })
-    setTimeout(() => {
-      proxy.name = '奥利给'
-    }, 3000);
+    console.log(myAge.value)
+    console.log(myAge.value)
+    age.value = 100;
+    console.log(myAge.value)
   </script>
 </body>
 

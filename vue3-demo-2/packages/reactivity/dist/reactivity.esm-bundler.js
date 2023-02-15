@@ -1,6 +1,7 @@
 const isObject = (value) => typeof value == 'object' && value !== null; // 判断是否是对象
 const extend = Object.assign;
 const isArray = Array.isArray;
+const isFunction = value => typeof value == 'function';
 const isIntegerKey = key => parseInt(key) + '' === key;
 let hasOwnProperty = Object.prototype.hasOwnProperty;
 const hasOwn = (target, key) => hasOwnProperty.call(target, key);
@@ -266,5 +267,54 @@ reactive内部采用的是proxy
 ref内部使用的是defineProperty
  */
 
-export { effect, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRef, toRefs };
+// vue2  vue3原理不一样
+class ComputedRefImpl {
+    getter;
+    setter;
+    _dirty = true; // 默认取值时不要有缓存
+    _value;
+    effect;
+    constructor(getter, setter) {
+        this.getter = getter;
+        this.setter = setter;
+        // 计算属性默认会产生一个effect
+        this.effect = effect(getter, {
+            lazy: true,
+            scheduler: () => {
+                if (!this._dirty) {
+                    this._dirty = true;
+                    trigger(this, 1 /* TriggerOrTypes.SET */, 'value');
+                }
+            }
+        });
+    }
+    get value() {
+        if (this._dirty) {
+            this._value = this.effect();
+            this._dirty = false;
+        }
+        track(this, 0 /* TrackOpTypes.GET */, 'value');
+        return this._value;
+    }
+    set value(newValue) {
+        this.setter(newValue);
+    }
+}
+function computed(getterOrOptions) {
+    let getter;
+    let setter;
+    if (isFunction(getterOrOptions)) {
+        getter = getterOrOptions;
+        setter = () => {
+            console.warn('computed value must be readonly!');
+        };
+    }
+    else {
+        getter = getterOrOptions.get;
+        setter = getterOrOptions.set;
+    }
+    return new ComputedRefImpl(getter, setter);
+}
+
+export { computed, effect, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRef, toRefs };
 //# sourceMappingURL=reactivity.esm-bundler.js.map
