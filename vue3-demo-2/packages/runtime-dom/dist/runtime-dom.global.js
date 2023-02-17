@@ -28,7 +28,8 @@ var VueRuntimeDom = (function (exports) {
       setElementText: (el, text) => el.textContent = text,
       //文本操作 
       createText: text => document.createTextNode(text),
-      setText: (node, text) => node.nodeValue = text
+      setText: (node, text) => node.nodeValue = text,
+      nextSibling: (node) => node.nextSibling
   };
 
   const patchStyle = (el, prev, next) => {
@@ -372,7 +373,14 @@ var VueRuntimeDom = (function (exports) {
           }
       }
       console.log('====================>', effects);
-      effects.forEach((effect) => effect());
+      effects.forEach((effect) => {
+          if (effect.options.scheduler) {
+              effect.options.scheduler(effect);
+          }
+          else {
+              effect();
+          }
+      });
   }
 
   // 只读的属性set会被报异常
@@ -617,26 +625,34 @@ var VueRuntimeDom = (function (exports) {
   }
 
   function createRenderer(rendererOption) {
-      const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, } = rendererOption;
+      const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, nextSibling: hostNextSibling } = rendererOption;
       const setupRenderEffect = (instance, container) => {
           effect(function componentEffect() {
               // 每个组件都有一个effect vue3是组件级别更新, 数据变化重新执行对应组件的effect
               if (!instance.isMounted) {
                   let proxyToUse = instance.proxy;
-                  let subtree = instance.subtree = instance.render.call(proxyToUse, proxyToUse);
-                  patch(null, subtree, container);
+                  let subTree = instance.subTree = instance.render.call(proxyToUse, proxyToUse);
+                  patch(null, subTree, container);
                   instance.isMounted = true;
               }
               else {
-                  // 更新逻辑
+                  // 更新逻辑  
                   console.log('走到更新逻辑里面来了');
+                  // diff 算法
+                  // 组件库
+                  // 更新逻辑
+                  const prevTree = instance.subTree;
+                  let proxyToUse = instance.proxy;
+                  const nextTree = instance.render.call(proxyToUse, proxyToUse);
+                  // console.log('两棵树', prevTree,nextTree)
+                  patch(prevTree, nextTree, container);
               }
           }, {
               scheduler: queueJob
           });
       };
       const mountComponent = (initialVnode, container) => {
-          console.log('初始化', initialVnode, container);
+          // console.log('初始化', initialVnode, container)
           // 组件的渲染流程 最核心的是调用setup 拿到返回值,获取render函数返回的结果进行渲染
           // 1.先有实例
           const instance = (initialVnode.component = createComponentInstance(initialVnode));
@@ -650,12 +666,39 @@ var VueRuntimeDom = (function (exports) {
               mountComponent(n2, container);
           }
       };
-      const processElement = (n1, n2, container) => {
+      const processElement = (n1, n2, container, anchor) => {
           // 
           if (n1 == null) {
               //元素初始化
-              mountElement(n2, container);
+              mountElement(n2, container, anchor);
           }
+          else {
+              // 元素更新
+              patchElement(n1, n2);
+          }
+      };
+      const patchProp = (oldProps, newProps, el) => {
+          if (oldProps !== newProps) {
+              for (let key in newProps) {
+                  const prev = oldProps[key];
+                  const next = newProps[key];
+                  if (prev !== next) {
+                      hostPatchProp(el, key, prev, next);
+                  }
+              }
+              for (let key in oldProps) {
+                  if (!(key in newProps)) {
+                      hostPatchProp(el, key, oldProps[key], null);
+                  }
+              }
+          }
+      };
+      const patchElement = (n1, n2, container) => {
+          // 元素是相同节点 更新属性 更新儿子
+          let el = (n2.el = n1.el);
+          const oldProps = n1.props || {};
+          const newProps = n2.props || {};
+          patchProp(oldProps, newProps, el);
       };
       const mountChildren = (children, container) => {
           for (let i = 0; i < children.length; i++) {
@@ -663,7 +706,7 @@ var VueRuntimeDom = (function (exports) {
               patch(null, child, container);
           }
       };
-      const mountElement = (vnode, container) => {
+      const mountElement = (vnode, container, anchor) => {
           // 递归渲染
           const { props, shapeFlag, type, children } = vnode;
           let el = (vnode.el = hostCreateElement(type));
@@ -678,7 +721,7 @@ var VueRuntimeDom = (function (exports) {
           else if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
               mountChildren(children, el);
           }
-          hostInsert(el, container);
+          hostInsert(el, container, anchor);
       };
       // 《-------------------处理文本-------------
       const processText = (n1, n2, container) => {
@@ -687,9 +730,25 @@ var VueRuntimeDom = (function (exports) {
           }
       };
       // -------------------处理文本-------------》
-      const patch = (n1, n2, container) => {
+      const isSameVNodeType = (n1, n2) => {
+          return n1.type === n2.type && n1.key === n2.key;
+      };
+      const unmount = (n1) => {
+          console.log(n1);
+          hostRemove(n1.el);
+      };
+      const patch = (n1, n2, container, anchor = null) => {
+          console.log("====>", n1, n2);
           // 针对不同类型做初始化操作
           const { shapeFlag, type } = n2;
+          // 判断有必要比较吗
+          if (n1 && !isSameVNodeType(n1, n2)) {
+              // 把以前的删除 换成n2
+              console.log('===n1', n1);
+              anchor = hostNextSibling(n1);
+              unmount(n1);
+              n1 = null;
+          }
           switch (type) {
               case Text:
                   processText(n1, n2, container);
@@ -697,7 +756,7 @@ var VueRuntimeDom = (function (exports) {
               default:
                   if (shapeFlag & 1 /* ShapeFlags.ELEMENT */) {
                       // console.log('n2是元素')
-                      processElement(n1, n2, container);
+                      processElement(n1, n2, container, anchor);
                   }
                   else if (shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */) {
                       // console.log('n2是一个组件')

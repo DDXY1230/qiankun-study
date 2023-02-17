@@ -18,7 +18,7 @@ function createReactiveEffect(fn, options) {
         // console.log('默认会先执行一次')
         effectStack.push(effect)
         activeEffect = effect
-        console.log('================>',fn)
+        console.log('================>', fn)
         return fn()// 函数执行的时候,会走get方法
       } finally {
         effectStack.pop()
@@ -76,8 +76,8 @@ export function trigger(target, type, key?, newValue?, oldValue?) {
   } else {
     // 可能是对象
     if (key !== undefined) {// 这里是修改,不能还是新增
-    console.log('-------------key', key)
-    console.log('-------------key', depsMap.get(key))
+      console.log('-------------key', key)
+      console.log('-------------key', depsMap.get(key))
       add(depsMap.get(key)) // 
     }
     // 如果修改数组中的某一个索引
@@ -89,5 +89,11 @@ export function trigger(target, type, key?, newValue?, oldValue?) {
     }
   }
   console.log('====================>', effects)
-  effects.forEach((effect: any) => effect())
-}
+  effects.forEach((effect: any) => {
+    if (effect.options.scheduler) {
+      effect.options.scheduler(effect)
+    } else {
+      effect()
+    }
+  })
+}  
