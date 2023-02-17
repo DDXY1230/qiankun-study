@@ -378,9 +378,11 @@ var VueRuntimeDom = (function (exports) {
   // 只读的属性set会被报异常
   // 是不是深度
   const get = createGetter();
+  const shallowGet = createGetter(false, true);
   const readonlyGet = createGetter(true);
   const shallowReadonlyGet = createGetter(true, true);
   const set = createSetter(false);
+  const shallowSet = createSetter(true);
   function createGetter(isReadonly = false, shallow = false) {
       return function get(target, key, receiver) {
           const res = Reflect.get(target, key, receiver); // target[key]
@@ -429,18 +431,28 @@ var VueRuntimeDom = (function (exports) {
       get,
       set
   };
+  const shallowReactiveHandlers = {
+      get: shallowGet,
+      set: shallowSet
+  };
   const readonlyHandlers = extend({
       get: readonlyGet,
   }, readonlyObj);
-  extend({
+  const shallowReadonlyHandlers = extend({
       get: shallowReadonlyGet,
   }, readonlyObj);
 
   function reactive(target) {
       return createReactiveObject(target, false, mutableHandlers);
   }
+  function shallowReactive(target) {
+      return createReactiveObject(target, false, shallowReactiveHandlers);
+  }
   function readonly(target) {
       return createReactiveObject(target, true, readonlyHandlers);
+  }
+  function shallowReadonly(target) {
+      return createReactiveObject(target, true, shallowReadonlyHandlers);
   }
   // 是不是只读   是不是深度
   const reactiveMap = new WeakMap(); // WeakMap 会自动垃圾回收, 不会造成内存泄漏,存储的key必须是对象
@@ -462,6 +474,148 @@ var VueRuntimeDom = (function (exports) {
       return proxy;
   }
 
+  function ref(value) {
+      // value是一个普通类型
+      return createRef(value);
+  }
+  function shallowRef(value) {
+      return createRef(value, true);
+  }
+  function createRef(rawValue, shallow = false) {
+      // rawValue也可以是对象,但是一般情况对象直接使用reactive更合理
+      return new RefImpl(rawValue, shallow);
+  }
+  class RefImpl {
+      rawValue;
+      shallow;
+      _value; // 表示声明了_value属性, 但是没有赋值
+      __v_isRef = true; // 表示是一个ref属性
+      constructor(rawValue, shallow) {
+          this.rawValue = rawValue;
+          this.shallow = shallow;
+          this._value = shallow ? rawValue : convert(rawValue);
+      }
+      // 类的属性访问器
+      get value() {
+          track(this, 0 /* TrackOpTypes.GET */, 'value');
+          return this._value;
+      }
+      set value(newValue) {
+          if (hasChange(newValue, this.rawValue)) {
+              // 判断老值和新值是否有变化
+              this.rawValue = newValue;
+              this._value = this.shallow ? newValue : convert(newValue);
+              trigger(this, 1 /* TriggerOrTypes.SET */, 'value', newValue);
+          }
+      }
+  }
+  const convert = val => isObject(val) ? reactive(val) : val;
+  function toRef(target, key) {
+      return new ObjectRefImp(target, key);
+  }
+  function toRefs(object) {
+      const ret = isArray(object) ? new Array(object.length) : {};
+      for (let key in object) {
+          ret[key] = toRef(object, key);
+      }
+      return ret;
+  }
+  class ObjectRefImp {
+      target;
+      key;
+      __v_isRef = true;
+      constructor(target, key) {
+          this.target = target;
+          this.key = key;
+      }
+      get value() {
+          return this.target[this.key];
+      }
+      set value(newValue) {
+          this.target[this.key] = newValue;
+      }
+  }
+  /*
+  ref 和 reactive 的区别:
+  reactive内部采用的是proxy
+  ref内部使用的是defineProperty
+   */
+
+  // vue2  vue3原理不一样
+  class ComputedRefImpl {
+      getter;
+      setter;
+      _dirty = true; // 默认取值时不要有缓存
+      _value;
+      effect;
+      constructor(getter, setter) {
+          this.getter = getter;
+          this.setter = setter;
+          // 计算属性默认会产生一个effect
+          this.effect = effect(getter, {
+              lazy: true,
+              scheduler: () => {
+                  if (!this._dirty) {
+                      this._dirty = true;
+                      trigger(this, 1 /* TriggerOrTypes.SET */, 'value');
+                  }
+              }
+          });
+      }
+      get value() {
+          if (this._dirty) {
+              this._value = this.effect();
+              this._dirty = false;
+          }
+          track(this, 0 /* TrackOpTypes.GET */, 'value');
+          return this._value;
+      }
+      set value(newValue) {
+          this.setter(newValue);
+      }
+  }
+  function computed(getterOrOptions) {
+      let getter;
+      let setter;
+      if (isFunction(getterOrOptions)) {
+          getter = getterOrOptions;
+          setter = () => {
+              console.warn('computed value must be readonly!');
+          };
+      }
+      else {
+          getter = getterOrOptions.get;
+          setter = getterOrOptions.set;
+      }
+      return new ComputedRefImpl(getter, setter);
+  }
+
+  const queue = [];
+  function queueJob(job) {
+      if (!queue.includes(job)) {
+          queue.push(job);
+          queueFlush();
+      }
+  }
+  let isFlushPending = false;
+  function queueFlush() {
+      if (!isFlushPending) { // 不是正在刷新
+          isFlushPending = true;
+          Promise.resolve().then(flushJobs);
+      }
+  }
+  function flushJobs() {
+      isFlushPending = false;
+      // 清空时需要根据顺序依次刷新
+      // 父组件的序号肯定小一些
+      queue.sort((a, b) => a.id - b.id);
+      for (let i = 0; i < queue.length; i++) {
+          const job = queue[i];
+          job();
+      }
+      queue.length = 0;
+  }
+
   function createRenderer(rendererOption) {
       const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, } = rendererOption;
       const setupRenderEffect = (instance, container) => {
@@ -473,6 +627,12 @@ var VueRuntimeDom = (function (exports) {
                   patch(null, subtree, container);
                   instance.isMounted = true;
               }
+              else {
+                  // 更新逻辑
+                  console.log('走到更新逻辑里面来了');
+              }
+          }, {
+              scheduler: queueJob
           });
       };
       const mountComponent = (initialVnode, container) => {
@@ -601,9 +761,19 @@ var VueRuntimeDom = (function (exports) {
   //   rendererOption
   // }
 
+  exports.computed = computed;
   exports.createApp = createApp;
   exports.createRenderer = createRenderer;
+  exports.effect = effect;
   exports.h = h;
+  exports.reactive = reactive;
+  exports.readonly = readonly;
+  exports.ref = ref;
+  exports.shallowReactive = shallowReactive;
+  exports.shallowReadonly = shallowReadonly;
+  exports.shallowRef = shallowRef;
+  exports.toRef = toRef;
+  exports.toRefs = toRefs;
 
   return exports;
 

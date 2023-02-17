@@ -3,6 +3,7 @@ import { ShapeFlags, isObject } from "@vue/shared"
 import { createComponentInstance, setupComponent } from './component'
 import { effect } from "@vue/reactivity"
 import { Text, normalizeVNode } from "./vnode"
+import { queueJob } from "./scheduler"
 
 
 export function createRenderer(rendererOption) {// 告诉core  怎么渲染
@@ -27,7 +28,10 @@ export function createRenderer(rendererOption) {// 告诉core  怎么渲染
         instance.isMounted = true
       } else {
         // 更新逻辑
+        console.log('走到更新逻辑里面来了')
       }
+    }, {
+      scheduler: queueJob
     })
   }
   const mountComponent = (initialVnode, container) => {// 挂载组件
@@ -84,6 +88,8 @@ export function createRenderer(rendererOption) {// 告诉core  怎么渲染
   const processText = (n1,n2,container) => {
     if(n1 == null) {
       hostInsert(hostCreateText(n2.children), container)
+    }else {
+      // 元素更新
     }
   }
   
