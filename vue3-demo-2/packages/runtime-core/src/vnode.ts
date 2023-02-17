@@ -1,5 +1,7 @@
 import { ShapeFlags,isString,isObject,isArray } from "@vue/shared"
-
+export function isVnode(vnode) {
+  return vnode.__v_isVnode
+}
 export function createVNode(type, props,children = null) {
   // 可以根据type来区分组件还是普通元素
 
@@ -30,4 +32,10 @@ function normalizeChildren(vnode, children) {
     type = ShapeFlags.TEXT_CHILDREN
   }
   vnode.shapeFlag |= type // 判断自己的类型和儿子的类型
+}
+
+export const Text = Symbol('Text')
+export function normalizeVNode(child) {
+  if(isObject(child)) return child;
+  return createVNode(Text, null, String(child))
 }

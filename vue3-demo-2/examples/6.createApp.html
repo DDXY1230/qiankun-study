@@ -10,14 +10,26 @@
   <div id="app"></div>
   <script src="../node_modules/@vue/runtime-dom/dist/runtime-dom.global.js"></script>
   <script>
-    let { createApp } = VueRuntimeDom
+    let { createApp,h  } = VueRuntimeDom
     let App = {
       setup() {
         console.log('setup跑通了')
+        // return () =>{
+        //     console.log('setup的render')
+        // }
+        return {
+          a: '1111111',
+          b: '2222222',
+          name: '你的名字',
+          age: '19'
+        }
       },
       render(proxy) {
+        console.log('proxy', proxy)
         console.log('render函数里面的proxy',proxy.name,proxy.age)
         console.log('render')
+        // return h('div', {"style": {"color": "red"},onClick:()=> {alert(11)}}, 'hellow world')
+        return h('div', {}, [])
       }
     }
     createApp(App, {name: 'zf', age: 12}).mount('#app')

@@ -4,7 +4,7 @@ DOMContentLoaded时间具体的采集思路是怎样的呢?
 
 但是不实用在单页面下
 
-那么单页面实用的是Obesermoutation
+那么单页面实用的是Obesermutation
 
 
 开启DNS预解析 可以通过在页面中加入dns-prefetch
