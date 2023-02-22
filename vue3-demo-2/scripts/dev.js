@@ -14,7 +14,7 @@ async function build(target) {
   console.log('当前打包的文件是==>',target)
   // -cw 会监控
   // await execa('rollup', ['-cw', '--environment', `TARGET:${target}`], {stdio: 'inherit'})// 当子进程打包的信息共享给父进程
-  await execa('rollup', ['-c','--environment',`TARGET:${target}`],{stdio:'inherit'})
+  await execa('rollup', ['-cw','--environment',`TARGET:${target}`],{stdio:'inherit'})
   
 
 }

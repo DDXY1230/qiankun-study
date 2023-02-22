@@ -562,7 +562,7 @@ function createRenderer(rendererOption) {
         }
         else {
             // 元素更新
-            patchElement(n1, n2);
+            patchElement(n1, n2, container);
         }
     };
     const patchProp = (oldProps, newProps, el) => {
@@ -581,12 +581,143 @@ function createRenderer(rendererOption) {
             }
         }
     };
+    const unmountChildren = (children) => {
+        for (let i = 0; i < children.length; i++) {
+            unmount(children[i]);
+        }
+    };
+    const patchKeyedChildren = (c1, c2, el) => {
+        let i = 0; // 默认从头开始比较
+        let e1 = c1.length - 1;
+        let e2 = c2.length - 1;
+        while (i <= e1 && i <= e2) {
+            const n1 = c1[i];
+            const n2 = c2[i];
+            if (isSameVNodeType(n1, n2)) {
+                patch(n1, n2, el);
+            }
+            else {
+                break;
+            }
+            i++;
+        }
+        while (i <= el && i <= e2) {
+            const n1 = c1[e1];
+            const n2 = c2[e2];
+            if (isSameVNodeType(n1, n2)) {
+                patch(n1, n2, el);
+            }
+            else {
+                break;
+            }
+            e1--;
+            e2--;
+        }
+        if (i > e1) { // 老得少, 新的多
+            if (i <= e2) {
+                // 表示有新增的部分
+                while (i <= e2) {
+                    const nextPos = e2 + 1;
+                    const anchor = nextPos < c2.length ? c2[nextPos].el : null;
+                    // 想知道是向前插入还是向后插入
+                    patch(null, c2[i], el, anchor); // 向后添加
+                    i++;
+                }
+            }
+        }
+        else if (i > e2) {
+            // 老得多新的少
+            while (i <= e1) {
+                unmount(c1[i]);
+                i++;
+            }
+        }
+        else {
+            // 乱序 尽可能的复用
+            let s1 = i;
+            let s2 = i;
+            const keyToNewIndexMap = new Map();
+            for (let i = s2; i <= e2; i++) {
+                const childVnode = c2[i];
+                keyToNewIndexMap.set(childVnode.key, i);
+            }
+            const toBePatched = e2 - s2 + 1;
+            const newIndexToOldIndexMap = new Array(toBePatched).fill(0);
+            //去老的里面找, 看用没有服用的
+            for (let i = s1; i <= e1; i++) {
+                const oldVnode = c1[i];
+                let newIndex = keyToNewIndexMap.get(oldVnode.key);
+                if (newIndex === undefined) {
+                    unmount(oldVnode);
+                }
+                else {
+                    newIndexToOldIndexMap[newIndex - s2] = i + 1;
+                    patch(oldVnode, c2[newIndex], el);
+                }
+            }
+            // 移动节点,并且将新增的节点插入
+            for (let i = toBePatched - 1; i >= 0; i--) {
+                let currentIndex = i + s2;
+                let child = c2[currentIndex];
+                let anchor = currentIndex + 1 < c2.length ? c2[currentIndex].el : null;
+                if (newIndexToOldIndexMap[i] == 0) {
+                    patch(null, child, el, anchor);
+                }
+                else {
+                    hostInsert(child.el, el, anchor);
+                }
+            }
+        }
+    };
+    const patchChildren = (n1, n2, el) => {
+        const c1 = n1.children;
+        const c2 = n2.children;
+        // 老得有儿子  新的没儿子 新老都有儿子 新老都是文本
+        // 开始比较儿子
+        const prevShapeFlag = n1.shapeFlag;
+        const shapeFlag = n2.shapeFlag;
+        if (shapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
+            if (prevShapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                unmountChildren(c1);
+                console.log(111);
+            }
+            if (c1 != c2) {
+                console.log(222);
+                hostSetElementText(el, c2);
+            }
+        }
+        else {
+            // 现在是元素 上一次有可能是文本 或者是数组
+            if (prevShapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                // 当前是数组 之前是数组
+                // 两个数组的比对
+                // 核心的diff算法
+                if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                    patchKeyedChildren(c1, c2, el);
+                }
+                else {
+                    // 没有孩子
+                    unmountChildren(c1);
+                }
+            }
+            else {
+                // 上一次是文本
+                if (prevShapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
+                    hostSetElementText(el, '');
+                }
+                if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                    mountChildren(c2, el);
+                }
+            }
+        }
+    };
     const patchElement = (n1, n2, container) => {
         // 元素是相同节点 更新属性 更新儿子
         let el = (n2.el = n1.el);
         const oldProps = n1.props || {};
         const newProps = n2.props || {};
         patchProp(oldProps, newProps, el);
+        patchChildren(n1, n2, container);
     };
     const mountChildren = (children, container) => {
         for (let i = 0; i < children.length; i++) {

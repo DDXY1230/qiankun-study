@@ -1,3 +1,5 @@
+
+创建react项目: create-react-app study-react
 ## yarn create react-app qiankun-base --template typescript
 
 如果上述命令安装过程中报错 error An unexpected error occurred: "https://registry.npmjs.org/create-react-app: ETIMEDOUT".

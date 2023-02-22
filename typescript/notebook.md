@@ -1,7 +1,7 @@
 ## typescript 学习笔记
 
 类型安全: 强类型 弱类型
-
+    `npm install typescript -g`全局安装typescript
 1. `yarn nint -y`
 2. `yarn add typescrit --dev`
 3. 命令行执行 tsc xxx.ts 会输出一个.js 的文件
@@ -16,3 +16,8 @@
    "target": "es5",  
    "module": "commonjs",  
    "lib": ["ES2015","DOM"], // symbol console 爆红线
+
+7. `npm install ts-node -g ` + vscode插件code runner 可以选中片段ts代码执行
+
+###  借助rollup构建工具
+`npm install rollup typescript rollup-plugin-typescript2 @rollup/plugin-node-resolve rollup-plugin-serve`
