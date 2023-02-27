@@ -1,3 +1,4 @@
+import Component from "./Component";
 // 实现creactElement方法
 /**
  * 
@@ -5,7 +6,7 @@
  * @param {*} config  属性
  * @param {*} children 子元素们
  */
-function createElement(type, config, children) {
+export function createElement(type, config, children) {
   let props = {
     ...config
   };
@@ -23,6 +24,7 @@ function createElement(type, config, children) {
  * 
  */
 const React = {
-  createElement
+  createElement,
+  Component
 }
 export default React
