@@ -25,5 +25,8 @@ dev分支时完整的模版
 
 9. 项目`vue3-demo-2`是 vue3 源码研读笔记
 
+10. `react-2022-study` react学习练习
+- 创建react项目: `yarn create react-app react-2022-study`
+
 
    
