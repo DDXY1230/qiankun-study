@@ -1,5 +1,5 @@
-import React from "./react";
-import ReactDOM from "./react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 /**
  * 函数组件
  * React元素不但可以放dom元素,也可以是用户自定义的组件

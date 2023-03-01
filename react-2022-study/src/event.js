@@ -19,7 +19,7 @@ export function addEvent(dom, eventType, listener) {
 }
 let syntheticEvent = {}
 function dispatchEvent(event) {
-  console.log('合成对象')
+  // console.log('合成对象')
   let {target, type} = event
   let eventType = `on${type}` // onclick
   updateQueue.isBatchingUpdate = true// 设置为批量更新模式
@@ -30,6 +30,7 @@ function dispatchEvent(event) {
   for(let key in syntheticEvent) {
     syntheticEvent[key] = null
   }
+  updateQueue.isBatchingUpdate = false// 设置为批量更新模式
   updateQueue.batchUpdate()
 }
 function createSyntheticEvent(nativeEvent) {

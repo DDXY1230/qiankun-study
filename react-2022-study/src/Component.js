@@ -1,13 +1,13 @@
 // 类组件
 // import { createElement } from './react'
-import { createDOM } from "./react-dom";
+import { createDOM,compareTwoVdom } from "./react-dom";
 // 更新队列
 export let updateQueue = {
   isBatchingUpdate: false,
   updaters: new Set(),
   batchUpdate() {
     for(let updater of this.updaters) {
-      updater.updateClassComponent()
+      updater.updateComponent()
     }
     this.isBatchingUpdate = false
   }
@@ -23,22 +23,23 @@ class Updater {
     if (typeof callback == "function") {
       this.callbacks.push(callback); // 更新后需要调的回调
     }
+    this.emitUpdate()
+  }
+  // 一个组件不管组件变了还是状态变了都会更新
+  emitUpdate(newProps) {
     if (updateQueue.isBatchingUpdate) {
       // 如果当前是批量更新, 先缓存
-      console.log('批量更新')
+      // console.log('批量更新')
       updateQueue.updaters.add(this);
     } else {
-      this.updateClassComponent(); // 直接更新
+      this.updateComponent(); // 直接更新
     }
   }
-  updateClassComponent() {
+  updateComponent() {
     let { classInstance, pendingStates, callbacks } = this;
     // 如果有等待更新的状态对象的话
     if (pendingStates.length > 0) {
-      classInstance.state = this.getState(); // 计算新状态
-      classInstance.forceUpdate();
-      callbacks.forEach((cb) => cb());
-      callbacks.length = 0
+      shouldUpdate(classInstance, this.getState())
     }
   }
   getState() {
@@ -47,10 +48,7 @@ class Updater {
     let { state } = classInstance;
     pendingStates.forEach((nextState) => {
       if (typeof nextState === "function") {
-        // nextState = nextState.call(classInstance, state)
-        console.log('===51', state)
         nextState = nextState(state);
-        console.log('===>52', nextState)
       }
       state = {
         ...state,
@@ -60,6 +58,17 @@ class Updater {
     pendingStates.length = 0;
     return state;
   }
+}
+function shouldUpdate(classInstance,nextProps, nextState){
+  if(nextProps) {
+    classInstance.props = nextProps
+  }
+  classInstance.state = nextState;// 不管组件要不要刷新,其实组件的state一定会改变
+  // 如果有这个方法, 并且这个方法返回为false, 则不需要继续向下更新, 否则更新
+  if(classInstance.shouldComponentUpdate && !classInstance.shouldComponentUpdate(classInstance.props,classInstance.state)){
+    return
+  }
+  classInstance.forceUpdate()
 }
 class Component {
   static isReactComponent = true;
@@ -73,8 +82,18 @@ class Component {
     this.updater.addState(partialState, callback);
   }
   forceUpdate() {
-    let newVdom = this.render();
-    updateClassComponent(this, newVdom);
+    if(this.componentWillUpdate) {
+      this.componentWillUpdate()
+    }
+    let newRenderVdom = this.render();
+    let oldRenderVdom = this.oldRenderVdom;
+    let oldDOM = oldRenderVdom.dom;
+    // updateClassComponent(this, newVdom);
+    let currentRenderVdom = compareTwoVdom(oldDOM.parentNode, oldRenderVdom, newRenderVdom)
+    this.oldRenderVdom = currentRenderVdom
+    if(this.componentDidUpdate) {
+      this.componentDidUpdate()
+    }
   }
   // render() {
   //   throw new Error('此方法为抽象方法,需要之类实现')
