@@ -1,45 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-const CounterContext = React.createContext();
-/**
- * useReducer
- * useState的替代方案
- */
-/**
- * reducer 处理器 可以接受一个老状态 返回一个新状态
- * @param {*} state
- * @param {*} action  对象 肯定有type属性 {type: 'xx'}
- */
-const ADD = "ADD";
-const MINUS = "MINUS";
-function reducer(state, action) {
-  switch (action.type) {
-    case ADD:
-      return { number: state.number + 1 };
-      break;
-    case MINUS:
-      return { number: state.number - 1 };
-      break;
-    default:
-      return state;
-  }
-}
-function Counter(props) {
-  let {state,dispatch} = React.useContext(CounterContext)
-  return (
-    <div>
-      <p>Counter: {state.number}</p>
-      <button onClick={() => dispatch({ type: ADD })}>+</button>
-      <button onClick={() => dispatch({ type: MINUS })}>-</button>
-    </div>
-  );
-}
+import { HashRouter as Router, Route, Routes,Link } from "react-router-dom";
+import Home from "./component/Home";
+import User from "./component/User";
+import Profile from "./component/Profile";
 function App() {
-  const [state, dispatch] = React.useReducer(reducer, { number: 0 });
   return (
-    <CounterContext.Provider value={{state,dispatch}}>
-      <Counter></Counter>
-    </CounterContext.Provider>
-  );
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/user" element={<User/>}/>
+      <Route path="/profile" element={<Profile/>}/>
+    </Routes>
+    </Router>
+  )
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <App/>,
+  document.getElementById("root")
+);

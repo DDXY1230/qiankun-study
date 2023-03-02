@@ -3,6 +3,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     multiparty = require('multiparty'),
     SparkMD5 = require('spark-md5');
+const UserList = require('./userList')
 
 /*-CREATE SERVER-*/
 const app = express(),
@@ -311,6 +312,15 @@ app.get('/upload_already', async (req, res) => {
         });
     }
 });
+
+// 测试接口,提供给其他应用
+app.get('/api/users', async (req,res) => {
+    console.log('有人来访问了', req)
+    res.send({
+        code: 0,
+        codeText: UserList,
+    });
+})
 
 app.use(express.static('./'));
 app.use((req, res) => {
