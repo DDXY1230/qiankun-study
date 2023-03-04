@@ -77,3 +77,9 @@ Live Server 小型服务器
 ## 用vite创建vue项目
 1. `yarn create vite`  然后输入名字.....
 2. `yarn add @vitejs/plugin-vue-jsx -D   ` 如果要在vite项目中写jsx需要安装这个插件
+
+## 安装umi
+1. yarn create @umijs/umi-app   
+2. 安装依赖 `yarn `
+3. 启动 `yarn start` 
+4. umi内置anterdiesen
