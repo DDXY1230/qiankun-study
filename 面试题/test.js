@@ -1,46 +1,44 @@
-public class recursionSort {
-  public static void main(String[] args) {
-    int[] arr = {
-      1,
-      2,
-      3,
-      5,
-      2,
-      9,
-      5,
-      2,
-      1,
-      2
-    };
-    process(arr, 0, arr.length - 1);
-    System.out.println(Arrays.toString(arr));
-
-  }
-  public static void process(int[] arr, int L, int R) {
-    if (L == R) {
-      return;
+var minOperationsMaxProfit = function(customers, boardingCost, runningCost) {
+    let ans = -1;
+    let maxProfit = 0;
+    let totalProfit = 0;
+    let operations = 0;
+    let customersCount = 0;
+    const n = customers.length;
+    for (let i = 0; i < n; i++) {
+        operations++;
+        customersCount += customers[i];
+        let curCustomers = Math.min(customersCount, 4);
+        customersCount -= curCustomers;
+        totalProfit += boardingCost * curCustomers - runningCost;
+        if (totalProfit > maxProfit) {
+            maxProfit = totalProfit;
+            ans = operations;
+        }
     }
-    int mid = L + ((R - L) >> 1);
-    process(arr, L, mid);
-    process(arr, mid + 1, R);
-    merge(arr, L, mid, R);
-  }
-  public static void merge(int[] arr, int L, int M, int R) {
-    int[] help = new int[R - L + 1];
-    int i = 0;
-    int p1 = L;
-    int p2 = M + 1;
-    while (p1 <= M && p2 <= R) {
-      help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
+    if (customersCount === 0) {
+        return ans;
     }
-    while (p1 <= M) {
-      help[i++] = arr[p1++];
+    const profitEachTime = boardingCost * 4 - runningCost;
+    if (profitEachTime <= 0) {
+        return ans;
     }
-    while (p2 <= R) {
-      help[i++] = arr[p2++];
+    if (customersCount > 0) {
+        const fullTimes = Math.floor(customersCount / 4);
+        totalProfit += profitEachTime * fullTimes;
+        operations += fullTimes;
+        if (totalProfit > maxProfit) {
+            maxProfit = totalProfit;
+            ans = operations;
+        }
+        const remainingCustomers = customersCount % 4;
+        const remainingProfit = boardingCost * remainingCustomers - runningCost;
+        totalProfit += remainingProfit;
+        if (totalProfit > maxProfit) {
+            maxProfit = totalProfit;
+            operations++;
+            ans++;
+        }
     }
-    for (i = 0; i < help.length; i++) {
-      arr[L + i] = help[i];
-    }
-  }
-}
+    return ans;
+};
