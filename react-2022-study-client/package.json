@@ -54,9 +54,11 @@
     "babel-plugin-import": "^1.13.3",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.28.0",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^8.0.3",
     "less": "^4.1.1",
     "less-loader": "^9.0.0",
     "lib-flexible": "^0.3.2",
@@ -68,5 +70,20 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

@@ -25,6 +25,32 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
-}
+ }
 
    ```
+4. 配置提交规范
+  - 装一个哈士奇 huskey `yarn add husky -D`
+  - 全局安装commitizen  全局安装可以用 git cz 代替 git commit  `npm i -g commitizen`
+  - 本地安装一个适配器 `npm i cz-conventional-changelog -D`
+  - 再到package.json配置一个选项
+      ```
+
+      "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+      ```
+  - git cz 回车
+  - 请选择提交类型
+  - git  log --oneline  查看提交情况
+  以上格式化提交完成
+  以上一统操作之后如果你还是想git commit -m "xxx" 也是可以的
+  但是在团队中为了更好的规范我们还是需要一些约定
+   安装commitlint
+   commitlint 用来在代码提交前来校验我们的代码是否符合标准
+   commitlint 也需要一个adapter适配器 `@commitlint/config-conventional @commitlint/cli --save-dev`
+   安装后package.json
+   ```
+   ```
+
