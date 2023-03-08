@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const isProduction = process.env.NODE_ENV === "development";
 module.exports = {
@@ -55,7 +54,7 @@ module.exports = {
       {
         test: /\.css/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+           "style-loader",
           {
             loader: "css-loader",
           },
@@ -64,7 +63,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+           "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -75,7 +74,7 @@ module.exports = {
             loader: "postcss-loader", // 加入厂商的兼容性前缀
             options: {
               postcssOptions: {
-                plugins: ["antoprefixer"],
+                plugins: ["autoprefixer"],
               },
             },
           },

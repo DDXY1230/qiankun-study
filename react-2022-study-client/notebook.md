@@ -49,8 +49,43 @@
   但是在团队中为了更好的规范我们还是需要一些约定
    安装commitlint
    commitlint 用来在代码提交前来校验我们的代码是否符合标准
-   commitlint 也需要一个adapter适配器 `@commitlint/config-conventional @commitlint/cli --save-dev`
+   commitlint 也需要一个adapter适配器 `npm i @commitlint/config-conventional @commitlint/cli --save-dev`
    安装后package.json
    ```
+"commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
    ```
+   ```
+   "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+   ```
+   有的情况需要生成变更日记
+   `cnpm i -g conventional-changelog-cli`
+   生成的最新的日志
+   `conventional-changelog -p angular -i CHANGELOG.md -s`
 
+  提交前检查代码是否合法的方式,保证多人协作的时候保证代码风格一致性
+  在husky中添加hooks
+```
+"husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    }
+  }
+  "lint-staged": {
+    "*.tsx": "eslint --fix"
+  }
+  ```
+
+  提交之后执行生成日子也要配钩子
+
+
+  shiping在zf架构课程react第67节
