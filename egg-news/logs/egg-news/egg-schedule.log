@@ -1,0 +1,253 @@
+2023-03-09 14:42:46,679 INFO 32402 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 14:42:46,679 INFO 32402 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 14:42:46,679 INFO 32402 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 14:42:46,894 INFO 32401 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 49633109ms at 2023-03-10 04:30:00.003
+2023-03-09 14:42:46,895 INFO 32401 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 33433106ms at 2023-03-10 00:00:00.001
+2023-03-09 14:42:46,895 INFO 32401 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 33434105ms at 2023-03-10 00:00:01.000
+2023-03-09 14:46:10,409 INFO 32494 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 14:46:10,409 INFO 32494 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 14:46:10,409 INFO 32494 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 14:46:10,602 INFO 32493 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 49429401ms at 2023-03-10 04:30:00.003
+2023-03-09 14:46:10,602 INFO 32493 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 33229398ms at 2023-03-10 00:00:00.000
+2023-03-09 14:46:10,602 INFO 32493 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 33230398ms at 2023-03-10 00:00:01.000
+2023-03-09 14:47:45,624 INFO 32510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 14:47:45,624 INFO 32510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 14:47:45,625 INFO 32510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 14:48:35,475 INFO 32529 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 14:48:35,475 INFO 32529 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 14:48:35,475 INFO 32529 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 14:48:36,317 INFO 32534 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 14:48:36,317 INFO 32534 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 14:48:36,317 INFO 32534 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:02:43,959 INFO 32677 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 48436044ms at 2023-03-10 04:30:00.003
+2023-03-09 15:02:43,959 INFO 32677 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 32236041ms at 2023-03-10 00:00:00.000
+2023-03-09 15:02:43,959 INFO 32677 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 32237041ms at 2023-03-10 00:00:01.000
+2023-03-09 15:02:43,757 INFO 32680 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:02:43,757 INFO 32680 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:02:43,758 INFO 32680 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:05:55,056 INFO 32696 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:05:55,056 INFO 32696 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:05:55,057 INFO 32696 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:05:59,519 INFO 32708 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:05:59,519 INFO 32708 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:05:59,519 INFO 32708 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:07:25,542 INFO 32723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:07:25,542 INFO 32723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:07:25,542 INFO 32723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:07:28,335 INFO 32730 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:07:28,335 INFO 32730 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:07:28,335 INFO 32730 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:07:30,059 INFO 32735 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:07:30,059 INFO 32735 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:07:30,059 INFO 32735 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:07:30,285 INFO 32738 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:07:30,285 INFO 32738 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:07:30,286 INFO 32738 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:07:53,675 INFO 32749 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:07:53,675 INFO 32749 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:07:53,675 INFO 32749 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:15:37,171 INFO 32851 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:15:37,171 INFO 32851 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:15:37,172 INFO 32851 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:16:40,799 INFO 32863 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:16:40,799 INFO 32863 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:16:40,799 INFO 32863 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:16:52,795 INFO 32877 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:16:52,795 INFO 32877 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:16:52,795 INFO 32877 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:18:33,560 INFO 32888 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:18:33,560 INFO 32888 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:18:33,560 INFO 32888 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 15:18:50,603 INFO 32908 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 15:18:50,603 INFO 32908 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 15:18:50,603 INFO 32908 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:18:59,115 INFO 33548 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:18:59,115 INFO 33548 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:18:59,115 INFO 33548 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:18:59,310 INFO 33547 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 40260694ms at 2023-03-10 04:30:00.004
+2023-03-09 17:18:59,310 INFO 33547 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 24060690ms at 2023-03-10 00:00:00.000
+2023-03-09 17:18:59,310 INFO 33547 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 24061690ms at 2023-03-10 00:00:01.000
+2023-03-09 17:21:39,815 INFO 33596 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:21:39,815 INFO 33596 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:21:39,815 INFO 33596 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:22:12,015 INFO 33627 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 40067988ms at 2023-03-10 04:30:00.003
+2023-03-09 17:22:12,016 INFO 33627 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 23867985ms at 2023-03-10 00:00:00.001
+2023-03-09 17:22:12,016 INFO 33627 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 23868984ms at 2023-03-10 00:00:01.000
+2023-03-09 17:22:11,903 INFO 33628 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:22:11,903 INFO 33628 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:22:11,903 INFO 33628 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:23:55,810 INFO 33649 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:23:55,810 INFO 33649 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:23:55,810 INFO 33649 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:24:15,238 INFO 33688 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 39944765ms at 2023-03-10 04:30:00.003
+2023-03-09 17:24:15,238 INFO 33688 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 23744762ms at 2023-03-10 00:00:00.000
+2023-03-09 17:24:15,238 INFO 33688 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 23745762ms at 2023-03-10 00:00:01.000
+2023-03-09 17:24:15,116 INFO 33689 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:24:15,116 INFO 33689 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:24:15,116 INFO 33689 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:25:41,753 INFO 33718 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:25:41,753 INFO 33718 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:25:41,754 INFO 33718 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:25:44,036 INFO 33723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:25:44,036 INFO 33723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:25:44,036 INFO 33723 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:25:54,748 INFO 33756 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 39845259ms at 2023-03-10 04:30:00.007
+2023-03-09 17:25:54,748 INFO 33756 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 23645252ms at 2023-03-10 00:00:00.000
+2023-03-09 17:25:54,749 INFO 33756 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 23646252ms at 2023-03-10 00:00:01.001
+2023-03-09 17:25:54,605 INFO 33757 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:25:54,605 INFO 33757 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:25:54,606 INFO 33757 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:26:48,186 INFO 33774 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:26:48,186 INFO 33774 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:26:48,187 INFO 33774 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 17:48:59,048 INFO 33934 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 17:48:59,048 INFO 33934 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 17:48:59,048 INFO 33934 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:02:14,269 INFO 33992 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 18:02:14,270 INFO 33992 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 18:02:14,270 INFO 33992 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:02:14,270 INFO 33992 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 18:02:23,514 INFO 34005 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 18:02:23,515 INFO 34005 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 18:02:23,515 INFO 34005 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:02:23,515 INFO 34005 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 18:16:52,250 INFO 34052 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 18:16:52,250 INFO 34052 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 18:16:52,250 INFO 34052 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:16:52,250 INFO 34052 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 18:16:53,483 INFO 34057 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 18:16:53,483 INFO 34057 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 18:16:53,483 INFO 34057 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:16:53,483 INFO 34057 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 18:17:01,999 INFO 34068 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 18:17:01,999 INFO 34068 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 18:17:02,000 INFO 34068 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 18:17:02,000 INFO 34068 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:03:07,105 INFO 34143 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:03:07,105 INFO 34143 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:03:07,105 INFO 34143 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:03:07,105 INFO 34143 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:05:26,152 INFO 34168 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:05:26,152 INFO 34168 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:05:26,152 INFO 34168 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:05:26,152 INFO 34168 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:05:27,377 INFO 34173 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:05:27,377 INFO 34173 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:05:27,377 INFO 34173 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:05:27,377 INFO 34173 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:06:37,173 INFO 34189 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:06:37,173 INFO 34189 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:06:37,173 INFO 34189 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:06:37,173 INFO 34189 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:09:53,076 INFO 34242 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:09:53,076 INFO 34242 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:09:53,076 INFO 34242 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:09:53,077 INFO 34242 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:09:53,257 INFO 34239 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 33606745ms at 2023-03-10 04:30:00.002
+2023-03-09 19:09:53,258 INFO 34239 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 17406742ms at 2023-03-10 00:00:00.000
+2023-03-09 19:09:53,258 INFO 34239 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 17407742ms at 2023-03-10 00:00:01.000
+2023-03-09 19:09:53,258 INFO 34239 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 300000ms at 2023-03-09 19:14:53.258
+2023-03-09 19:10:35,993 INFO 34271 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:10:35,993 INFO 34271 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:10:35,993 INFO 34271 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:10:35,993 INFO 34271 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:14:53,264 INFO 34239 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 300000ms at 2023-03-09 19:19:53.264
+2023-03-09 19:14:53,264 INFO 34271 [Job#16783604932623414672396336491] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:14:53,270 ERROR 34271 [-/127.0.0.1/-/5ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=5m&type=all] [Job#16783604932623414672396336491] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 3ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:19:36,909 INFO 34338 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:19:36,909 INFO 34338 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:19:36,909 INFO 34338 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:19:36,909 INFO 34338 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:19:53,900 INFO 34239 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 300000ms at 2023-03-09 19:24:53.900
+2023-03-09 19:19:53,901 INFO 34338 [Job#16783607938993417672425243722] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:19:53,906 ERROR 34338 [-/127.0.0.1/-/4ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783607938993417672425243722] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 2ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:22:11,315 INFO 34375 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:22:11,315 INFO 34375 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:22:11,315 INFO 34375 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:22:11,315 INFO 34375 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:24:53,905 INFO 34375 [Job#16783610939033420672436221933] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:24:53,910 ERROR 34375 [-/127.0.0.1/-/4ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783610939033420672436221933] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 2ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:24:53,904 INFO 34239 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 300000ms at 2023-03-09 19:29:53.904
+2023-03-09 19:26:43,075 INFO 34417 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:26:43,076 INFO 34417 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:26:43,076 INFO 34417 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:26:43,076 INFO 34417 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:26:56,770 INFO 34430 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:26:56,770 INFO 34430 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:26:56,770 INFO 34430 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:26:56,770 INFO 34430 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:29:53,908 INFO 34239 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 300000ms at 2023-03-09 19:34:53.907
+2023-03-09 19:29:53,908 INFO 34430 [Job#16783613939073423672444483794] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:29:53,915 ERROR 34430 [-/127.0.0.1/-/5ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783613939073423672444483794] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 3ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:30:21,587 INFO 34465 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:30:21,587 INFO 34465 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:30:21,587 INFO 34465 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:30:21,587 INFO 34465 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:32:35,019 INFO 34510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:32:35,019 INFO 34510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:32:35,019 INFO 34510 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:32:35,019 INFO 34510 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:37:35,040 INFO 34587 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:37:35,040 INFO 34587 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:37:35,040 INFO 34587 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:37:35,040 INFO 34587 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:37:35,246 INFO 34586 [Timer] /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 31944756ms at 2023-03-10 04:30:00.002
+2023-03-09 19:37:35,246 INFO 34586 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 15744754ms at 2023-03-10 00:00:00.000
+2023-03-09 19:37:35,247 INFO 34586 [Timer] /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 15745754ms at 2023-03-10 00:00:01.001
+2023-03-09 19:37:35,247 INFO 34586 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 60000ms at 2023-03-09 19:38:35.247
+2023-03-09 19:38:35,251 INFO 34587 [Job#16783619152483428885832869411] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:38:35,258 INFO 34587 [-/127.0.0.1/-/7ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783619152483428885832869411] /Users/qiankun/egg-news/app/schedule/updatecache.js execute succeed, used 7ms. 
+2023-03-09 19:38:35,249 INFO 34586 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 60000ms at 2023-03-09 19:39:35.249
+2023-03-09 19:39:35,252 INFO 34587 [Job#16783619752513429485850691712] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:39:35,257 INFO 34587 [-/127.0.0.1/-/5ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783619752513429485850691712] /Users/qiankun/egg-news/app/schedule/updatecache.js execute succeed, used 5ms. 
+2023-03-09 19:39:35,252 INFO 34586 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 60000ms at 2023-03-09 19:40:35.252
+2023-03-09 19:40:35,253 INFO 34587 [Job#16783620352523430085861928923] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:40:35,260 INFO 34587 [-/127.0.0.1/-/6ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783620352523430085861928923] /Users/qiankun/egg-news/app/schedule/updatecache.js execute succeed, used 6ms. 
+2023-03-09 19:40:35,252 INFO 34586 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 60000ms at 2023-03-09 19:41:35.252
+2023-03-09 19:41:17,706 INFO 34636 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2023-03-09 19:41:17,706 INFO 34636 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/clean_log.js
+2023-03-09 19:41:17,706 INFO 34636 [egg-schedule]: register schedule /Users/qiankun/egg-news/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2023-03-09 19:41:17,706 INFO 34636 [egg-schedule]: register schedule /Users/qiankun/egg-news/app/schedule/updatecache.js
+2023-03-09 19:41:35,255 INFO 34586 [Timer] /Users/qiankun/egg-news/app/schedule/updatecache.js next time will execute after 60000ms at 2023-03-09 19:42:35.254
+2023-03-09 19:41:35,256 INFO 34636 [Job#16783620952543430685876916434] /Users/qiankun/egg-news/app/schedule/updatecache.js executing by app
+2023-03-09 19:41:35,264 INFO 34636 [-/127.0.0.1/-/8ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783620952543430685876916434] /Users/qiankun/egg-news/app/schedule/updatecache.js execute succeed, used 8ms. 

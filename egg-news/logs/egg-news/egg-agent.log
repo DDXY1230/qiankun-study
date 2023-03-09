@@ -1,0 +1,793 @@
+2023-03-09 14:42:45,858 INFO 32401 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 14:42:45,867 INFO 32401 [egg:core] dump config after load, 3ms
+2023-03-09 14:42:45,918 INFO 32401 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 14:42:45,918 INFO 32401 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 14:42:45,918 INFO 32401 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 14:42:45,919 INFO 32401 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 14:42:45,919 INFO 32401 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 14:42:45,919 INFO 32401 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 14:42:45,919 INFO 32401 [egg-watcher:agent] watcher start success
+2023-03-09 14:42:46,010 INFO 32401 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [590ms] - #0 Process Start
+                                ▇▇▇▇▇▇▇▇▇▇▇▇ [236ms] - #1 Application Start
+                                ▇ [10ms] - #2 Load Plugin
+                                 ▇ [27ms] - #3 Load Config
+                                 ▇ [0ms] - #4 Require(0) config/config.default.js
+                                 ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                 ▇ [1ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                 ▇ [1ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                 ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                 ▇ [1ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                 ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                 ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                 ▇ [1ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                 ▇ [0ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                 ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                 ▇ [1ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                  ▇ [1ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                  ▇ [0ms] - #17 Require(13) node_modules/egg/config/config.default.js
+                                  ▇ [0ms] - #18 Require(14) config/config.default.js
+                                  ▇ [1ms] - #19 Require(15) node_modules/egg-security/config/config.local.js
+                                  ▇ [1ms] - #20 Require(16) node_modules/egg-watcher/config/config.local.js
+                                  ▇ [0ms] - #21 Require(17) node_modules/egg-view/config/config.local.js
+                                  ▇ [0ms] - #22 Require(18) node_modules/egg/config/config.local.js
+                                  ▇▇▇ [55ms] - #23 Load extend/agent.js
+                                  ▇ [2ms] - #24 Require(19) node_modules/egg-security/app/extend/agent.js
+                                  ▇▇ [48ms] - #25 Require(20) node_modules/egg-schedule/app/extend/agent.js
+                                     ▇ [2ms] - #26 Require(21) node_modules/egg-logrotator/app/extend/agent.js
+                                     ▇▇ [48ms] - #27 Load extend/context.js
+                                     ▇ [13ms] - #28 Require(22) node_modules/egg-security/app/extend/context.js
+                                      ▇ [4ms] - #29 Require(23) node_modules/egg-jsonp/app/extend/context.js
+                                      ▇ [1ms] - #30 Require(24) node_modules/egg-i18n/app/extend/context.js
+                                      ▇ [19ms] - #31 Require(25) node_modules/egg-multipart/app/extend/context.js
+                                       ▇ [8ms] - #32 Require(26) node_modules/egg-view/app/extend/context.js
+                                        ▇ [0ms] - #33 Require(27) node_modules/egg/app/extend/context.js
+                                        ▇ [22ms] - #34 Load agent.js
+                                        ▇ [0ms] - #35 Require(28) node_modules/egg-security/agent.js
+                                        ▇ [1ms] - #36 Require(29) node_modules/egg-onerror/agent.js
+                                        ▇ [5ms] - #37 Require(30) node_modules/egg-watcher/agent.js
+                                        ▇ [2ms] - #38 Require(31) node_modules/egg-schedule/agent.js
+                                        ▇ [11ms] - #39 Require(32) node_modules/egg-development/agent.js
+                                         ▇ [1ms] - #40 Require(33) node_modules/egg-logrotator/agent.js
+                                         ▇ [1ms] - #41 Require(34) node_modules/egg/agent.js
+                                         ▇▇▇ [58ms] - #42 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                         ▇▇ [38ms] - #43 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                         ▇▇▇ [58ms] - #44 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 14:42:46,011 INFO 32401 [egg:core] dump config after ready, 89ms
+2023-03-09 14:42:46,800 INFO 32401 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296746,"size":64,"blocks":0,"atimeMs":1678344166788.7058,"mtimeMs":1678344166788.7058,"ctimeMs":1678344166788.7058,"birthtimeMs":1678344166788.7058,"atime":"2023-03-09T06:42:46.789Z","mtime":"2023-03-09T06:42:46.789Z","ctime":"2023-03-09T06:42:46.789Z","birthtime":"2023-03-09T06:42:46.789Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 14:44:04,413 WARN 32401 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 14:44:04,211 INFO 32401 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":19,"blocks":8,"atimeMs":1678344244190.449,"mtimeMs":1678344244148.15,"ctimeMs":1678344244148.15,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T06:44:04.190Z","mtime":"2023-03-09T06:44:04.148Z","ctime":"2023-03-09T06:44:04.148Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 14:46:09,560 INFO 32493 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 14:46:09,567 INFO 32493 [egg:core] dump config after load, 3ms
+2023-03-09 14:46:09,614 INFO 32493 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 14:46:09,614 INFO 32493 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 14:46:09,615 INFO 32493 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 14:46:09,615 INFO 32493 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 14:46:09,615 INFO 32493 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 14:46:09,615 INFO 32493 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 14:46:09,616 INFO 32493 [egg-watcher:agent] watcher start success
+2023-03-09 14:46:09,655 INFO 32493 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [591ms] - #0 Process Start
+                                   ▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [242ms] - #1 Application Start
+                                   ▇ [9ms] - #2 Load Plugin
+                                   ▇ [25ms] - #3 Load Config
+                                   ▇ [0ms] - #4 Require(0) config/config.default.js
+                                   ▇ [0ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                   ▇ [0ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                    ▇ [0ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                    ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                    ▇ [1ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                    ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                    ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                    ▇ [1ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                    ▇ [0ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                    ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                    ▇ [1ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                    ▇ [1ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                    ▇ [1ms] - #17 Require(13) node_modules/egg/config/config.default.js
+                                    ▇ [0ms] - #18 Require(14) config/config.default.js
+                                     ▇ [0ms] - #19 Require(15) node_modules/egg-security/config/config.local.js
+                                     ▇ [1ms] - #20 Require(16) node_modules/egg-watcher/config/config.local.js
+                                     ▇ [1ms] - #21 Require(17) node_modules/egg-view/config/config.local.js
+                                     ▇ [1ms] - #22 Require(18) node_modules/egg/config/config.local.js
+                                     ▇▇▇ [51ms] - #23 Load extend/agent.js
+                                     ▇ [1ms] - #24 Require(19) node_modules/egg-security/app/extend/agent.js
+                                     ▇▇ [45ms] - #25 Require(20) node_modules/egg-schedule/app/extend/agent.js
+                                        ▇ [2ms] - #26 Require(21) node_modules/egg-logrotator/app/extend/agent.js
+                                        ▇▇ [41ms] - #27 Load extend/context.js
+                                        ▇ [11ms] - #28 Require(22) node_modules/egg-security/app/extend/context.js
+                                         ▇ [3ms] - #29 Require(23) node_modules/egg-jsonp/app/extend/context.js
+                                         ▇ [2ms] - #30 Require(24) node_modules/egg-i18n/app/extend/context.js
+                                         ▇ [16ms] - #31 Require(25) node_modules/egg-multipart/app/extend/context.js
+                                          ▇ [1ms] - #32 Require(26) node_modules/egg-view/app/extend/context.js
+                                          ▇ [1ms] - #33 Require(27) node_modules/egg/app/extend/context.js
+                                          ▇ [24ms] - #34 Load agent.js
+                                          ▇ [0ms] - #35 Require(28) node_modules/egg-security/agent.js
+                                          ▇ [0ms] - #36 Require(29) node_modules/egg-onerror/agent.js
+                                           ▇ [6ms] - #37 Require(30) node_modules/egg-watcher/agent.js
+                                           ▇ [2ms] - #38 Require(31) node_modules/egg-schedule/agent.js
+                                           ▇ [10ms] - #39 Require(32) node_modules/egg-development/agent.js
+                                            ▇ [0ms] - #40 Require(33) node_modules/egg-logrotator/agent.js
+                                            ▇ [1ms] - #41 Require(34) node_modules/egg/agent.js
+                                            ▇▇▇ [54ms] - #42 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                            ▇▇ [36ms] - #43 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                            ▇▇▇▇ [80ms] - #44 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 14:46:09,655 INFO 32493 [egg:core] dump config after ready, 10ms
+2023-03-09 14:47:44,548 WARN 32493 [agent:development] reload worker because /Users/qiankun/egg-news/app/router.js change
+2023-03-09 14:47:44,343 INFO 32493 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/router.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296182,"size":314,"blocks":8,"atimeMs":1678344105509.945,"mtimeMs":1678344464280.3315,"ctimeMs":1678344464280.3315,"birthtimeMs":1678342758103.517,"atime":"2023-03-09T06:41:45.510Z","mtime":"2023-03-09T06:47:44.280Z","ctime":"2023-03-09T06:47:44.280Z","birthtime":"2023-03-09T06:19:18.104Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 14:48:12,797 INFO 32493 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/1.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296959,"size":0,"blocks":0,"atimeMs":1678344492735.1304,"mtimeMs":1678344492735.1304,"ctimeMs":1678344492735.1304,"birthtimeMs":1678344492735.1304,"atime":"2023-03-09T06:48:12.735Z","mtime":"2023-03-09T06:48:12.735Z","ctime":"2023-03-09T06:48:12.735Z","birthtime":"2023-03-09T06:48:12.735Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 14:48:34,215 WARN 32493 [agent:development] reload worker because /Users/qiankun/egg-news/app/router.js change
+2023-03-09 14:48:34,007 INFO 32493 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/router.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296182,"size":331,"blocks":8,"atimeMs":1678344513978.6897,"mtimeMs":1678344513944.6191,"ctimeMs":1678344513944.6191,"birthtimeMs":1678342758103.517,"atime":"2023-03-09T06:48:33.979Z","mtime":"2023-03-09T06:48:33.945Z","ctime":"2023-03-09T06:48:33.945Z","birthtime":"2023-03-09T06:19:18.104Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 14:48:35,060 WARN 32493 [agent:development] reload worker because /Users/qiankun/egg-news/app/router.js change
+2023-03-09 14:48:34,858 INFO 32493 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/router.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296182,"size":331,"blocks":8,"atimeMs":1678344513978.6897,"mtimeMs":1678344514846.9521,"ctimeMs":1678344514846.9521,"birthtimeMs":1678342758103.517,"atime":"2023-03-09T06:48:33.979Z","mtime":"2023-03-09T06:48:34.847Z","ctime":"2023-03-09T06:48:34.847Z","birthtime":"2023-03-09T06:19:18.104Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 14:48:49,354 INFO 32493 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/1.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296959,"size":10,"blocks":8,"atimeMs":1678344529354.1797,"mtimeMs":1678344529292.545,"ctimeMs":1678344529292.545,"birthtimeMs":1678344492735.1304,"atime":"2023-03-09T06:48:49.354Z","mtime":"2023-03-09T06:48:49.293Z","ctime":"2023-03-09T06:48:49.293Z","birthtime":"2023-03-09T06:48:12.735Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:02:41,717 INFO 32677 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 15:02:41,726 INFO 32677 [egg:core] dump config after load, 5ms
+2023-03-09 15:02:41,772 INFO 32677 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 15:02:41,772 INFO 32677 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 15:02:41,773 INFO 32677 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 15:02:41,773 INFO 32677 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 15:02:41,773 INFO 32677 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 15:02:41,773 INFO 32677 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 15:02:41,773 INFO 32677 [egg-watcher:agent] watcher start success
+2023-03-09 15:02:42,206 INFO 32677 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [673ms] - #0 Process Start
+                       ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [729ms] - #1 Application Start
+                       ▇ [38ms] - #2 Load Plugin
+                        ▇▇▇ [97ms] - #3 Load Config
+                        ▇ [1ms] - #4 Require(0) config/config.default.js
+                        ▇ [0ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                        ▇ [0ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                         ▇ [1ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                         ▇ [7ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                         ▇ [0ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                         ▇ [8ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                         ▇ [4ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                         ▇ [4ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                          ▇ [8ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                          ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                          ▇ [0ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                          ▇ [0ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                          ▇ [1ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                          ▇ [9ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                           ▇ [0ms] - #19 Require(15) config/config.default.js
+                           ▇ [1ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                           ▇ [0ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                           ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                           ▇ [3ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                           ▇ [6ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                            ▇▇ [80ms] - #25 Load extend/agent.js
+                            ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                            ▇▇ [72ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                              ▇ [2ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                              ▇ [50ms] - #29 Load extend/context.js
+                              ▇ [14ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                               ▇ [3ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                               ▇ [0ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                               ▇ [25ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                ▇ [3ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                ▇ [1ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                ▇ [22ms] - #36 Load agent.js
+                                ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                ▇ [2ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                ▇ [5ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                ▇ [2ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                ▇ [7ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                 ▇ [0ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                 ▇ [0ms] - #43 Require(36) node_modules/egg/agent.js
+                                 ▇ [54ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                 ▇ [37ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                 ▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [423ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 15:02:42,206 INFO 32677 [egg:core] dump config after ready, 60ms
+2023-03-09 15:05:53,743 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:05:53,538 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":625,"blocks":8,"atimeMs":1678345553511.3284,"mtimeMs":1678345553473.772,"ctimeMs":1678345553473.772,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:05:53.511Z","mtime":"2023-03-09T07:05:53.474Z","ctime":"2023-03-09T07:05:53.474Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:05:58,693 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:05:58,491 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":634,"blocks":8,"atimeMs":1678345555143.7239,"mtimeMs":1678345558480.0056,"ctimeMs":1678345558480.0056,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:05:55.144Z","mtime":"2023-03-09T07:05:58.480Z","ctime":"2023-03-09T07:05:58.480Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:06:09,979 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/config/dist","stat":{"dev":16777223,"mode":16877,"nlink":3,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297801,"size":96,"blocks":0,"atimeMs":1678345569965.3462,"mtimeMs":1678345569967.392,"ctimeMs":1678345569967.392,"birthtimeMs":1678345569965.3462,"atime":"2023-03-09T07:06:09.965Z","mtime":"2023-03-09T07:06:09.967Z","ctime":"2023-03-09T07:06:09.967Z","birthtime":"2023-03-09T07:06:09.965Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:07:23,948 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:07:23,738 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":789,"blocks":8,"atimeMs":1678345643711.4543,"mtimeMs":1678345643676.7693,"ctimeMs":1678345643676.7693,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:07:23.711Z","mtime":"2023-03-09T07:07:23.677Z","ctime":"2023-03-09T07:07:23.677Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:07:24,583 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:07:24,382 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":789,"blocks":8,"atimeMs":1678345643711.4543,"mtimeMs":1678345644370.336,"ctimeMs":1678345644370.336,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:07:23.711Z","mtime":"2023-03-09T07:07:24.370Z","ctime":"2023-03-09T07:07:24.370Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:07:28,419 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:07:28,914 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:07:28,217 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":796,"blocks":8,"atimeMs":1678345646199.9983,"mtimeMs":1678345648204.0117,"ctimeMs":1678345648204.0117,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:07:26.200Z","mtime":"2023-03-09T07:07:28.204Z","ctime":"2023-03-09T07:07:28.204Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:07:28,713 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":796,"blocks":8,"atimeMs":1678345648295.3352,"mtimeMs":1678345648702.075,"ctimeMs":1678345648702.075,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:07:28.295Z","mtime":"2023-03-09T07:07:28.702Z","ctime":"2023-03-09T07:07:28.702Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:07:52,673 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:07:52,473 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":796,"blocks":8,"atimeMs":1678345650822.3547,"mtimeMs":1678345672411.8638,"ctimeMs":1678345672411.8638,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:07:30.822Z","mtime":"2023-03-09T07:07:52.412Z","ctime":"2023-03-09T07:07:52.412Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:08:09,047 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/view","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297858,"size":64,"blocks":0,"atimeMs":1678345688985.6018,"mtimeMs":1678345688985.6018,"ctimeMs":1678345688985.6018,"birthtimeMs":1678345688985.6018,"atime":"2023-03-09T07:08:08.986Z","mtime":"2023-03-09T07:08:08.986Z","ctime":"2023-03-09T07:08:08.986Z","birthtime":"2023-03-09T07:08:08.986Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:08:17,796 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":0,"blocks":0,"atimeMs":1678345697784.6455,"mtimeMs":1678345697784.6455,"ctimeMs":1678345697784.6455,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:08:17.785Z","mtime":"2023-03-09T07:08:17.785Z","ctime":"2023-03-09T07:08:17.785Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,562 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298265,"size":64,"blocks":0,"atimeMs":1678345870551.0618,"mtimeMs":1678345870551.0618,"ctimeMs":1678345870552.9111,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:10.551Z","mtime":"2023-03-09T07:11:10.551Z","ctime":"2023-03-09T07:11:10.553Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:10,603 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298265,"size":64,"blocks":0,"atimeMs":1678345870551.0618,"mtimeMs":1678345870551.0618,"ctimeMs":1678345870591.2932,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:10.551Z","mtime":"2023-03-09T07:11:10.551Z","ctime":"2023-03-09T07:11:10.591Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:10,691 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.min.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298266,"size":121457,"blocks":240,"atimeMs":1678345810324.194,"mtimeMs":1550067769000,"ctimeMs":1678345870685.43,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.324Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.685Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,692 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.min.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298266,"size":121457,"blocks":240,"atimeMs":1678345810324.194,"mtimeMs":1550067769000,"ctimeMs":1678345870685.43,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.324Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.685Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,692 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298267,"size":145933,"blocks":288,"atimeMs":1678345810331.9023,"mtimeMs":1550067769000,"ctimeMs":1678345870687.5977,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.332Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.688Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,692 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298268,"size":390887,"blocks":768,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870689.245,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.689Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,693 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298267,"size":145933,"blocks":288,"atimeMs":1678345810331.9023,"mtimeMs":1550067769000,"ctimeMs":1678345870687.5977,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.332Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.688Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,696 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298268,"size":390887,"blocks":768,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870689.245,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.689Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,696 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css","stat":{"dev":16777223,"mode":16877,"nlink":5,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298265,"size":160,"blocks":0,"atimeMs":1678345870551.0618,"mtimeMs":1678345870689.2432,"ctimeMs":1678345870689.2432,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:10.551Z","mtime":"2023-03-09T07:11:10.689Z","ctime":"2023-03-09T07:11:10.689Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:10,740 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298268,"size":390887,"blocks":768,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870693.2195,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.693Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,741 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.min.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298269,"size":540434,"blocks":1056,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870696.219,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.696Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,742 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap.min.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298269,"size":540434,"blocks":1056,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870696.219,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.696Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,742 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298270,"size":48005,"blocks":96,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870697.609,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.698Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,743 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298270,"size":48005,"blocks":96,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870697.609,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.698Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,744 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.min.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298271,"size":75600,"blocks":152,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870699.177,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.699Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,744 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.min.css.map","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298271,"size":75600,"blocks":152,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345870699.177,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.699Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,745 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298272,"size":25682,"blocks":56,"atimeMs":1678345810358.493,"mtimeMs":1550067769000,"ctimeMs":1678345870700.6187,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.358Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.701Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,745 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298272,"size":25682,"blocks":56,"atimeMs":1678345810358.493,"mtimeMs":1550067769000,"ctimeMs":1678345870700.6187,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.358Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.701Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,746 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.min.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298273,"size":23411,"blocks":48,"atimeMs":1678345810381.789,"mtimeMs":1550067769000,"ctimeMs":1678345870702.1858,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.382Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.702Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,746 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css/bootstrap-theme.min.css","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298273,"size":23411,"blocks":48,"atimeMs":1678345810381.789,"mtimeMs":1550067769000,"ctimeMs":1678345870702.1858,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.382Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.702Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:10,747 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/css","stat":{"dev":16777223,"mode":16877,"nlink":10,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298265,"size":320,"blocks":0,"atimeMs":1678345870551.0618,"mtimeMs":1550067769000,"ctimeMs":1678345870705.3516,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:11:10.551Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:10.705Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,699 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298278,"size":64,"blocks":0,"atimeMs":1678345879688.7905,"mtimeMs":1678345879688.7905,"ctimeMs":1678345879690.6611,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:19.689Z","mtime":"2023-03-09T07:11:19.689Z","ctime":"2023-03-09T07:11:19.691Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,740 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298278,"size":64,"blocks":0,"atimeMs":1678345879688.7905,"mtimeMs":1678345879688.7905,"ctimeMs":1678345879729.4136,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:19.689Z","mtime":"2023-03-09T07:11:19.689Z","ctime":"2023-03-09T07:11:19.729Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,744 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/js","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298279,"size":64,"blocks":0,"atimeMs":1678345879735.3242,"mtimeMs":1678345879735.3242,"ctimeMs":1678345879738.2292,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:19.735Z","mtime":"2023-03-09T07:11:19.735Z","ctime":"2023-03-09T07:11:19.738Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,820 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.woff","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298280,"size":23424,"blocks":48,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879815.3706,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.815Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,822 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.woff","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298280,"size":23424,"blocks":48,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879815.3706,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.815Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,823 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.eot","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298281,"size":20127,"blocks":40,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879817.3542,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.817Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,823 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.eot","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298281,"size":20127,"blocks":40,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879817.3542,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.817Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,825 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.woff2","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298282,"size":18028,"blocks":40,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879818.516,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.819Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,826 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.woff2","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298282,"size":18028,"blocks":40,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879818.516,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.819Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,826 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts","stat":{"dev":16777223,"mode":16877,"nlink":5,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298278,"size":160,"blocks":0,"atimeMs":1678345879688.7905,"mtimeMs":1678345879818.5144,"ctimeMs":1678345879818.5144,"birthtimeMs":443779200000,"atime":"2023-03-09T07:11:19.689Z","mtime":"2023-03-09T07:11:19.819Z","ctime":"2023-03-09T07:11:19.819Z","birthtime":"1984-01-24T08:00:00.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,870 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.woff2","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298282,"size":18028,"blocks":40,"atimeMs":1550067769000,"mtimeMs":1550067769000,"ctimeMs":1678345879844.6807,"birthtimeMs":1550067769000,"atime":"2019-02-13T14:22:49.000Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.845Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,870 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.ttf","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298283,"size":45404,"blocks":96,"atimeMs":1678345810360.6455,"mtimeMs":1550067769000,"ctimeMs":1678345879845.835,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.361Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.846Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,870 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.ttf","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298283,"size":45404,"blocks":96,"atimeMs":1678345810360.6455,"mtimeMs":1550067769000,"ctimeMs":1678345879845.835,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.361Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.846Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,871 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.svg","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298284,"size":108738,"blocks":216,"atimeMs":1678345810278.613,"mtimeMs":1550067769000,"ctimeMs":1678345879846.819,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.279Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.847Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,871 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts/glyphicons-halflings-regular.svg","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298284,"size":108738,"blocks":216,"atimeMs":1678345810278.613,"mtimeMs":1550067769000,"ctimeMs":1678345879846.819,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.279Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.847Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,871 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/fonts","stat":{"dev":16777223,"mode":16877,"nlink":7,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298278,"size":224,"blocks":0,"atimeMs":1678345879688.7905,"mtimeMs":1550067769000,"ctimeMs":1678345879847.4312,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:11:19.689Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.847Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:11:19,925 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/js/npm.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298285,"size":484,"blocks":8,"atimeMs":1678345810354.3672,"mtimeMs":1550067769000,"ctimeMs":1678345879882.4734,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.354Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.882Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,926 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/js/npm.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298285,"size":484,"blocks":8,"atimeMs":1678345810354.3672,"mtimeMs":1550067769000,"ctimeMs":1678345879882.4734,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.354Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.882Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,927 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/js/bootstrap.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298286,"size":75484,"blocks":152,"atimeMs":1678345810379.6826,"mtimeMs":1550067769000,"ctimeMs":1678345879884.2627,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.380Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.884Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,928 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/js/bootstrap.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298286,"size":75484,"blocks":152,"atimeMs":1678345810379.6826,"mtimeMs":1550067769000,"ctimeMs":1678345879884.2627,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.380Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.884Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,929 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/public/js/bootstrap.min.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298287,"size":39680,"blocks":80,"atimeMs":1678345810378.323,"mtimeMs":1550067769000,"ctimeMs":1678345879886.167,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.378Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.886Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,929 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/js/bootstrap.min.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298287,"size":39680,"blocks":80,"atimeMs":1678345810378.323,"mtimeMs":1550067769000,"ctimeMs":1678345879886.167,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:10:10.378Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.886Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:11:19,930 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/public/js","stat":{"dev":16777223,"mode":16877,"nlink":5,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915298279,"size":160,"blocks":0,"atimeMs":1678345879735.3242,"mtimeMs":1550067769000,"ctimeMs":1678345879886.6892,"birthtimeMs":1550067769000,"atime":"2023-03-09T07:11:19.735Z","mtime":"2019-02-13T14:22:49.000Z","ctime":"2023-03-09T07:11:19.887Z","birthtime":"2019-02-13T14:22:49.000Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 15:12:51,951 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":312,"blocks":8,"atimeMs":1678345971932.0393,"mtimeMs":1678345971890.4402,"ctimeMs":1678345971890.4402,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:12:51.932Z","mtime":"2023-03-09T07:12:51.890Z","ctime":"2023-03-09T07:12:51.890Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:12:52,756 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":312,"blocks":8,"atimeMs":1678345971932.0393,"mtimeMs":1678345972741.5745,"ctimeMs":1678345972741.5745,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:12:51.932Z","mtime":"2023-03-09T07:12:52.742Z","ctime":"2023-03-09T07:12:52.742Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:14:41,150 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":436,"blocks":8,"atimeMs":1678346081123.3948,"mtimeMs":1678346081088.5369,"ctimeMs":1678346081088.5369,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:14:41.123Z","mtime":"2023-03-09T07:14:41.089Z","ctime":"2023-03-09T07:14:41.089Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:14:43,111 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":436,"blocks":8,"atimeMs":1678346081123.3948,"mtimeMs":1678346083098.9368,"ctimeMs":1678346083098.9368,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:14:41.123Z","mtime":"2023-03-09T07:14:43.099Z","ctime":"2023-03-09T07:14:43.099Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:15:35,897 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 15:15:35,696 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":249,"blocks":8,"atimeMs":1678346135667.656,"mtimeMs":1678346135633.7686,"ctimeMs":1678346135633.7686,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T07:15:35.668Z","mtime":"2023-03-09T07:15:35.634Z","ctime":"2023-03-09T07:15:35.634Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:16:39,431 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 15:16:39,227 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":386,"blocks":8,"atimeMs":1678346199205.2178,"mtimeMs":1678346199166.3936,"ctimeMs":1678346199166.3936,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T07:16:39.205Z","mtime":"2023-03-09T07:16:39.166Z","ctime":"2023-03-09T07:16:39.166Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:16:51,182 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 15:16:50,978 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":435,"blocks":8,"atimeMs":1678346210978.4854,"mtimeMs":1678346210949.02,"ctimeMs":1678346210949.02,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T07:16:50.978Z","mtime":"2023-03-09T07:16:50.949Z","ctime":"2023-03-09T07:16:50.949Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:18:32,035 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 15:18:31,825 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":817,"blocks":8,"atimeMs":1678346311795.4487,"mtimeMs":1678346311760.5066,"ctimeMs":1678346311760.5066,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T07:18:31.795Z","mtime":"2023-03-09T07:18:31.761Z","ctime":"2023-03-09T07:18:31.761Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:18:49,396 WARN 32677 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 15:18:49,195 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":599,"blocks":8,"atimeMs":1678346329167.3164,"mtimeMs":1678346329134.3494,"ctimeMs":1678346329134.3494,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T07:18:49.167Z","mtime":"2023-03-09T07:18:49.134Z","ctime":"2023-03-09T07:18:49.134Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:20:15,446 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":708,"blocks":8,"atimeMs":1678346415419.4722,"mtimeMs":1678346415382.3975,"ctimeMs":1678346415382.3975,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:20:15.419Z","mtime":"2023-03-09T07:20:15.382Z","ctime":"2023-03-09T07:20:15.382Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:20:16,146 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":708,"blocks":8,"atimeMs":1678346415419.4722,"mtimeMs":1678346416132.2815,"ctimeMs":1678346416132.2815,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:20:15.419Z","mtime":"2023-03-09T07:20:16.132Z","ctime":"2023-03-09T07:20:16.132Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:20:59,356 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":788,"blocks":8,"atimeMs":1678346459330.8003,"mtimeMs":1678346459293.7424,"ctimeMs":1678346459293.7424,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:20:59.331Z","mtime":"2023-03-09T07:20:59.294Z","ctime":"2023-03-09T07:20:59.294Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:21:25,234 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":828,"blocks":8,"atimeMs":1678346485216.8257,"mtimeMs":1678346485173.3262,"ctimeMs":1678346485173.3262,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:21:25.217Z","mtime":"2023-03-09T07:21:25.173Z","ctime":"2023-03-09T07:21:25.173Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:21:42,634 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":869,"blocks":8,"atimeMs":1678346502605.4512,"mtimeMs":1678346502571.333,"ctimeMs":1678346502571.333,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:21:42.605Z","mtime":"2023-03-09T07:21:42.571Z","ctime":"2023-03-09T07:21:42.571Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:22:35,521 INFO 32677 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":928,"blocks":8,"atimeMs":1678346555519.1172,"mtimeMs":1678346555458.7935,"ctimeMs":1678346555458.7935,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T07:22:35.519Z","mtime":"2023-03-09T07:22:35.459Z","ctime":"2023-03-09T07:22:35.459Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 15:49:20,047 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 969317ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 15:57:20,024 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 461043ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:06:10,022 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 508172ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:23:41,034 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 1030118ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:46:31,023 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 1350150ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:49:02,017 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 129852ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 17:18:58,247 INFO 33547 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 17:18:58,260 INFO 33547 [egg:core] dump config after load, 7ms
+2023-03-09 17:18:58,308 INFO 33547 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 17:18:58,308 INFO 33547 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 17:18:58,309 INFO 33547 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 17:18:58,309 INFO 33547 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 17:18:58,309 INFO 33547 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 17:18:58,309 INFO 33547 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 17:18:58,309 INFO 33547 [egg-watcher:agent] watcher start success
+2023-03-09 17:18:58,357 INFO 33547 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [581ms] - #0 Process Start
+                                 ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [281ms] - #1 Application Start
+                                 ▇ [12ms] - #2 Load Plugin
+                                  ▇ [31ms] - #3 Load Config
+                                  ▇ [0ms] - #4 Require(0) config/config.default.js
+                                  ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                  ▇ [0ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                  ▇ [0ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                  ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                  ▇ [0ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                   ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                   ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                   ▇ [1ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                   ▇ [1ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                   ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                   ▇ [1ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                   ▇ [1ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                   ▇ [0ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                   ▇ [1ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                   ▇ [0ms] - #19 Require(15) config/config.default.js
+                                   ▇ [1ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                   ▇ [1ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                   ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                    ▇ [1ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                    ▇ [1ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                    ▇▇▇ [55ms] - #25 Load extend/agent.js
+                                    ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                    ▇▇ [47ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                       ▇ [3ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                       ▇▇ [49ms] - #29 Load extend/context.js
+                                       ▇ [12ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                        ▇ [3ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                        ▇ [1ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                        ▇ [24ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                         ▇ [2ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                          ▇ [2ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                          ▇ [22ms] - #36 Load agent.js
+                                          ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                          ▇ [0ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                          ▇ [5ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                          ▇ [3ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                          ▇ [9ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                           ▇ [1ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                           ▇ [1ms] - #43 Require(36) node_modules/egg/agent.js
+                                           ▇▇▇ [60ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                           ▇▇ [41ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                           ▇▇▇▇▇ [98ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 17:18:58,358 INFO 33547 [egg:core] dump config after ready, 8ms
+2023-03-09 17:21:37,255 WARN 33547 [agent:development] reload worker because /Users/qiankun/egg-news/app/service/news.js change
+2023-03-09 17:21:37,049 INFO 33547 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/service/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300066,"size":381,"blocks":8,"atimeMs":1678353697018.619,"mtimeMs":1678353696985.834,"ctimeMs":1678353696985.834,"birthtimeMs":1678352539716.3599,"atime":"2023-03-09T09:21:37.019Z","mtime":"2023-03-09T09:21:36.986Z","ctime":"2023-03-09T09:21:36.986Z","birthtime":"2023-03-09T09:02:19.716Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:22:11,117 INFO 33627 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 17:22:11,125 INFO 33627 [egg:core] dump config after load, 4ms
+2023-03-09 17:22:11,166 INFO 33627 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 17:22:11,166 INFO 33627 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 17:22:11,167 INFO 33627 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 17:22:11,167 INFO 33627 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 17:22:11,167 INFO 33627 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 17:22:11,167 INFO 33627 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 17:22:11,167 INFO 33627 [egg-watcher:agent] watcher start success
+2023-03-09 17:22:11,201 INFO 33627 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [542ms] - #0 Process Start
+                                    ▇▇▇▇▇▇▇▇▇▇▇▇▇ [205ms] - #1 Application Start
+                                    ▇ [11ms] - #2 Load Plugin
+                                     ▇ [16ms] - #3 Load Config
+                                     ▇ [1ms] - #4 Require(0) config/config.default.js
+                                     ▇ [0ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                     ▇ [1ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                     ▇ [0ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                     ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                     ▇ [0ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                     ▇ [0ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                     ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                     ▇ [0ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                     ▇ [0ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                     ▇ [0ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                     ▇ [0ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                     ▇ [1ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                     ▇ [0ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                     ▇ [1ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                     ▇ [0ms] - #19 Require(15) config/config.default.js
+                                     ▇ [0ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                     ▇ [1ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                     ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                      ▇ [0ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                      ▇ [1ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                      ▇▇▇ [51ms] - #25 Load extend/agent.js
+                                      ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                      ▇▇ [44ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                         ▇ [2ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                         ▇ [21ms] - #29 Load extend/context.js
+                                         ▇ [5ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                         ▇ [1ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                         ▇ [0ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                          ▇ [11ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                          ▇ [1ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                          ▇ [1ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                          ▇ [19ms] - #36 Load agent.js
+                                          ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                           ▇ [1ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                           ▇ [3ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                           ▇ [2ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                           ▇ [10ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                            ▇ [1ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                            ▇ [1ms] - #43 Require(36) node_modules/egg/agent.js
+                                            ▇▇▇ [48ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                            ▇▇ [31ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                            ▇▇▇▇▇ [76ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 17:22:11,202 INFO 33627 [egg:core] dump config after ready, 5ms
+2023-03-09 17:23:53,191 INFO 33627 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/service/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300066,"size":391,"blocks":8,"atimeMs":1678353833169.699,"mtimeMs":1678353833129.8035,"ctimeMs":1678353833129.8035,"birthtimeMs":1678352539716.3599,"atime":"2023-03-09T09:23:53.170Z","mtime":"2023-03-09T09:23:53.130Z","ctime":"2023-03-09T09:23:53.130Z","birthtime":"2023-03-09T09:02:19.716Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:23:53,398 WARN 33627 [agent:development] reload worker because /Users/qiankun/egg-news/app/service/news.js change
+2023-03-09 17:24:14,396 INFO 33688 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 17:24:14,403 INFO 33688 [egg:core] dump config after load, 3ms
+2023-03-09 17:24:14,447 INFO 33688 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 17:24:14,447 INFO 33688 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 17:24:14,447 INFO 33688 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 17:24:14,447 INFO 33688 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 17:24:14,448 INFO 33688 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 17:24:14,448 INFO 33688 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 17:24:14,448 INFO 33688 [egg-watcher:agent] watcher start success
+2023-03-09 17:24:14,482 INFO 33688 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [532ms] - #0 Process Start
+                                   ▇▇▇▇▇▇▇▇▇▇▇▇▇ [204ms] - #1 Application Start
+                                    ▇ [9ms] - #2 Load Plugin
+                                    ▇ [16ms] - #3 Load Config
+                                    ▇ [0ms] - #4 Require(0) config/config.default.js
+                                    ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                    ▇ [0ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                     ▇ [0ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                     ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                     ▇ [0ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                     ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                     ▇ [0ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                     ▇ [0ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                     ▇ [1ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                     ▇ [0ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                     ▇ [1ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                     ▇ [0ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                     ▇ [1ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                     ▇ [0ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                     ▇ [0ms] - #19 Require(15) config/config.default.js
+                                     ▇ [0ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                     ▇ [0ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                     ▇ [0ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                     ▇ [0ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                     ▇ [0ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                     ▇▇▇ [49ms] - #25 Load extend/agent.js
+                                     ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                      ▇▇ [42ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                         ▇ [1ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                         ▇ [21ms] - #29 Load extend/context.js
+                                         ▇ [5ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                         ▇ [0ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                         ▇ [0ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                         ▇ [11ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                          ▇ [1ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                          ▇ [1ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                          ▇ [19ms] - #36 Load agent.js
+                                          ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                          ▇ [0ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                          ▇ [3ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                           ▇ [2ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                           ▇ [10ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                           ▇ [1ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                           ▇ [1ms] - #43 Require(36) node_modules/egg/agent.js
+                                            ▇▇▇ [50ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                            ▇▇ [31ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                            ▇▇▇▇▇ [77ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 17:24:14,482 INFO 33688 [egg:core] dump config after ready, 4ms
+2023-03-09 17:25:40,272 WARN 33688 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 17:25:40,068 INFO 33688 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":775,"blocks":8,"atimeMs":1678353940042.8125,"mtimeMs":1678353940004.8508,"ctimeMs":1678353940004.8508,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T09:25:40.043Z","mtime":"2023-03-09T09:25:40.005Z","ctime":"2023-03-09T09:25:40.005Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:25:41,121 WARN 33688 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 17:25:40,920 INFO 33688 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":775,"blocks":8,"atimeMs":1678353940042.8125,"mtimeMs":1678353940902.9858,"ctimeMs":1678353940902.9858,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T09:25:40.043Z","mtime":"2023-03-09T09:25:40.903Z","ctime":"2023-03-09T09:25:40.903Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:25:53,862 INFO 33756 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 17:25:53,868 INFO 33756 [egg:core] dump config after load, 3ms
+2023-03-09 17:25:53,925 INFO 33756 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 17:25:53,925 INFO 33756 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 17:25:53,926 INFO 33756 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 17:25:53,926 INFO 33756 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 17:25:53,926 INFO 33756 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 17:25:53,927 INFO 33756 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 17:25:53,927 INFO 33756 [egg-watcher:agent] watcher start success
+2023-03-09 17:25:54,059 INFO 33756 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [567ms] - #0 Process Start
+                               ▇▇▇▇▇▇▇▇▇▇▇▇▇ [243ms] - #1 Application Start
+                               ▇ [9ms] - #2 Load Plugin
+                                ▇ [15ms] - #3 Load Config
+                                ▇ [0ms] - #4 Require(0) config/config.default.js
+                                ▇ [0ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                ▇ [0ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                ▇ [1ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                ▇ [0ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                ▇ [1ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                ▇ [0ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                ▇ [0ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                ▇ [0ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                ▇ [0ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                ▇ [1ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                ▇ [0ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                ▇ [1ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                ▇ [0ms] - #19 Require(15) config/config.default.js
+                                ▇ [0ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                ▇ [0ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                ▇ [0ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                ▇ [1ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                 ▇ [0ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                 ▇▇ [52ms] - #25 Load extend/agent.js
+                                 ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                 ▇▇ [46ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                   ▇ [1ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                   ▇ [33ms] - #29 Load extend/context.js
+                                   ▇ [4ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                    ▇ [1ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                    ▇ [0ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                    ▇ [24ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                     ▇ [1ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                     ▇ [0ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                     ▇ [22ms] - #36 Load agent.js
+                                     ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                     ▇ [1ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                     ▇ [3ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                      ▇ [2ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                      ▇ [11ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                      ▇ [0ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                      ▇ [0ms] - #43 Require(36) node_modules/egg/agent.js
+                                       ▇▇▇ [63ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                       ▇▇ [43ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                       ▇▇▇▇▇ [100ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 17:25:54,059 INFO 33756 [egg:core] dump config after ready, 88ms
+2023-03-09 17:26:45,660 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 17:26:45,456 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":781,"blocks":8,"atimeMs":1678354005428.8364,"mtimeMs":1678354005392.9849,"ctimeMs":1678354005392.9849,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T09:26:45.429Z","mtime":"2023-03-09T09:26:45.393Z","ctime":"2023-03-09T09:26:45.393Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:44:31,017 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 146454ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 17:48:57,565 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":815,"blocks":8,"atimeMs":1678355337563.7788,"mtimeMs":1678355337502.822,"ctimeMs":1678355337502.822,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T09:48:57.564Z","mtime":"2023-03-09T09:48:57.503Z","ctime":"2023-03-09T09:48:57.503Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 17:48:57,767 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 17:59:57,127 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/schedule","stat":{"dev":16777223,"mode":16877,"nlink":2,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300977,"size":64,"blocks":0,"atimeMs":1678355997064.22,"mtimeMs":1678355997064.22,"ctimeMs":1678355997064.22,"birthtimeMs":1678355997064.22,"atime":"2023-03-09T09:59:57.064Z","mtime":"2023-03-09T09:59:57.064Z","ctime":"2023-03-09T09:59:57.064Z","birthtime":"2023-03-09T09:59:57.064Z"},"remove":false,"isDirectory":true,"isFile":false}
+2023-03-09 18:00:05,191 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":0,"blocks":0,"atimeMs":1678356005178.949,"mtimeMs":1678356005178.949,"ctimeMs":1678356005178.949,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:00:05.179Z","mtime":"2023-03-09T10:00:05.179Z","ctime":"2023-03-09T10:00:05.179Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:00:05,392 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js rename
+2023-03-09 18:01:20,525 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:01:20,858 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:01:20,324 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":134,"blocks":8,"atimeMs":1678356080311.758,"mtimeMs":1678356080261.7585,"ctimeMs":1678356080261.7585,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:01:20.312Z","mtime":"2023-03-09T10:01:20.262Z","ctime":"2023-03-09T10:01:20.262Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:01:20,657 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":134,"blocks":8,"atimeMs":1678356080311.758,"mtimeMs":1678356080645.9927,"ctimeMs":1678356080645.9927,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:01:20.312Z","mtime":"2023-03-09T10:01:20.646Z","ctime":"2023-03-09T10:01:20.646Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:02:12,996 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:02:12,793 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":245,"blocks":8,"atimeMs":1678356132768.2368,"mtimeMs":1678356132732.4255,"ctimeMs":1678356132732.4255,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:02:12.768Z","mtime":"2023-03-09T10:02:12.732Z","ctime":"2023-03-09T10:02:12.732Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:02:22,225 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:02:22,023 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":263,"blocks":8,"atimeMs":1678356134681.5386,"mtimeMs":1678356141997.2449,"ctimeMs":1678356141997.2449,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:02:14.682Z","mtime":"2023-03-09T10:02:21.997Z","ctime":"2023-03-09T10:02:21.997Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:16:50,901 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:16:50,699 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":452,"blocks":8,"atimeMs":1678357010699.6362,"mtimeMs":1678357010636.2197,"ctimeMs":1678357010636.2197,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:16:50.700Z","mtime":"2023-03-09T10:16:50.636Z","ctime":"2023-03-09T10:16:50.636Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:16:51,441 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:16:51,241 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":452,"blocks":8,"atimeMs":1678357010699.6362,"mtimeMs":1678357011230.5042,"ctimeMs":1678357011230.5042,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:16:50.700Z","mtime":"2023-03-09T10:16:51.231Z","ctime":"2023-03-09T10:16:51.231Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:17:00,335 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 18:17:00,135 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":470,"blocks":8,"atimeMs":1678357013454.3416,"mtimeMs":1678357020114.8015,"ctimeMs":1678357020114.8015,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T10:16:53.454Z","mtime":"2023-03-09T10:17:00.115Z","ctime":"2023-03-09T10:17:00.115Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 18:46:07,050 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 1084634ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 19:00:42,029 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 853828ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 19:03:05,645 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:03:05,442 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":504,"blocks":8,"atimeMs":1678359785441.7773,"mtimeMs":1678359785379.709,"ctimeMs":1678359785379.709,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:03:05.442Z","mtime":"2023-03-09T11:03:05.380Z","ctime":"2023-03-09T11:03:05.380Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:05:24,940 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:05:24,737 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":543,"blocks":8,"atimeMs":1678359924709.6443,"mtimeMs":1678359924675.5093,"ctimeMs":1678359924675.5093,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:05:24.710Z","mtime":"2023-03-09T11:05:24.676Z","ctime":"2023-03-09T11:05:24.676Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:05:25,552 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:05:25,301 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":543,"blocks":8,"atimeMs":1678359924709.6443,"mtimeMs":1678359925290.1846,"ctimeMs":1678359925290.1846,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:05:24.710Z","mtime":"2023-03-09T11:05:25.290Z","ctime":"2023-03-09T11:05:25.290Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:05:25,351 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":543,"blocks":8,"atimeMs":1678359924709.6443,"mtimeMs":1678359925290.1846,"ctimeMs":1678359925290.1846,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:05:24.710Z","mtime":"2023-03-09T11:05:25.290Z","ctime":"2023-03-09T11:05:25.290Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:06:35,828 WARN 33756 [agent:development] reload worker because /Users/qiankun/egg-news/app/controller/news.js change
+2023-03-09 19:06:35,627 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/controller/news.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915296310,"size":855,"blocks":8,"atimeMs":1678359995600.299,"mtimeMs":1678359995565.6746,"ctimeMs":1678359995565.6746,"birthtimeMs":1678343154071.133,"atime":"2023-03-09T11:06:35.600Z","mtime":"2023-03-09T11:06:35.566Z","ctime":"2023-03-09T11:06:35.566Z","birthtime":"2023-03-09T06:25:54.071Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:09:34,412 INFO 33756 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/view/news.html","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915297861,"size":953,"blocks":8,"atimeMs":1678360174393.5984,"mtimeMs":1678360174350.9314,"ctimeMs":1678360174350.9314,"birthtimeMs":1678345697784.6455,"atime":"2023-03-09T11:09:34.394Z","mtime":"2023-03-09T11:09:34.351Z","ctime":"2023-03-09T11:09:34.351Z","birthtime":"2023-03-09T07:08:17.785Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:09:52,218 INFO 34239 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 19:09:52,230 INFO 34239 [egg:core] dump config after load, 6ms
+2023-03-09 19:09:52,285 INFO 34239 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 19:09:52,285 INFO 34239 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 19:09:52,286 INFO 34239 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 19:09:52,286 INFO 34239 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 19:09:52,286 INFO 34239 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 19:09:52,286 INFO 34239 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 19:09:52,286 INFO 34239 [egg-watcher:agent] watcher start success
+2023-03-09 19:09:52,360 INFO 34239 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [588ms] - #0 Process Start
+                               ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [339ms] - #1 Application Start
+                               ▇ [18ms] - #2 Load Plugin
+                                ▇▇ [53ms] - #3 Load Config
+                                ▇ [1ms] - #4 Require(0) config/config.default.js
+                                ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                                ▇ [2ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                                ▇ [1ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                                ▇ [0ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                                ▇ [0ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                                ▇ [0ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                                ▇ [3ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                                 ▇ [1ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                 ▇ [2ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                 ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                 ▇ [4ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                 ▇ [6ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                  ▇ [2ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                  ▇ [1ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                  ▇ [0ms] - #19 Require(15) config/config.default.js
+                                  ▇ [1ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                  ▇ [0ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                  ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                  ▇ [0ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                  ▇ [1ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                   ▇▇▇ [61ms] - #25 Load extend/agent.js
+                                   ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                   ▇▇ [54ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                      ▇ [2ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                      ▇▇ [56ms] - #29 Load extend/context.js
+                                      ▇ [13ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                      ▇ [4ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                       ▇ [1ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                       ▇ [33ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                         ▇ [1ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                         ▇ [1ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                         ▇ [19ms] - #36 Load agent.js
+                                         ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                         ▇ [0ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                         ▇ [3ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                         ▇ [2ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                         ▇ [9ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                          ▇ [0ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                          ▇ [0ms] - #43 Require(36) node_modules/egg/agent.js
+                                          ▇▇▇ [65ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                          ▇▇ [47ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                          ▇▇▇▇▇▇ [116ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 19:09:52,360 INFO 34239 [egg:core] dump config after ready, 16ms
+2023-03-09 19:10:34,789 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:10:34,579 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":543,"blocks":8,"atimeMs":1678360234543.439,"mtimeMs":1678360234515.729,"ctimeMs":1678360234515.729,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:10:34.543Z","mtime":"2023-03-09T11:10:34.516Z","ctime":"2023-03-09T11:10:34.516Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:19:35,236 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":543,"blocks":8,"atimeMs":1678360775205.3945,"mtimeMs":1678360775171.3809,"ctimeMs":1678360775171.3809,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:19:35.205Z","mtime":"2023-03-09T11:19:35.171Z","ctime":"2023-03-09T11:19:35.171Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:19:35,438 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:22:10,020 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:22:09,810 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":548,"blocks":8,"atimeMs":1678360929780.451,"mtimeMs":1678360929747.181,"ctimeMs":1678360929747.181,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:22:09.780Z","mtime":"2023-03-09T11:22:09.747Z","ctime":"2023-03-09T11:22:09.747Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:26:41,513 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":549,"blocks":8,"atimeMs":1678361201482.403,"mtimeMs":1678361201450.039,"ctimeMs":1678361201450.039,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:26:41.482Z","mtime":"2023-03-09T11:26:41.450Z","ctime":"2023-03-09T11:26:41.450Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:26:41,714 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:26:56,069 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:26:55,867 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":548,"blocks":8,"atimeMs":1678361215867.54,"mtimeMs":1678361215846.0432,"ctimeMs":1678361215846.0432,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:26:55.868Z","mtime":"2023-03-09T11:26:55.846Z","ctime":"2023-03-09T11:26:55.846Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:30:20,053 WARN 34239 [agent:development] reload worker because /Users/qiankun/egg-news/config/config.default.js change
+2023-03-09 19:30:19,851 INFO 34239 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/config/config.default.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915295303,"size":939,"blocks":8,"atimeMs":1678361419827.6448,"mtimeMs":1678361419790.561,"ctimeMs":1678361419790.561,"birthtimeMs":1678342411709.8992,"atime":"2023-03-09T11:30:19.828Z","mtime":"2023-03-09T11:30:19.791Z","ctime":"2023-03-09T11:30:19.791Z","birthtime":"2023-03-09T06:13:31.710Z"},"remove":false,"isDirectory":false,"isFile":true}
+2023-03-09 19:32:33,853 INFO 34507 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 19:32:33,866 INFO 34507 [egg:core] dump config after load, 6ms
+2023-03-09 19:32:33,963 INFO 34507 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 19:32:33,963 INFO 34507 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 19:32:33,964 INFO 34507 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 19:32:33,964 INFO 34507 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 19:32:33,964 INFO 34507 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 19:32:33,964 INFO 34507 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 19:32:33,965 INFO 34507 [egg-watcher:agent] watcher start success
+2023-03-09 19:32:34,259 INFO 34507 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [1423ms] - #0 Process Start
+                             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [856ms] - #1 Application Start
+                              ▇ [25ms] - #2 Load Plugin
+                              ▇▇▇▇ [228ms] - #3 Load Config
+                              ▇ [3ms] - #4 Require(0) config/config.default.js
+                              ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                              ▇ [1ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                               ▇ [2ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                               ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                               ▇ [1ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                               ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                               ▇ [0ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                               ▇▇▇ [178ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                                  ▇ [2ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                                  ▇ [6ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                                   ▇ [0ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                                   ▇ [5ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                                   ▇ [2ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                                   ▇ [1ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                                   ▇ [0ms] - #19 Require(15) config/config.default.js
+                                   ▇ [1ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                                   ▇ [1ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                                   ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                                   ▇ [1ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                                   ▇ [0ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                                   ▇▇▇▇ [193ms] - #25 Load extend/agent.js
+                                   ▇ [1ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                   ▇▇▇ [187ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                       ▇ [1ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                       ▇ [70ms] - #29 Load extend/context.js
+                                       ▇ [26ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                        ▇ [5ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                        ▇ [1ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                        ▇ [32ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                        ▇ [2ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                        ▇ [2ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                         ▇ [23ms] - #36 Load agent.js
+                                         ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                         ▇ [1ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                         ▇ [4ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                         ▇ [3ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                         ▇ [10ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                         ▇ [1ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                         ▇ [1ms] - #43 Require(36) node_modules/egg/agent.js
+                                         ▇▇ [110ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                         ▇ [74ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                         ▇▇▇▇▇ [270ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 19:32:34,259 INFO 34507 [egg:core] dump config after ready, 29ms
+2023-03-09 19:37:34,071 INFO 34586 [egg:logger] init all loggers with options: {"dir":"/Users/qiankun/egg-news/logs/egg-news","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-news-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"enableFastContextLogger":false,"type":"agent","localStorage":{"enabled":false}}
+2023-03-09 19:37:34,082 INFO 34586 [egg:core] dump config after load, 7ms
+2023-03-09 19:37:34,156 INFO 34586 [egg-watcher] Start watching: ["/Users/qiankun/egg-news/app","/Users/qiankun/egg-news/config","/Users/qiankun/egg-news/mocks","/Users/qiankun/egg-news/mocks_proxy","/Users/qiankun/egg-news/app.js"]
+2023-03-09 19:37:34,156 INFO 34586 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app"
+2023-03-09 19:37:34,156 INFO 34586 [egg-watcher] Start watching: "/Users/qiankun/egg-news/config"
+2023-03-09 19:37:34,156 INFO 34586 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks"
+2023-03-09 19:37:34,156 INFO 34586 [egg-watcher] Start watching: "/Users/qiankun/egg-news/mocks_proxy"
+2023-03-09 19:37:34,157 INFO 34586 [egg-watcher] Start watching: "/Users/qiankun/egg-news/app.js"
+2023-03-09 19:37:34,157 INFO 34586 [egg-watcher:agent] watcher start success
+2023-03-09 19:37:34,200 INFO 34586 egg start timeline:
+▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [554ms] - #0 Process Start
+                             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ [385ms] - #1 Application Start
+                             ▇ [14ms] - #2 Load Plugin
+                              ▇ [31ms] - #3 Load Config
+                              ▇ [1ms] - #4 Require(0) config/config.default.js
+                              ▇ [1ms] - #5 Require(1) node_modules/egg-session/config/config.default.js
+                              ▇ [1ms] - #6 Require(2) node_modules/egg-security/config/config.default.js
+                              ▇ [1ms] - #7 Require(3) node_modules/egg-jsonp/config/config.default.js
+                              ▇ [1ms] - #8 Require(4) node_modules/egg-onerror/config/config.default.js
+                              ▇ [1ms] - #9 Require(5) node_modules/egg-i18n/config/config.default.js
+                              ▇ [1ms] - #10 Require(6) node_modules/egg-watcher/config/config.default.js
+                              ▇ [1ms] - #11 Require(7) node_modules/egg-schedule/config/config.default.js
+                              ▇ [1ms] - #12 Require(8) node_modules/egg-multipart/config/config.default.js
+                               ▇ [1ms] - #13 Require(9) node_modules/egg-development/config/config.default.js
+                               ▇ [1ms] - #14 Require(10) node_modules/egg-logrotator/config/config.default.js
+                               ▇ [0ms] - #15 Require(11) node_modules/egg-static/config/config.default.js
+                               ▇ [0ms] - #16 Require(12) node_modules/egg-view/config/config.default.js
+                               ▇ [1ms] - #17 Require(13) node_modules/egg-view-nunjucks/config/config.default.js
+                               ▇ [2ms] - #18 Require(14) node_modules/egg/config/config.default.js
+                               ▇ [0ms] - #19 Require(15) config/config.default.js
+                               ▇ [0ms] - #20 Require(16) node_modules/egg-security/config/config.local.js
+                               ▇ [1ms] - #21 Require(17) node_modules/egg-watcher/config/config.local.js
+                               ▇ [1ms] - #22 Require(18) node_modules/egg-view/config/config.local.js
+                               ▇ [1ms] - #23 Require(19) node_modules/egg-view-nunjucks/config/config.local.js
+                               ▇ [1ms] - #24 Require(20) node_modules/egg/config/config.local.js
+                               ▇▇▇ [75ms] - #25 Load extend/agent.js
+                               ▇ [2ms] - #26 Require(21) node_modules/egg-security/app/extend/agent.js
+                                ▇▇▇ [70ms] - #27 Require(22) node_modules/egg-schedule/app/extend/agent.js
+                                   ▇ [1ms] - #28 Require(23) node_modules/egg-logrotator/app/extend/agent.js
+                                   ▇▇▇▇ [92ms] - #29 Load extend/context.js
+                                    ▇ [22ms] - #30 Require(24) node_modules/egg-security/app/extend/context.js
+                                     ▇ [5ms] - #31 Require(25) node_modules/egg-jsonp/app/extend/context.js
+                                     ▇ [1ms] - #32 Require(26) node_modules/egg-i18n/app/extend/context.js
+                                     ▇▇ [47ms] - #33 Require(27) node_modules/egg-multipart/app/extend/context.js
+                                        ▇ [3ms] - #34 Require(28) node_modules/egg-view/app/extend/context.js
+                                        ▇ [3ms] - #35 Require(29) node_modules/egg/app/extend/context.js
+                                        ▇ [36ms] - #36 Load agent.js
+                                        ▇ [1ms] - #37 Require(30) node_modules/egg-security/agent.js
+                                        ▇ [1ms] - #38 Require(31) node_modules/egg-onerror/agent.js
+                                        ▇ [9ms] - #39 Require(32) node_modules/egg-watcher/agent.js
+                                         ▇ [3ms] - #40 Require(33) node_modules/egg-schedule/agent.js
+                                         ▇ [19ms] - #41 Require(34) node_modules/egg-development/agent.js
+                                          ▇ [1ms] - #42 Require(35) node_modules/egg-logrotator/agent.js
+                                          ▇ [2ms] - #43 Require(36) node_modules/egg/agent.js
+                                           ▇▇▇▇ [83ms] - #44 Before Start in node_modules/egg-watcher/lib/init.js:15:14
+                                           ▇▇▇ [66ms] - #45 Before Start in node_modules/egg-schedule/agent.js:12:9
+                                           ▇▇▇▇▇▇ [118ms] - #46 Before Start in node_modules/egg-development/agent.js:12:9
+2023-03-09 19:37:34,200 INFO 34586 [egg:core] dump config after ready, 5ms
+2023-03-09 19:41:16,204 WARN 34586 [agent:development] reload worker because /Users/qiankun/egg-news/app/schedule/updatecache.js change
+2023-03-09 19:41:15,998 INFO 34586 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"/Users/qiankun/egg-news/app/schedule/updatecache.js","stat":{"dev":16777223,"mode":33188,"nlink":1,"uid":501,"gid":20,"rdev":0,"blksize":4096,"ino":12915300978,"size":631,"blocks":8,"atimeMs":1678362075975.3691,"mtimeMs":1678362075933.989,"ctimeMs":1678362075933.989,"birthtimeMs":1678356005178.949,"atime":"2023-03-09T11:41:15.975Z","mtime":"2023-03-09T11:41:15.934Z","ctime":"2023-03-09T11:41:15.934Z","birthtime":"2023-03-09T10:00:05.179Z"},"remove":false,"isDirectory":false,"isFile":true}

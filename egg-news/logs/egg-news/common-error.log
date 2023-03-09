@@ -1,0 +1,131 @@
+2023-03-09 14:43:44,694 ERROR 32402 [-/127.0.0.1/-/9ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (/Users/qiankun/egg-news/node_modules/egg/lib/application.js:285:15)
+    at Object.get cookies [as cookies] (/Users/qiankun/egg-news/node_modules/egg/app/extend/context.js:23:66)
+    at Object.get [egg-security#CSRF_SECRET] (/Users/qiankun/egg-news/node_modules/egg-security/app/extend/context.js:91:35)
+    at Object.ensureCsrfSecret (/Users/qiankun/egg-news/node_modules/egg-security/app/extend/context.js:104:13)
+    at csrf (/Users/qiankun/egg-news/node_modules/egg-security/lib/middlewares/csrf.js:15:11)
+    at dispatch (/Users/qiankun/egg-news/node_modules/egg-security/node_modules/koa-compose/index.js:42:32)
+    at /Users/qiankun/egg-news/node_modules/egg-security/node_modules/koa-compose/index.js:34:12
+    at dispatch (/Users/qiankun/egg-news/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at session (/Users/qiankun/egg-news/node_modules/koa-session/index.js:41:13)
+    at dispatch (/Users/qiankun/egg-news/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+
+pid: 32402
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 15:49:20,046 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 969317ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 15:57:20,024 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 461043ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:06:10,021 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 508172ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:23:41,033 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 1030118ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:46:31,022 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 1350150ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 16:49:02,017 ERROR 32677 nodejs.ClusterClientNoResponseError: client no response in 129852ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 32677
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 17:44:31,016 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 146454ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 18:46:07,050 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 1084634ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 19:00:42,029 ERROR 33756 nodejs.ClusterClientNoResponseError: client no response in 853828ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (/Users/qiankun/egg-news/node_modules/cluster-client/lib/leader.js:79:25)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 33756
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 19:14:53,269 ERROR 34271 [-/127.0.0.1/-/4ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=5m&type=all] [Job#16783604932623414672396336491] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 3ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:19:53,905 ERROR 34338 [-/127.0.0.1/-/3ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783607938993417672425243722] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 2ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:24:53,909 ERROR 34375 [-/127.0.0.1/-/3ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783610939033420672436221933] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 2ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-03-09 19:29:53,913 ERROR 34430 [-/127.0.0.1/-/4ms SCHEDULE /__schedule?path=/Users/qiankun/egg-news/app/schedule/updatecache.js&interval=1m&type=all] [Job#16783613939073423672444483794] /Users/qiankun/egg-news/app/schedule/updatecache.js execute failed, used 3ms. TypeError: Cannot read properties of undefined (reading 'url')
+    at UpdateCacheSubscription.subscribe (/Users/qiankun/egg-news/app/schedule/updatecache.js:14:58)
+    at Object.task (/Users/qiankun/egg-news/node_modules/egg-schedule/lib/load_schedule.js:37:22)
+    at /Users/qiankun/egg-news/node_modules/egg-schedule/app.js:48:23
+    at AsyncLocalStorage.run (node:async_hooks:320:14)
+    at Messenger.<anonymous> (/Users/qiankun/egg-news/node_modules/egg-schedule/app.js:47:27)
+    at Messenger.emit (node:events:390:28)
+    at Messenger._onMessage (/Users/qiankun/egg-news/node_modules/egg/lib/core/messenger/ipc.js:116:12)
+    at process.emit (node:events:402:35)
+    at emit (node:internal/child_process:917:12)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)

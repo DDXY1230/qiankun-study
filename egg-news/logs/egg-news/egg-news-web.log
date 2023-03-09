@@ -1,0 +1,36 @@
+2023-03-09 14:43:44,695 ERROR 32402 [-/127.0.0.1/-/9ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (/Users/qiankun/egg-news/node_modules/egg/lib/application.js:285:15)
+    at Object.get cookies [as cookies] (/Users/qiankun/egg-news/node_modules/egg/app/extend/context.js:23:66)
+    at Object.get [egg-security#CSRF_SECRET] (/Users/qiankun/egg-news/node_modules/egg-security/app/extend/context.js:91:35)
+    at Object.ensureCsrfSecret (/Users/qiankun/egg-news/node_modules/egg-security/app/extend/context.js:104:13)
+    at csrf (/Users/qiankun/egg-news/node_modules/egg-security/lib/middlewares/csrf.js:15:11)
+    at dispatch (/Users/qiankun/egg-news/node_modules/egg-security/node_modules/koa-compose/index.js:42:32)
+    at /Users/qiankun/egg-news/node_modules/egg-security/node_modules/koa-compose/index.js:34:12
+    at dispatch (/Users/qiankun/egg-news/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at session (/Users/qiankun/egg-news/node_modules/koa-session/index.js:41:13)
+    at dispatch (/Users/qiankun/egg-news/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+
+pid: 32402
+hostname: dongdaoxiwaixiaotianluo.local
+
+2023-03-09 19:32:35,197 WARN 34510 [-/127.0.0.1/-/0ms GET /] nodejs.JSONResponseFormatError: Unexpected token < in JSON at position 0 (data json format: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /cache</pre>\n</body>\n</html>\n"), GET http://localhost:3000/cache 404 (connected: true, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"localhost:3000:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 1)
+headers: {"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":"144","date":"Thu, 09 Mar 2023 11:32:35 GMT","connection":"keep-alive","keep-alive":"timeout=5"}
+headers: {"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":"144","date":"Thu, 09 Mar 2023 11:32:35 GMT","connection":"keep-alive","keep-alive":"timeout=5"}
+    at JSON.parse (<anonymous>)
+    at parseJSON (/Users/qiankun/egg-news/node_modules/urllib/lib/urllib.js:1239:24)
+    at /Users/qiankun/egg-news/node_modules/urllib/lib/urllib.js:943:23
+    at decodeContent (/Users/qiankun/egg-news/node_modules/urllib/lib/urllib.js:740:14)
+    at handleResponseCloseAndEnd (/Users/qiankun/egg-news/node_modules/urllib/lib/urllib.js:924:7)
+    at IncomingMessage.<anonymous> (/Users/qiankun/egg-news/node_modules/urllib/lib/urllib.js:962:7)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+name: "JSONResponseFormatError"
+data: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /cache</pre>\n</body>\n</html>\n"
+path: "/cache"
+status: 404
+headers: {"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":"144","date":"Thu, 09 Mar 2023 11:32:35 GMT","connection":"keep-alive","keep-alive":"timeout=5"}
+res: {"status":404,"statusCode":404,"statusMessage":"Not Found","headers":{"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":"144","date":"Thu, 09 Mar 2023 11:32:35 GMT","connection":"keep-alive","keep-alive":"timeout=5"},"size":144,"aborted":false,"rt":49,"keepAliveSocket":false,"data":"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /cache</pre>\n</body>\n</html>\n","requestUrls":["http://localhost:3000/cache"],"timing":null,"remoteAddress":"127.0.0.1","remotePort":3000,"socketHandledRequests":1,"socketHandledResponses":1}
+pid: 34510
+hostname: dongdaoxiwaixiaotianluo.local
+
