@@ -22,5 +22,14 @@ module.exports = app => {
   config.cache = {
     url: 'http://localhost:3000/cache'
   }
+  // config.mysql = {
+  //   client: {
+  //     host: 'localhost',
+  //     user: 'root',
+  //     password: 'root',
+  //     port: 3306,
+  //     database: ''
+  //   }
+  // }
   return config
 }

@@ -11,6 +11,10 @@ class NewService extends Service {
     })
     console.log(result.data.data)
     return result.data.data
+
+    // query是执行sql语句的意思, 增删改查
+    // let result = await this.app.mysql.query(`SELECT * FROM news LINIT ${limit}`)
+    // return result
   }
 }
 module.exports = NewService
