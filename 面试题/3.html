@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 执行指定次数之后不再执行 -->
+  <button>按钮</button>
+  <script>
+    function getElement(cssSelector) {
+      const dom = document.querySelector(cssSelector);
+      const proxy = new Proxy(dom, {
+        get(target, key) {
+          if (!key.startsWith('wait')) {
+            return Reflect.get(target, key) // 读取的不是以wait开头的,你原本是啥就给你返回啥
+          }
+          const eventName = key.replace('wait', '').toLowerCase();
+          return new Promise(resolve => {
+            dom.addEventListener(eventName, resolve, { once: true })
+          })
+
+        }
+      })
+      return proxy
+    }
+    (async () => {
+      const btn = getElement('button')
+      // while (1) {
+      //   await btn.waitClick;
+      //   console.log('按钮被点击了')
+      // }
+      // 只允许5次
+      for(let i = 0; i < 5; i++) {
+        await btn.waitClick;
+        console.log(i,'次点击')
+      }
+    })()
+  </script>
+</body>
+
+</html>
