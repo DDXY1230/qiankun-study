@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {*} arr 
+ * @returns 
+ * 创建了原始数组
+ */
+
 function quickSort(arr) {
   if(arr == null || arr.length == 0) return [];
   let leader = arr[0];
