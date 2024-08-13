@@ -86,8 +86,18 @@ function change(root) {
   if (Math.abs(leftDeep - rightDeep) < 2) {
     return true
   } else if (leftDeep > rightDeep) { // 不平衡,左边深,需要右旋
+    let changeTreeDeep = getDeep(root.left.right)
+    let noChangeTreeDeep = getDeep(root.left.left)
+    if(changeTreeDeep > noChangeTreeDeep) {
+      root.left = leftRotate(root.left)
+    }
     return rightRotate(root)
   } else { // 不平衡,右边深,需要左旋
+    let changeTreeDeep = getDeep(root.right.left)
+    let noChangeTreeDeep = getDeep(root.right.right)
+    if(changeTreeDeep > noChangeTreeDeep) {
+      root.right = rightRotate(root.right)
+    }
     return leftRotate(root)
   }
 }
