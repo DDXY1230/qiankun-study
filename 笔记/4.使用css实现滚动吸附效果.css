@@ -1,0 +1,9 @@
+.parent {
+  scroll-snap-type: x mandatory;
+  /* mandatory 表示必须要有一个字元素吸附 */
+  /* proximity 表示允许停留,但是有一个字元素靠近的时候就吸附*/
+}
+.son {
+  scroll-snap-align: start;/* 在开始短吸附 还可以选择 center right end*/
+  scroll-snap-stop: always;/* 每个子元素不需要跳过,始终要停止 */
+}
