@@ -1,0 +1,8 @@
+bg {
+  /* 多个混合模式 */
+  background-blend-mode: lighten; 
+  
+  /* 混合模式: 子元素跟父元素的混合 */
+  mix-blend-mode: darken;
+
+}
