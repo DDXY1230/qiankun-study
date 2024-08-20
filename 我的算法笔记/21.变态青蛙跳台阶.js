@@ -7,10 +7,10 @@ function jump(n) {
   if(n <= 0) return -1;
   if(n == 1) return 1;
   if(n == 2) return 2;
-  let result = 0;
+  let result = 1; // +1表示从0级台阶直接跳上去的情况
   for(let i = 1; i < n; i++) {
     result += jump(n - i);
   }
-  return result + 1;// +1表示从0级台阶直接跳上去的情况
+  return result;
 }
-console.log(jump(4))
+console.log(jump(3))
