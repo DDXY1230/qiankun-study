@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from 'react-router-dom'
 
 // import "./public-path";
-const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getElementById("root")) : ReactDOM.createRoot(document.getElementById("bigBox"));
 // root.render(
 //   <React.StrictMode>
 //     <App />
@@ -16,6 +15,7 @@ const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getEl
 function render(props) {
   console.log('15======', props)
   const { container } = props;
+const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getElementById("root")) : ReactDOM.createRoot(container.querySelector('#root'));
   root.render(
     <React.StrictMode>
       <BrowserRouter

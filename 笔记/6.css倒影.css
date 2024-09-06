@@ -1,0 +1,7 @@
+.pic {
+  -webkit-box-reflect: below 15px linear-gradient(transparent,transparent,#000);
+}
+/*
+这个倒影要webkit内核才有效果,没有就没有效果
+
+*/
