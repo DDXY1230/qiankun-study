@@ -11,6 +11,9 @@ import { BrowserRouter } from 'react-router-dom'
 //     <App />
 //   </React.StrictMode>
 // );
+// 不用props传过来的container,那么拿不到实际性qiankun的容器
+// const root = !window.__POWERED_BY_QIANKUN__ ? ReactDOM.createRoot(document.getElementById("root")) : ReactDOM.createRoot(document.getElementById("bigBox"));
+
 
 function render(props) {
   console.log('15======', props)
