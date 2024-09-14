@@ -7,7 +7,11 @@ import { defineComponent } from "vue";
 import { io } from "socket.io-client";
 import log from "./../common/utils/log";
 console.log("------12345");
-log.info("999");
+log.info("111");
+log.info("222");
+log.error("333");
+log.warning("444");
+log.success("555");
 
 export default defineComponent({
   name: "MyHome",
