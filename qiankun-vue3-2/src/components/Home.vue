@@ -5,6 +5,10 @@
 <script>
 import { defineComponent } from "vue";
 import { io } from "socket.io-client";
+import log from "./../common/utils/log";
+console.log("------12345");
+log.info("999");
+
 export default defineComponent({
   name: "MyHome",
   setup() {
