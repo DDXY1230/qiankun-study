@@ -1,8 +1,20 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+    {{ a }}
   </div>
 </template>
+<script lang="ts" setup>
+import { ref } from 'vue'
+import WujieVue from 'wujie-vue3'
+const { bus } = WujieVue
+const a = ref()
+bus.$on('sendParams', function (args: Array<string>) {
+  console.log('--------abcdefg', args)
+  a.value = args
+  console.log(a.value)
+})
+</script>
 
 <style>
 @media (min-width: 1024px) {

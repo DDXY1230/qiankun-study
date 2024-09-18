@@ -9,6 +9,8 @@
         name="sub-1"
         :url="url"
         :sync="true"
+        :props="props"
+        :alive="true"
         :beforeLoad="lifecycles.beforeLoad"
         :beforeMount="lifecycles.beforeMount"
         :afterMount="lifecycles.afterMount"
@@ -22,7 +24,11 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 let url = ref('http://localhost:5174/')
-const props = {}
+const props = {
+  from: '我是来自主应用的参数',
+  to: '当前是子应用1',
+  jellyCat: '大象'
+}
 const fetch = () => {}
 const lifecycles = {
   beforeLoad: (appWindow: Window) => console.log(`${appWindow.__WUJIE.id} beforeLoad 生命周期`),
@@ -35,6 +41,8 @@ const lifecycles = {
   deactivated: (appWindow: Window) => console.log(`${appWindow.__WUJIE.id} deactivated 生命周期`),
   loadError: (url: '', e: Error) => console.log(`${url} 加载失败`, e)
 }
+const subAttr = window.document.querySelector('iframe[name=sub-1]')
+console.log('subAttr', subAttr)
 </script>
 
 <style lang="scss" scoped>
